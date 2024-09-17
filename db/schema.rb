@@ -23,13 +23,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
     t.string "name"
     t.integer "position"
     t.string "image_url"
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_brands_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,15 +47,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "position"
-    t.integer "category_id", null: false
     t.integer "brand_id", null: false
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  add_foreign_key "brands", "categories"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "categories"
 end
