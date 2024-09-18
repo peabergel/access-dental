@@ -8,9 +8,60 @@
     <div class="text-access-blue hidden md:flex items-end mb-2 center space-x-8">
       <a href="#" class="hover:text-blue-700">L'actu Access</a>
       <a href="#" class="hover:text-blue-700">Les offres</a>
-      <a href="#" class="relative hover:text-blue-700" id="products-dropdown">Nos produits</a>
-      <a href="#" class="hover:text-blue-700">Où nous trouver ?</a>
-      <a href="#" class="hover:text-blue-700">Nous contacter</a>
+      <button id="dropdownHoverButton"
+              data-dropdown-toggle="dropdownHover"
+              data-dropdown-trigger="hover"
+              class="focus:ring-blue-300 inline-flex items-center"
+              type="button">
+          Nos produits
+          <svg class="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6">
+              <path stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"/>
+          </svg>
+      </button>
+
+<!-- Dropdown menu -->
+      <div id="dropdownHover" class="z-10 hidden bg-white rounded-lg w-44">
+          <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Fauteuils / Units</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Imagerie extra-orale</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Imagerie intra-orale</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Éclairages</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Hygiène / Stérilisation</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Compresseurs / Aspirations</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Instrumentations / Appareils de table</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Gabarits</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Mobilier</a>
+            </li>
+          </ul>
+      </div>
+
+      <a href="#">Où nous trouver ?</a>
+      <a href="#">Nous contacter</a>
     </div>
     <div id="product-dropdown-menu" class="hidden absolute bg-white shadow-md rounded-md z-10 mt-2">
       <ul class="divide-y divide-gray-100">
