@@ -4,6 +4,7 @@ class CreateBrands < ActiveRecord::Migration[7.2]
       t.string :name
       t.integer :position
       t.string :image_url
+      t.text :colors, array: true, default: []
       t.references :category, null: false, foreign_key: true
       t.timestamps
     end

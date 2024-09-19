@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.2]
       t.integer :position
       t.references :brand, null: false, foreign_key: true
       t.string :image_url
+      t.string :pdf_url
 
       t.timestamps
     end

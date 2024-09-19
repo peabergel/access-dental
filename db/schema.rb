@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "image_url"
@@ -23,7 +26,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
     t.string "name"
     t.integer "position"
     t.string "image_url"
-    t.integer "category_id", null: false
+    t.text "colors", default: [], array: true
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_brands_on_category_id"
@@ -47,8 +51,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "position"
-    t.integer "brand_id", null: false
+    t.bigint "brand_id", null: false
     t.string "image_url"
+    t.string "pdf_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"

@@ -37,12 +37,13 @@ puts "Creating Brands..........."
 
 brands = [ "Airel Quetin", "Belmont", "Tecnodent", "Meunier Carus", "Castellini" ]
 brands_images_url = [
-  "https://drive.google.com/file/d/1R2Zxl2AHRj3_tLCEL2oPRLQEd8B3sDTO/view?usp=drive_link",
-  "https://drive.google.com/file/d/1ffyF7ukt3Jkpgun5v4kY8kLquP7nr0Eq/view?usp=drive_link",
-  "https://drive.google.com/file/d/1sY9GgEOfbyG2BBNcp2quSntsukYnxECS/view?usp=drive_link",
-  "https://drive.google.com/file/d/1rahDBflOk_ksZxZIJHBK0HxyNl0vMtm9/view?usp=drive_link",
-  "https://drive.google.com/file/d/1BCQUaQ87zLHWXm7XW4zDO0_2w_6ek0Io/view?usp=drive_link"
+  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png",
+  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_belmont_llfcox.png",
+  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750921/Access%20dental/Images/logos/logo_tecnodent_rlin9j.png",
+  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_meunier_carus_iq7zov.png",
+  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_castellini_wv0noe.png"
 ]
+brands_colors = [ [ "#F3196A", "#F7679D" ], [ "#076FBA", "#5CA0D2" ], [ "#0866B2", "#5C9ACC" ], [ "#168CA9", "#65B3C6" ], [ "#1B3362", "#697998" ] ]
 
 fauteuil = Category.find_by_name("Fauteuils / units")
 brands.each_with_index do |brand, index|
@@ -50,7 +51,8 @@ brands.each_with_index do |brand, index|
     category: fauteuil,
     name: brand,
     position: index + 1,
-    image_url: brands_images_url[index])
+    image_url: brands_images_url[index],
+    colors: brands_colors[index])
 end
 
 puts "Success"
@@ -60,16 +62,24 @@ puts "Creating Products............"
 
 airel = Brand.find_by_name("Airel Quetin")
 airels = [ "PE9", "K2", "Pacific", "Cart", "Harley" ]
-airel_product_images_url = ["https://drive.google.com/file/d/1Zz7g7KnF55pi-VcuK1tYkpc0j3AmAQaW/view?usp=drive_link",
-                            "https://drive.google.com/file/d/1elXXBSnjaiYxbYI5wm0dqydOE78L0bXD/view?usp=drive_link",
-                            "https://drive.google.com/file/d/19XKnu1VxXzl7x7mJx9tblP6F4d53YKmP/view?usp=drive_link",
-                            "https://drive.google.com/file/d/14QL-NQ6hwMLv2MrLLovTjGzZjWX54GYN/view?usp=drive_link",
-                            "https://drive.google.com/file/d/1A4OofhfSozYzScEpemc5b9331V55M1jg/view?usp=drive_link"]
+airel_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750942/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_wyog7e.png",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_fmxlfb.png",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_k1nhpi.png",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evo_jakzz8.png",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750945/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_yvmqqs.png"
+                           ]
+airel_product_pdfs_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf",
+                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726756480/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_compressed_wdlq9g.pdf",
+                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750949/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_kab5ct.pdf",
+                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750939/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evolution_xhfbh1.pdf",
+                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_wstczp.pdf"
+                         ]
 airels.each_with_index do |airel_name, index|
   airel.products.create!(
     name: airel_name,
     position: index + 1,
-    image_url: airel_product_images_url[index]
+    image_url: airel_product_images_url[index],
+    pdf_url: airel_product_pdfs_url[index]
   )
 end
 
@@ -77,17 +87,24 @@ end
 
 belmont = Brand.find_by_name("Belmont")
 belmonts = ["Eurus S1", "Eurus S6", "Eurus S8", "Eurus S4", "Cart Eurus"]
-belmont_product_images_url = ["https://drive.google.com/file/d/1YP8Kbvytj4PAbOmqxg6fQkmeHcd7EIq_/view?usp=drive_link",
-                              "https://drive.google.com/file/d/1ErTvUctqmNhVaSQeVbBebTDZ4k_0t_mv/view?usp=drive_link",
-                              "https://drive.google.com/file/d/17l6M6F8Yq1Vbo08RRXSmtSerkZN7QRgz/view?usp=drive_link",
-                              "https://drive.google.com/file/d/1tyj7MHi5iT4eyh3qyge-m340-QaW9Hju/view?usp=drive_link",
-                              "https://drive.google.com/file/d/1y-ijGTkq6FxIjACdK8_piNDPIVOQLAsV/view?usp=drive_link"
+belmont_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750959/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_es54oz.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750964/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_z4iyzh.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_ttpzxv.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750957/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus_S4_vtioiv.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/cart_eurus_z5pi05.png"
                             ]
+belmont_product_pdfs_url = ["https://res.cloudinary.com/dmlvtscck/image/upload/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_rnybvk.pdf",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750965/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/EURUS_S6_French_20211101_OL_uoqnlx.pdf",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus_S8_lcrvqw.pdf",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/eurus_S4_n7ilfl.pdf",
+                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/CART-EURUS_rimgqy.pdf"
+                           ]
 belmonts.each_with_index do |belmont_name, index|
   belmont.products.create!(
     name: belmont_name,
     position: index + 1,
-    image_url: belmont_product_images_url[index]
+    image_url: belmont_product_images_url[index],
+    pdf_url: belmont_product_pdfs_url[index]
   )
 end
 puts "Success"
