@@ -13,7 +13,7 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'access-blue': '#1c75bc', // Remplacez par votre code hexadécimal
+        'access-blue': '#1c75bc'
       }
     },
   },
