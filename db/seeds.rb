@@ -52,7 +52,9 @@ brands.each_with_index do |brand, index|
     name: brand,
     position: index + 1,
     image_url: brands_images_url[index],
-    colors: brands_colors[index])
+    primary_color: brands_colors[index][0],
+    secondary_color: brands_colors[index][1]
+  )
 end
 
 puts "Success"

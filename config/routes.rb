@@ -10,11 +10,18 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root "pages#home"
-  resources :categories, except: [ :index, :show ]
-  resources :articles, except: [ :index, :show ]
-  resources :brands, except: [ :index, :show ] do
-    resources :products, except: :show
+
+  resources :categories, except: [ :index, :show ] do
+    resources :products, only: :index
   end
+
+  # /categories/1/products
+
+  resources :brands, except: [ :index, :show ] do
+    resources :products, only: [ :new, :create ]
+  end
+
+  resources :articles, except: [ :index, :show ]
   resources :offers, except: [ :index, :show ]
   # Defines the root path route ("/")
   # root "posts#index"
