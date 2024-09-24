@@ -5,7 +5,8 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    './vendor/lib/preline/dist/*.js'
   ],
   theme: {
     extend: {
@@ -18,6 +19,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('../vendor/lib/preline/plugin'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),

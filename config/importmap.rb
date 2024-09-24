@@ -7,3 +7,4 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "flowbite", to: "https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.turbo.min.js"
 pin "el-transition" # @0.0.7
+pin "preline", to: "https://cdn.jsdelivr.net/npm/preline@2.5.0/dist/preline.min.js"
