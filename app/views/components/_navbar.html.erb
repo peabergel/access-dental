@@ -46,8 +46,8 @@
           <div class="p-1 space-y-1">
             <!-- Itération sur les catégories -->
             <ul class="py-2 text-sm text-gray-700">
-              <% @category_names.each do |name| %>
-                <li><%= link_to name, "#", class: "block px-4 py-2 hover:bg-gray-100" %></li>
+              <% @categories.each do |category| %>
+                <li><%= link_to category.name, category_products_path(category), class: "block px-4 py-2 hover:bg-gray-100" %></li>
               <% end %>
             </ul>
           </div>
@@ -59,13 +59,3 @@
     <a href="#">Nous contacter</a>
   </nav>
 </header>
-
-<div class="h-[86vh] bg-no-repeat w-screen bg-cover bg-[url('https://res.cloudinary.com/dmlvtscck/image/upload/v1726750913/Access%20dental/Images/photo_accueil_qut8dx.png')]">
-  <div class="text-white pl-10 absolute inset-x-0 top-1/2 h-1/3 bg-[#2C79BB] bg-opacity-80 z-0">
-    <h1 class="mt-[-50px]">
-      <span class="block text-8xl font-black pb-3">Réalisez</span>
-      <span class="block text-8xl font-thin pb-3">VOS PROJETS</span>
-      <span class="block text-5xl font-thin">de création de cabinets dentaires</span>
-    </h1>
-  </div>
-</div>

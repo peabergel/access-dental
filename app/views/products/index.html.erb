@@ -1,1 +1,14 @@
-<h1>Index of products</h1>
+<h1>Index of products (<%= @category.name %>)</h1>
+<ul class="py-2 text-sm text-gray-700">
+  <% @brands.each do |brand| %>
+    <div class="brand_cards">
+      <p><%= brand.name %></p>
+      <div class="product_card">
+
+      </div>
+      <% brand.products.each do |product| %>
+        <li> <%= product.name %> </li>
+    </div>
+    <% end %>
+  <% end %>
+</ul>
