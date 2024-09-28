@@ -1,14 +1,33 @@
-<h1>Index of products (<%= @category.name %>)</h1>
-<ul class="py-2 text-sm text-gray-700">
+<h1 class="text-center text-2xl mb-6">Index of products (<%= @category.name %>)</h1>
+<div class="container mx-auto px-16 max-w-7xl"> <!-- Augmentation du padding et largeur maximale -->
   <% @brands.each do |brand| %>
-    <div class="brand_cards">
-      <p><%= brand.name %></p>
-      <div class="product_card">
-
+    <div class="text-white flex flex-wrap mb-8" style="background-color: <%= brand.tertiary_color %>;"> <!-- Flex container for brand and product cards -->
+      <!-- Brand Card -->
+      <div class="brand_card w-2/6 p-2 flex flex-col">
+        <div class="bg-white rounded-[2.5rem] overflow-hidden flex flex-col justify-between h-[60vh] border"
+            style="border-color: <%= brand.primary_color %>;">
+          <img src="<%= brand.image_url %>" alt="<%= brand.name %> Logo" class="w-9/12 h-50 mx-auto block object-cover">
+          <div class="p-3 h-1/6">
+            <a href="<%= brand.website_url %>" class="block w-full text-center px-4 py-2 text-white rounded-full"
+              style="background-color: <%= brand.primary_color %>;">Visiter le site</a>
+          </div>
+        </div>
       </div>
+
+
+      <!-- Product Cards -->
       <% brand.products.each do |product| %>
-        <li> <%= product.name %> </li>
+        <div class="product_card w-2/6 p-2">
+          <div class="bg-white shadow-md rounded-[2.5rem] overflow-hidden flex flex-col h-[60vh]"> <!-- Hauteur minimale ajustée -->
+            <img src="<%= product.image_url %>" alt="<%= product.name %>" class="w-full h-4/6 object-cover"> <!-- Utilisation de object-contain -->
+            <div class="p-4 h-2/6" style="background-color: <%= brand.primary_color %>;">
+              <h3 class="text-lg font-bold"><%= product.name %></h3>
+              <p class="text-sm"><%= product.description %></p>
+              <a href="<%= product.pdf_url %>" class="mt-2 inline-block px-4 py-2 text-white rounded-full" style="background-color: <%= brand.secondary_color %>;">Plus d'infos</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
   <% end %>
-</ul>
+</div>

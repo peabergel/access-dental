@@ -26,7 +26,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
     t.string "name"
     t.integer "position"
     t.string "image_url"
-    t.text "colors", default: [], array: true
+    t.string "primary_color"
+    t.string "secondary_color"
+    t.string "tertiary_color"
+    t.string "website_url"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +55,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_133556) do
     t.string "name"
     t.integer "position"
     t.bigint "brand_id", null: false
+    t.string "description"
     t.string "image_url"
     t.string "pdf_url"
     t.datetime "created_at", null: false
