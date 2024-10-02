@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "flowbite"
-import * as preline from "preline";
+import "preline"
