@@ -1,7 +1,7 @@
-<header class="bg-white border-b sticky top-0 border-gray-200 flex justify-between px-5 min-h-20 h-[12vh]">
-  <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
+<header class="bg-white border-b sticky top-0 border-gray-200 flex justify-between items-center px-5 min-h-20 h-[12vh]">
+  <%= link_to image_tag("https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
     alt: "Logo de votre entreprise",
-    class: "w-96 object-cover" %>
+    class: "w-80 object-cover"), root_path, class: "flex h-full overflow-hidden" %>
 
   <nav class="text-access-blue hidden items-center md:flex space-x-8">
     <a href="#" class="hover:text-blue-700">L'actu Access</a>
@@ -12,15 +12,15 @@
         <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </button>
       <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
-          <div class="p-1 space-y-1">
-            <div class="p-1 space-y-0.5">
-              <ul class="">
-                <% @categories.each do |category| %>
-                  <li ><%= link_to category.name, category_products_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" %></li>
-                <% end %>
-              </ul>
-            </div>
+        <div class="p-1 space-y-1">
+          <div class="p-1 space-y-0.5">
+            <ul>
+              <% @categories.each do |category| %>
+                <li><%= link_to category.name, category_products_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" %></li>
+              <% end %>
+            </ul>
           </div>
+        </div>
       </div>
     </div>
     <a href="#">Où nous trouver ?</a>

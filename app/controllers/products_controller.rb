@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category = Category.find(params[:category_id])
+    @brand = Brand.find(params[:brand_id])
   end
 
   def create
@@ -20,12 +22,13 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @brand = Brand.find(params[:brand_id])
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to root_path, notice: "Product was successfully updated"
+      redirect_to category_products_path(@product.category), notice: "Product was successfully updated"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,12 +38,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
 
-    redirect_to root_path
+    redirect_to category_products_path(@product.category), notice: "#{@product.name} was successfully deleted"
   end
 
   private
 
   def product_params
-    params.expect(product: [ :name, :position, :category_id, :brand_id, :image_url ])
+    params.require(:product).permit(:name, :position, :description, :image_url, :pdf_url, :category_id, :brand_id)
   end
 end

@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-5 px-[20rem]">
+  <h1 class="text-xl text-center" style="color: <%= @brand.primary_color %>">Editez le produit "<%= @product.name %>"</h1>
+  <%= simple_form_for [@brand, @product] do |f| %>
+    <div class='form-group pb-2'>
+      <%= f.input :name, input_html: { value: @product.name } %>
+      <%= f.input :brand_name, label: 'Marque', input_html: { value: @brand.name, disabled: true } %>
+      <%= f.hidden_field :brand_id, value: @brand.id %>
+      <%= f.input :description, as: :text, label: 'Description', input_html: { value: @product.description } %>
+      <%= f.input :image_url, label: 'Image', input_html: { value: @product.image_url } %>
+      <%= f.input :pdf_url, label: 'Fiche technique', input_html: { value: @product.pdf_url } %>
+      <%= f.input :position, label: 'Position', input_html: { value: @product.position } %>
+      <%= f.submit 'Editer', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none',
+                             style: "background-color: #{@brand.primary_color}" %>
+    </div>
+  <% end %>
+</div>

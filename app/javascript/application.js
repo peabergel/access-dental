@@ -2,4 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "flowbite"
-import * as preline from "preline";
+import "preline";
+
+document.addEventListener("turbo:load", function (event) {
+  window.HSStaticMethods.autoInit();
+});

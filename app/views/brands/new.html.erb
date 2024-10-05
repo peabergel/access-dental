@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-5 px-[20rem]">
+  <h1 class="text-xl text-center">Create a New Brand</h1>
+  <%= simple_form_for @brand do |f| %>
+    <div class='form-group pb-2'>
+      <%= f.input :name, label: 'Nom', placeholder: 'Airel Quetin' %>
+      <%= f.input :category_id, label: 'Categorie', collection: @categories, prompt: 'A quelle catégorie appartient la marque', selected: @category_id || @categories.first %>
+      <%= f.input :position, label: 'Position', placeholder: '1' %>
+      <%= f.input :image_url, label: 'Logo', placeholder: "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png" %>
+      <%= f.input :website_url, label: 'Site internet', placeholder: "https://airel.com/" %>
+      <%= f.input :primary_color, label: 'Couleur principale', placeholder: "#F3196A" %>
+      <%= f.input :secondary_color, label: 'Couleur secondaire', placeholder: "#F7679D" %>
+      <%= f.input :tertiary_color, label: 'Couleur tertiaire', placeholder: "#F5F6F9" %>
+      <%= f.submit 'Submit', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' %>
+    </div>
+  <% end %>
+</div>
