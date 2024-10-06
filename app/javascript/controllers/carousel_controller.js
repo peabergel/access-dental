@@ -1,75 +1,55 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  // static targets = ["carousel"];
+  static targets = ["slideContainer", "prevButton", "nextButton", "indicator"]
 
-  // connect() {
-  //   this.activeCarousel = null;
-  // }
+  connect() {
+    this.currentSlide = 0
+    this.slidesToShow = 3
+    this.totalSlides = this.slideContainerTarget.children.length
+    this.maxSlide = this.totalSlides - this.slidesToShow
+    this.updateCarousel()
+  }
 
-  // toggle(event) {
-  //   const selectedCarousel = event.currentTarget.nextElementSibling;
+  nextSlide() {
+    if (this.currentSlide < this.maxSlide) {
+      this.currentSlide++
+      this.updateCarousel()
+    }
+  }
 
-  //   // Si le carousel est déjà actif et que l'utilisateur clique à nouveau, on le ferme
-  //   if (this.activeCarousel === selectedCarousel) {
-  //     this.hideCarousel(selectedCarousel);
-  //     this.activeCarousel = null; // Réinitialiser l'actif
-  //     return; // Sortir de la fonction
-  //   }
+  prevSlide() {
+    if (this.currentSlide > 0) {
+      this.currentSlide--
+      this.updateCarousel()
+    }
+  }
 
-  //   // Ferme tous les autres carousels avant d'en ouvrir un nouveau
-  //   this.closeAllCarousels();
+  goToSlide(event) {
+    const slideIndex = parseInt(event.currentTarget.dataset.carouselSlideIndex)
+    if (slideIndex <= this.maxSlide) {
+      this.currentSlide = slideIndex
+      this.updateCarousel()
+    }
+  }
 
-  //   // Ouvre le carousel sélectionné et force Preline à réinitialiser
-  //   this.showCarousel(selectedCarousel);
-  //   this.activeCarousel = selectedCarousel; // Met à jour le carousel actif
-  // }
+  updateCarousel() {
+    this.slideContainerTarget.style.transform = `translateX(-${this.currentSlide * (100 / this.slidesToShow)}%)`
+    this.updateButtons()
+    this.updateIndicators()
+  }
 
-  // closeAllCarousels() {
-  //   this.carouselTargets.forEach((carousel) => {
-  //     this.hideCarousel(carousel);
-  //     this.resetCarouselStyles(carousel);
-  //   });
-  // }
+  updateButtons() {
+    this.prevButtonTarget.disabled = this.currentSlide === 0
+    this.nextButtonTarget.disabled = this.currentSlide === this.maxSlide
+    this.prevButtonTarget.classList.toggle('opacity-50', this.currentSlide === 0)
+    this.nextButtonTarget.classList.toggle('opacity-50', this.currentSlide === this.maxSlide)
+  }
 
-  // showCarousel(carouselElement) {
-  //   carouselElement.classList.remove("hidden");
-  //   this.initializePrelineCarousel(carouselElement);
-  // }
-
-  // hideCarousel(carouselElement) {
-  //   carouselElement.classList.add("hidden");
-  // }
-
-  // resetCarouselStyles(carouselElement) {
-  //   const carouselBody = carouselElement.querySelector(".hs-carousel-body");
-  //   const slides = carouselElement.querySelectorAll(".hs-carousel-slide");
-
-  //   if (carouselBody) {
-  //     carouselBody.style.width = ""; // Réinitialiser la largeur
-  //   }
-
-  //   slides.forEach((slide) => {
-  //     slide.style.width = ""; // Réinitialiser la largeur de chaque slide
-  //   });
-  // }
-
-  // initializePrelineCarousel(carouselElement) {
-  //   setTimeout(() => {
-  //     if (window.HSCarousel) {
-  //       const carouselInstance = window.HSCarousel.getInstance(carouselElement.querySelector('.hs-carousel'));
-  //       if (carouselInstance) {
-  //         carouselInstance.refresh(); // Rafraîchir l'instance existante
-  //       } else {
-  //         if (typeof window.HSCarousel.init === 'function') {
-  //           window.HSCarousel.init(carouselElement.querySelector('.hs-carousel')); // Initialiser le nouveau carrousel
-  //         } else {
-  //           console.error("HSCarousel.init is not a function. Please check if Preline is loaded correctly.");
-  //         }
-  //       }
-  //     } else {
-  //       console.error("HSCarousel is not defined. Please check if Preline is loaded correctly.");
-  //     }
-  //   }, 200);
-  // }
+  updateIndicators() {
+    this.indicatorTargets.forEach((indicator, index) => {
+      indicator.classList.toggle('bg-blue-500', index === this.currentSlide)
+      indicator.classList.toggle('bg-gray-300', index !== this.currentSlide)
+    })
+  }
 }

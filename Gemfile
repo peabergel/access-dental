@@ -16,6 +16,7 @@ gem "turbo-rails", ">= 2.0.7"
 gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
+gem "tailwindcss-ruby"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
@@ -52,7 +53,7 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.6.0", platforms: [:ruby]
+  gem "error_highlight", ">= 0.6.0", platforms: [ :ruby ]
 end
 
 group :test do

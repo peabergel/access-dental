@@ -1,0 +1,10 @@
+<div class="bg-white shadow-md rounded-b-[2.5rem] flex flex-col">
+  <%= image_tag product.image_url, class:"object-cover w-full", alt: product.name %>
+  <div class="p-4 rounded-b-[2.5rem]" style="background-color: <%= product.brand.primary_color %>;">
+    <h3 class="text-lg font-bold"><%= product.name %></h3>
+    <p class="text-sm"><%= product.description %></p>
+    <%= link_to "Plus d'infos", product.pdf_url,
+      class: "mt-2 inline-block px-4 py-2 text-white rounded-full",
+      style: "background-color: #{product.brand.secondary_color};" %>
+  </div>
+</div>
