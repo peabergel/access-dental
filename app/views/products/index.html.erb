@@ -1,25 +1,14 @@
-<div class="container mx-auto">
+<div class="container mx-auto px-[12rem]">
   <div class="hs-accordion-group">
-    <div class="hs-accordion active" id="hs-basic-heading-one">
-      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-collapse-one">Accordion #1</button>
 
-      <div id="hs-basic-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-one">
-        <%= render "carousel" %>
+  <% @brands.each do |brand| %>
+    <div class="hs-accordion" id="hs-basic-heading-<%= brand.id %>">
+      <button class="hs-accordion-toggle text-white hs-accordion-active:text-white my-2 py-3 inline-flex items-center justify-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none" style="background-color: <%= brand.primary_color  %> ;" aria-expanded="false" aria-controls="hs-basic-collapse-one"><%= brand.name %></button>
+
+      <div id="hs-basic-collapse-<%= brand.id %>" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-<%= brand.id %>">
+        <%= render "carousel", brand: brand %>
       </div>
     </div>
-
-    <div class="hs-accordion" id="hs-basic-heading-two">
-      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-two">Accordion #2</button>
-      <div id="hs-basic-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-two">
-        <%= render "carousel" %>
-      </div>
-    </div>
-
-    <div class="hs-accordion" id="hs-basic-heading-three">
-      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-three">Accordion #3</button>
-      <div id="hs-basic-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-three">
-        <%= render "carousel" %>
-      </div>
-    </div>
+  <% end %>
   </div>
 </div>

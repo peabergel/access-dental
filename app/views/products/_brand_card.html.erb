@@ -1,8 +1,8 @@
-<div class="p-2 flex flex-col rounded-2xl border justify-between" style="border-color: <%= Brand.first.primary_color %>;">
-  <%= image_tag Brand.first.image_url, class: "w-52 mx-auto object-cover" %>
+<div class="p-5 flex flex-col rounded-[2.5rem] border justify-between h-full bg-white" style="border-color: <%= brand.primary_color %>;">
+  <%= image_tag brand.image_url, class: "w-4/5 mx-auto object-cover" %>
 
   <%= link_to "Visiter le site",
-    Brand.first.website_url,
+    brand.website_url,
     class: "text-center px-4 py-2 text-white rounded-full",
-    style: "background-color: #{Brand.first.primary_color};" %>
+    style: "background-color: #{brand.primary_color};" %>
 </div>
