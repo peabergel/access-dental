@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # /categories/1/products
 
   resources :brands, except: [ :index, :show ] do
-    resources :products, only: [ :new, :create ]
+    resources :products, only: [ :new, :create, :edit, :update, :destroy ]
   end
 
   resources :articles, except: [ :index, :show ]

@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-5 px-[20rem]">
+  <h1 class="text-xl text-center" style="color: <%= @brand.primary_color %>">Créer un nouveau produit "<%= @brand.name %>"</h1>
+  <%= simple_form_for [@brand, @product] do |f| %>
+    <div class='form-group pb-2'>
+      <%= f.input :name, label: 'Nom', placeholder: 'PE9' %>
+      <%= f.input :brand_name, label: 'Marque', input_html: { value: @brand.name, disabled: true } %>
+      <%= f.hidden_field :brand_id, value: @brand.id %>
+      <%= f.input :description, as: :text, label: 'Description', placeholder: "Description" %>
+      <%= f.input :image_url, label: 'Image', placeholder: "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png" %>
+      <%= f.input :pdf_url, label: 'Fiche technique', placeholder: "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf" %>
+      <%= f.input :position, label: 'Position', placeholder: '1' %>
+      <%= f.submit 'Créer', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800',
+                             style: "background-color: #{@brand.primary_color}" %>
+    </div>
+  <% end %>
+</div>
