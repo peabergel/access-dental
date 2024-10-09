@@ -1,0 +1,17 @@
+<div class="container mx-auto mt-5 px-[20rem]">
+  <h1 class="text-xl text-center" style="color: <%= @brand.primary_color %>;">Editer la marque "<%= @brand.name %>"</h1>
+  <%= simple_form_for @brand do |f| %>
+    <div class='form-group pb-2'>
+      <%= f.input :name, label: 'Nom', input_html: { value: @brand.name } %>
+      <%= f.input :category_id, label: 'Categorie', collection: @categories, selected: @brand.category %>
+      <%= f.input :position, label: 'Position', input_html: { value: @brand.position } %>
+      <%= f.input :image_url, label: 'Logo', input_html: { value: @brand.image_url } %>
+      <%= f.input :website_url, label: 'Site internet', input_html: { value: @brand.website_url } %>
+      <%= f.input :primary_color, label: 'Couleur principale', input_html: { value: @brand.primary_color } %>
+      <%= f.input :secondary_color, label: 'Couleur secondaire', input_html: { value: @brand.secondary_color } %>
+      <%= f.input :tertiary_color, label: 'Couleur tertiaire', input_html: { value: @brand.tertiary_color } %>
+      <%= f.submit 'Editer', class: 'text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none',
+                             style: "background-color: #{@brand.primary_color}" %>
+    </div>
+  <% end %>
+</div>
