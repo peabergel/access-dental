@@ -1,9 +1,84 @@
-<div class="h-[86vh] bg-no-repeat w-screen bg-cover bg-[url('https://res.cloudinary.com/dmlvtscck/image/upload/v1726750913/Access%20dental/Images/photo_accueil_qut8dx.png')]">
-  <div class="text-white pl-10 absolute inset-x-0 top-1/2 h-1/3 bg-[#2C79BB] bg-opacity-80 z0">
-    <h1 class="mt-[-50px]">
-      <span class="block text-8xl font-black pb-3">Réalisez</span>
-      <span class="block text-8xl font-thin pb-3">VOS PROJETS</span>
-      <span class="block text-5xl font-thin">de création de cabinets dentaires</span>
-    </h1>
+<div class="bg-[#79ACD7]">
+  <div class="container mx-auto relative z-10">
+    <!-- Hero Section avec image de fond animée -->
+    <div class="h-[82vh] flex items-center justify-center">
+      <div class="absolute inset-0 bg-no-repeat bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/dmlvtscck/image/upload/v1728478415/Access%20dental/Images/owandy_ios_v6_w83svo.png');">
+      </div>
+    </div>
+
+    <!-- Boutons de contact flottants -->
+    <div class="absolute inset-x-0 flex justify-center -bottom-10 space-x-4">
+      <% [
+        { icon: 'fas fa-phone-alt', link: '#' },
+        { icon: 'fas fa-envelope', link: '#' },
+        { icon: 'fab fa-facebook-f', link: '#' },
+        { icon: 'fab fa-instagram', link: '#' }
+      ].each do |item| %>
+        <%= link_to item[:link], class: 'group' do %>
+          <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-lg text-[#79ACD7] transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
+            <i class="<%= item[:icon] %> fa-xl"></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%# \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ %>
+
+
+<div class="container mx-auto px-[12rem] py-32">
+  <div class="text-center mb-12">
+    <p class="text-blue-500 font-semibold mb-2">+ ACTU</p>
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Consultez nos Dernières News</h2>
+    <p class="text-gray-600">We are committed to sustainability, eco-friendly initiatives.</p>
+  </div>
+
+  <div class="flex md:flex-row gap-8">
+    <!-- Article 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-lg flex-1">
+  <img src="https://www.access-dental.fr/wp-content/uploads/2024/10/thib.png" alt="Dental Check-Up" class="w-full h-96 object-cover">
+  <div class="p-6">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Changement de direction chez Access Dental</h3>
+    <p class="text-gray-600 mb-4">Grosse année de changement chez Access Dental qui voit Laurent Bergeron laisser sa place à Thibault Paquet en tant que directeur.</p>
+    <a href="#" class="text-blue-500 font-semibold flex items-center">
+      Read More
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+    <!-- Article 2 -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg flex-1">
+      <img src="https://www.access-dental.fr/wp-content/uploads/2024/10/ADF_logo_Congres2024_V-e1727782405274.png" alt="Teeth Whitening" class="w-full h-96 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">ADF 2024</h3>
+        <p class="text-gray-600 mb-4">We believe in promoting health and wellness in every aspect of our clinic.</p>
+        <a href="#" class="text-blue-500 font-semibold flex items-center">
+          Read More
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Article 3 -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-lg flex-1">
+      <img src="https://source.unsplash.com/random/800x600?dental-implant" alt="Dental Implants" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Understanding Dental Implants: What You Need To Know</h3>
+        <p class="text-gray-600 mb-4">Our clinic donates dental care services to underprivileged families.</p>
+        <a href="#" class="text-blue-500 font-semibold flex items-center">
+          Read More
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </div>

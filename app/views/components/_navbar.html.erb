@@ -1,29 +1,42 @@
-<header class="bg-white border-b sticky top-0 border-gray-200 flex justify-between px-5 min-h-20 h-[12vh] z-50">
-  <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
-    alt: "Logo de votre entreprise",
-    class: "w-96 object-cover" %>
+<div class="container mx-auto px-[5rem]">
+  <header class="bg-white items-center border-b sticky top-0 border-gray-200 flex justify-between px-5 min-h-20 h-[8vh] z-50">
+    <%= link_to image_tag("https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
+      alt: "Logo de votre entreprise",
+      class: "w-52 object-cover"), root_path, class: "flex h-full overflow-hidden" %>
 
-  <nav class="text-access-blue hidden items-center md:flex space-x-8">
-    <a href="#" class="hover:text-blue-700">L'actu Access</a>
-    <a href="#" class="hover:text-blue-700">Les offres</a>
-    <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
-      <button id="hs-dropdown-hover-event" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 rounded-lg border border-gray-200 bg-white shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-        Nos Produits
-        <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-      </button>
-      <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
-          <div class="p-1 space-y-1">
-            <div class="p-1 space-y-0.5">
-              <ul class="">
-                <% @categories.each do |category| %>
-                  <li ><%= link_to category.name, category_products_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" %></li>
-                <% end %>
-              </ul>
+    <nav class="text-access-dark hidden items-center md:flex space-x-8">
+      <a href="#" class="hover:text-access-blue">Actus et offres</a>
+      <a href="#" class="hover:text-access-blue">L'entreprise</a>
+      <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
+        <button id="hs-dropdown-hover-event" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 hover:text-access-blue focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          Nos Produits
+          <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[19rem] bg-[#0E384C] shadow-md rounded-2xl mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
+            <div class="p-1 space-y-1">
+              <div class="p-1 space-y-0.5">
+                <ul class="">
+                  <% @categories.each do |category| %>
+                    <li ><%= link_to category.name, category_products_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue focus:outline-none focus:bg-gray-100" %></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-          </div>
+        </div>
       </div>
-    </div>
-    <a href="#">Où nous trouver ?</a>
-    <a href="#">Nous contacter</a>
-  </nav>
-</header>
+      <a href="#" class="hover:text-access-blue">Nous contacter</a>
+    </nav>
+    <a href="#" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group">
+      <span class="relative z-10 font-medium">Prendre rendez-vous</span>
+      <span class="relative z-10 ml-3 transition-transform transform group-hover:translate-x-1 duration-300 ease-out">
+        <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
+        <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </span>
+      <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+    </a>
+  </header>
+</div>

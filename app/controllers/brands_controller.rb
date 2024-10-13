@@ -8,7 +8,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      redirect_to category_products_path(@brand.category), notice: "Brand was successfully created"
+      redirect_to category_products_path(@brand.category), notice: "#{@brand.name} à bien été crée"
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class BrandsController < ApplicationController
   def update
     @brand = Brand.find(params[:id])
     if @brand.update(brand_params)
-      redirect_to category_products_path(@brand.category), notice: "Brand was successfully updated"
+      redirect_to category_products_path(@brand.category), notice: "#{@brand.name} à bien été mis à jour"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class BrandsController < ApplicationController
     @brand = Brand.find(params[:id])
     @brand.destroy
 
-    redirect_to category_products_path(@brand.category), notice: "Brand was successfully deleted"
+    redirect_to category_products_path(@brand.category), notice: "#{@brand.name} à bien été supprimé"
   end
 
   private

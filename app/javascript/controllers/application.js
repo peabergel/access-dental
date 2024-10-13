@@ -12,3 +12,7 @@ export { application }
 document.addEventListener("turbo:load", () => {
     HSStaticMethods.autoInit();
 });
+
+document.addEventListener("turbo:render", () => {
+  HSStaticMethods.autoInit();
+});

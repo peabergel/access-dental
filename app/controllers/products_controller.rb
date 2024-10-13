@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path, notice: "Product was successfully created"
+      redirect_to root_path, notice: "#{@product.name} à bien été crée"
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to category_products_path(@product.category), notice: "Product was successfully updated"
+      redirect_to category_products_path(@product.category), notice: "#{@product.name} à bien été mis à jour"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
 
-    redirect_to category_products_path(@product.category), notice: "#{@product.name} was successfully deleted"
+    redirect_to category_products_path(@product.category), notice: "#{@product.name} à bien été supprimé"
   end
 
   private

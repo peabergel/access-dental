@@ -11,7 +11,7 @@
       <%= f.input :secondary_color, label: 'Couleur secondaire', input_html: { value: @brand.secondary_color } %>
       <%= f.input :tertiary_color, label: 'Couleur tertiaire', input_html: { value: @brand.tertiary_color } %>
       <%= f.submit 'Editer', class: 'text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none',
-                             style: "background-color: #{@brand.primary_color}" %>
+                              style: "background-color: #{ @brand.primary_color.present? ? @brand.primary_color : @brand.primary_color_was };" %>
     </div>
   <% end %>
 </div>
