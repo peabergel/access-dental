@@ -162,4 +162,28 @@ castellinis.each_with_index do |castellini_name, index|
   )
 end
 puts "Success"
+puts "Creating Articles"
+
+articles = ["Changement de direction chez Access Dental", "Congrès International de l'association des Dentistes de France", "Nouveau scanner intra-oral OWANDY-IOS"]
+articles_pre_contents = [ "Thibault Paquet succèdera à Laurent Bergeron en tant que Directeur de la Société.",
+                          "Le Congrès International ADF aura lieu du 26 au 30 Novembre 2024.",
+                          "Scannez immédiatement, sans préchauffage. 60 secondes pour la bouche entière."
+                        ]
+articles_content = [  "Grosse année de changement chez Access Dental qui voit Laurent Bergeron laisser sa place à Thibault Paquet en tant que directeur. Fort de ces nombreuses années passées en tant que commercial pour le groupe blabla, il ne fait aucun doute que Thibault sera la personne idéale pour reprendre le flambeau.",
+                      "Comme chaque année, le Congrès International de l'association des dentistes de France aura lieu à Paris du 26 au 30 Novembre 2024, vous aurez le plaisir d'y retrouver toute l'equipe d'access dental ainsi que la grande majorité de nos partenaires. Nous vous y attenderons avec impatience ! ",
+                      "Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Grâce à des images de Haute Fidélité et au transfert de données ultra rapide!, Meilleur rapport prix/précision. Aucun mouvement mécanique, elle reste précise!"
+                  ]
+articles_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849385/Access%20dental/Images/thibault_j6zzf1.jpg",
+                        "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849385/Access%20dental/Images/congres_xtqhvv.png",
+                        "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849386/Access%20dental/Images/owandy_j636dt.png"]
+
+articles.each_with_index do |article, index|
+  Article.create!(
+    title: article,
+    pre_content: articles_pre_contents[index],
+    content: articles_content[index],
+    image_url: articles_images_url[index]
+  )
+end
+puts "Articles created"
 puts "Seeding done !"

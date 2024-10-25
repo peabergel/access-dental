@@ -1,0 +1,31 @@
+<div class="relative bg-white rounded-[2rem] overflow-hidden shadow-lg flex-1 group" data-controller="card">
+  <!-- Texte qui apparaitra avec l'overlay -->
+  <div class="absolute inset-0 flex items-center justify-center text-white text-lg px-5 opacity-0 transition-opacity duration-500 ease-out z-20 pointer-events-none" data-card-target="content">
+    <p>
+      <%= article.content %>
+    </p>
+  </div>
+
+  <!-- Image de la card -->
+  <div class="h-64 overflow-hidden rounded-t-[2rem]">
+    <%= image_tag article.image_url, alt: "Thibault Paquet", class: "w-full h-64 object-cover transform transition duration-500 hover:scale-110 rounded-t-[2rem]" %>
+  </div>
+
+  <!-- Contenu par défaut visible -->
+  <div class="p-6 relative z-10">
+    <h3 class="text-xl font-semibold text-access-dark mb-2">
+      <%= article.title %>
+    </h3>
+    <p class="text-access-dark mb-4">
+      <%= article.pre_content  %>
+    </p>
+    <!-- Lien modifiable pour "En Savoir Plus" ou "Revenir" -->
+    <a href="#" class="text-access-blue font-semibold flex items-center cursor-pointer z-50 relative" data-action="click->card#toggleOverlay" data-card-target="link">
+      En Savoir Plus
+      <i class="fa-solid fa-arrow-right flex items-center justify-center px-3 h-5 w-5 text-access-blue"></i>
+    </a>
+  </div>
+
+  <!-- Overlay de fond qui se déplace de gauche à droite et déclenche aussi toggle -->
+  <div class="absolute inset-0 bg-access-dark bg-opacity-90 rounded-[2rem] transition-transform duration-500 ease-out transform -translate-x-full z-10 cursor-pointer" data-card-target="overlay" data-action="click->card#toggleOverlay"></div>
+</div>
