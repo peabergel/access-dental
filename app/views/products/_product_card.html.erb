@@ -1,0 +1,18 @@
+<div class="bg-white shadow-md rounded-[2.5rem] flex flex-col h-full overflow-hidden">
+  <%= image_tag product.image_url, class: "object-cover w-full", alt: product.name %>
+  <div class="p-4 text-white h-full" style="background-color: <%= product.brand.primary_color %>;">
+    <h3 class="text-lg font-bold uppercase"><%= product.name %></h3>
+    <p class="text-sm"><%= product.description %></p>
+    <div class="flex justify-between items-center">
+      <%= link_to "Plus d'infos", product.pdf_url, class: 'mt-2 inline-block px-4 py-2 text-white text-sm rounded-full', style: "background-color: #{brand.secondary_color};" %>
+      <div>
+      <%= link_to edit_brand_product_path(brand_id: product.brand.id, id: product.id) do %>
+        <i class="fa-regular fa-pen-to-square text-xl px-2" style="color: <%= brand.secondary_color %>"></i>
+      <% end %>
+      <%= link_to brand_product_path(brand_id: product.brand.id, id: product.id), data: {turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cette marque ?' } do %>
+        <i class="fa-solid fa-trash text-xl px-2" style="color: <%= brand.secondary_color %>"></i>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

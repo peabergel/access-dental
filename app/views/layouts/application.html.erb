@@ -8,6 +8,8 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
+    <!-- Lien pour importer la police Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
@@ -21,6 +23,7 @@
 
   <body>
     <main>
+      <%= render 'shared/flashes' %>
       <%= render 'components/navbar' %>
       <%= yield %>
     </main>

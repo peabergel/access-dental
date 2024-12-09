@@ -8,13 +8,26 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}',
     './vendor/lib/preline/dist/*.js'
   ],
+  safelist: [
+    "border-red-500",
+    "text-sky-500",
+    "border-green-400",
+    "text-red-500",
+    "border-gray-300",
+    "text-grey-700",
+    "text-gray-600"
+  ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1800px'
+      },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Poppins', 'sans-serif'],
       },
       colors: {
-        'access-blue': '#1c75bc'
+        'access-blue': '#1c75bc',
+        'access-dark': '#0E384C'
       }
     },
   },
@@ -23,5 +36,5 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
-  ]
+  ],
 }
