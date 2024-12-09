@@ -187,3 +187,27 @@ articles.each_with_index do |article, index|
 end
 puts "Articles created"
 puts "Seeding done !"
+
+
+offers = ["Owandy", "NSK", "Durr Dental", "Gamasonic", "Bien Air", "Acteon"]
+offers_images_url = [ "https://www.access-dental.fr/wp-content/uploads/2024/10/Owandy_ADF_24.png",
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/NSK_S2.png",
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/Durr_Dental_ADF_2024.png",
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.png" ,
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/Bien_Air_S2.png",
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.png"]
+offers_pdfs_url = [ "https://www.access-dental.fr/wp-content/uploads/2024/10/Owandy_ADF_24.pdf",
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/NSK_S2.pdf",
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/Durr_Dental_ADF_2024.pdf",
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.pdf",
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/Bien_Air_S2.pdf",
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.pdf"]
+
+puts "Seeding Offers..........."
+offers.each_with_index do |offer, index|
+  Offer.create!(name: offer,
+                image_url: offers_images_url[index],
+                pdf_url: offers_pdfs_url[index]
+              )
+end
+puts "Success"

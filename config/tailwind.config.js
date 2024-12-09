@@ -19,6 +19,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1800px'
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
