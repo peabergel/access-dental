@@ -11,6 +11,11 @@
       <i class="fa-solid fa-trash text-xl px-3" style="color: <%= brand.secondary_color %>"></i>
     <% end %>
   </div>
+
+  <div class="text-center mt-6">
+    <%= link_to 'Créer une nouvelle marque', new_brand_path(category_id: @category.id), class: 'text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5' %>
+  </div>
+
   <%= link_to "Visiter le site",
     brand.website_url,
     class: "text-center px-4 py-2 text-white rounded-full",
