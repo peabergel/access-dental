@@ -1,18 +1,42 @@
-<div class="container mx-auto px-[12rem] my-[4rem]">
-  <div class="hs-accordion-group">
-
-  <% @brands.each do |brand| %>
-    <div class="hs-accordion" id="hs-basic-heading-<%= brand.id %>">
-      <button class="hs-accordion-toggle text-white hs-accordion-active:text-white my-2 py-3 inline-flex items-center justify-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none" style="background-color: <%= brand.primary_color  %> ;" aria-expanded="false" aria-controls="hs-basic-collapse-one"><%= brand.name %></button>
-
-      <div id="hs-basic-collapse-<%= brand.id %>" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-<%= brand.id %>">
-        <%= render "carousel", brand: brand %>
-      </div>
+<div class="bg-[#EFF8FF] bg-no-repeat bg-center" style="background-image: url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg');">
+  <div class="container mx-auto px-[12rem] py-10">
+    <div class="brand-filters bg-white rounded-2xl p-4 mb-10">
+      <% Brand.pluck(:name).each do |brand_name| %>
+        <%= link_to brand_name, category_products_path(brand: brand_name), class: "inline-block px-4 py-2 text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-[#1E3A8A] font-medium rounded-lg text-sm px-5 py-2.5" %>
+      <% end %>
+      <%= link_to '+ Ajouter une marque', new_brand_path(category_id: @category.id), class: "inline-block px-4 py-2 text-white rounded-full bg-access-dark hover:bg-[#2A4E9E] focus:ring-4 focus:ring-[#1E3A8A] font-medium rounded-lg text-sm px-5 py-2.5" %>
     </div>
-  <% end %>
-  </div>
-</div>
 
-<div class="text-center mt-6">
-  <%= link_to 'Créer une nouvelle marque', new_brand_path(category_id: @category.id), class: 'text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5' %>
+    <% Brand.all.each do |brand| %>
+      <div class="brand-card bg-white rounded-2xl px-4 mb-10">
+        <div class="brand-card__header px-5">
+          <%= image_tag brand.image_url, width: 120 %>
+        </div>
+
+        <hr>
+
+        <div class="brand-card__content p-5 flex">
+          <div class="left-content flex flex-col justify-around">
+
+            <div>
+              <h1 class="whitespace-nowrap text-6xl inline-block" style="border-bottom: 10px solid <%= brand.primary_color %>"><%= brand.products.first&.name %></h1>
+            </div>
+
+            <p class="leading-7"><%= brand.products.first&.description %></p>
+          </div>
+
+          <div class="right-content">
+            <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png" %>
+          </div>
+        </div>
+
+        <div class="brand-card__footer p-5">
+          <%= link_to "Visiter le site",
+            brand.website_url,
+            class: "inline-block px-4 py-2 text-white rounded-full",
+            style: "background-color: #{brand.primary_color};" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
