@@ -29,12 +29,12 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: "Offer was successfully deleted"
   end
 
   private
 
   def offer_params
-    params.expect(offer: [ :name, :image_url, :pdf_url, :month_offer ])
+    params.require(:offer).permit(:name, :image_url, :pdf_url, :month_offer)
   end
 end

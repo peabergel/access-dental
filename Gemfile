@@ -21,6 +21,9 @@ gem "tailwindcss-ruby"
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
+# Use .env file
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 gem 'simple_form-tailwind'
 gem 'simple_form'
