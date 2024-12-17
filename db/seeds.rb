@@ -16,7 +16,7 @@ Article.destroy_all
 Brand.destroy_all
 
 puts "Cleaning OK"
-puts "Creating Categories............"
+puts "Creating categories..."
 
 categories = [
   "Fauteuils / units",
@@ -32,54 +32,55 @@ categories = [
 
 categories.each { |category| Category.create!(name: category) }
 
-puts "Success"
-puts "Creating Brands..........."
+puts "Categories created!"
+puts "Creating brands..."
 
 brands = [ "Airel Quetin", "Belmont", "Castellini", "Meunier Carus", "Tecnodent" ]
-brands_images_url = [
-  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png",
-  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_belmont_llfcox.png",
-  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_castellini_wv0noe.png",
-  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_meunier_carus_iq7zov.png",
-  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750921/Access%20dental/Images/logos/logo_tecnodent_rlin9j.png"
-]
-brands_colors = [ [ "#F3196A", "#F7679D", "#F5F6F9" ], [ "#076FBA", "#5CA0D2", "#E7F1F9" ], [ "#1B3362", "#697998", "#E1E2E3" ], [ "#168CA9", "#65B3C6", "#CCE6ED" ], [ "#0866B2", "#5C9ACC", "#CFE1F1" ] ]
-brands_websites_urls = ["https://airel.com/", "https://belmont.fr/", "https://www.castellini.com/fr/", "https://meunier-carus.fr/", "https://www.tecnodent.com/" ]
+base_url = "https://res.cloudinary.com/dmlvtscck/image/upload"
 
-fauteuil = Category.find_by_name("Fauteuils / units")
+brands_images_url = [
+  "#{base_url}/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png",
+  "#{base_url}/v1726750919/Access%20dental/Images/logos/logo_belmont_llfcox.png",
+  "#{base_url}/v1726750923/Access%20dental/Images/logos/logo_castellini_wv0noe.png",
+  "#{base_url}/v1726750920/Access%20dental/Images/logos/logo_meunier_carus_iq7zov.png",
+  "#{base_url}/v1726750921/Access%20dental/Images/logos/logo_tecnodent_rlin9j.png"
+]
+brands_colors = [ [ "#F3196A", "#F7679D" ], [ "#076FBA", "#5CA0D2" ], [ "#1B3362", "#697998" ], [ "#168CA9", "#65B3C6" ], [ "#0866B2", "#5C9ACC" ] ]
+brands_websites_urls = [ "https://airel.com/", "https://belmont.fr/", "https://www.castellini.com/fr/", "https://meunier-carus.fr/", "https://www.tecnodent.com/" ]
+
+fauteuil = Category.find_by(name: "Fauteuils / units")
 brands.each_with_index do |brand, index|
-  Brand.create!(
-    category: fauteuil,
+  new_brand = Brand.create!(
     name: brand,
     position: index + 1,
     image_url: brands_images_url[index],
     primary_color: brands_colors[index][0],
     secondary_color: brands_colors[index][1],
-    tertiary_color: brands_colors[index][2],
-    website_url: brands_websites_urls[index]
-  )
+    website_url: brands_websites_urls[index])
+
+  new_brand.categories << fauteuil
 end
 
-puts "Success"
-puts "Creating Products............"
+puts "Brands created!"
+puts "Creating products..."
 
 # ------------------------------ Airel Products -------------------------------
 
-airel = Brand.find_by_name("Airel Quetin")
+airel = Brand.find_by(name: "Airel Quetin")
 airels = [ "PE9", "K2", "Pacific III", "Cart Evo", "Selle Harley" ]
-airel_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750942/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_wyog7e.png",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_fmxlfb.png",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_k1nhpi.png",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evo_jakzz8.png",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750945/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_yvmqqs.png"
+airel_product_images_url = [ "#{base_url}/v1726750942/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_wyog7e.png",
+                            "#{base_url}/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_fmxlfb.png",
+                            "#{base_url}/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_k1nhpi.png",
+                            "#{base_url}/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evo_jakzz8.png",
+                            "#{base_url}/v1726750945/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_yvmqqs.png"
                            ]
-airel_product_pdfs_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf",
-                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726756480/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_compressed_wdlq9g.pdf",
-                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750949/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_kab5ct.pdf",
-                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750939/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evolution_xhfbh1.pdf",
-                          "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_wstczp.pdf"
+airel_product_pdfs_url = [ "#{base_url}/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf",
+                          "#{base_url}/v1726756480/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_compressed_wdlq9g.pdf",
+                          "#{base_url}/v1726750949/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_kab5ct.pdf",
+                          "#{base_url}/v1726750939/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evolution_xhfbh1.pdf",
+                          "#{base_url}/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_wstczp.pdf"
                          ]
-airel_product_descriptions = ["Le PE9 a été conçu afin de s’adapter à toutes les positions de travail. Ses fonctionnalités en font un unit ambidextre universel.",
+airel_product_descriptions = [ "Le PE9 a été conçu afin de s’adapter à toutes les positions de travail. Ses fonctionnalités en font un unit ambidextre universel.",
                               "A la fois compact et adaptable, le K2 propose une hygiène irréprochable et un confort maximum.",
                               "La gamme ambidextre Pacific propose une assise monocoque assurant un grand confort au praticien et au patient.",
                               "Le cart Quetin mobile Evolution s'adapte au travail du praticien, entre 10h et 14h, en toute mobilité, dans tout type de cabinet.",
@@ -98,20 +99,20 @@ end
 # ----------------------------- Belmont Products --------------------------------------------
 
 belmont = Brand.find_by_name("Belmont")
-belmonts = ["Eurus S1", "Eurus S6", "Eurus S8", "Eurus S4", "Cart Eurus"]
-belmont_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750959/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_es54oz.png",
-                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750964/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_z4iyzh.png",
-                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_ttpzxv.png",
-                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750957/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus_S4_vtioiv.png",
-                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/cart_eurus_z5pi05.png"
+belmonts = [ "Eurus S1", "Eurus S6", "Eurus S8", "Eurus S4", "Cart Eurus" ]
+belmont_product_images_url = [ "#{base_url}/v1726750959/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_es54oz.png",
+                              "#{base_url}/v1726750964/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_z4iyzh.png",
+                              "#{base_url}/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_ttpzxv.png",
+                              "#{base_url}/v1726750957/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus_S4_vtioiv.png",
+                              "#{base_url}/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/cart_eurus_z5pi05.png"
                             ]
-belmont_product_pdfs_url = ["https://res.cloudinary.com/dmlvtscck/image/upload/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_rnybvk.pdf",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750965/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/EURUS_S6_French_20211101_OL_uoqnlx.pdf",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus_S8_lcrvqw.pdf",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/eurus_S4_n7ilfl.pdf",
-                            "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/CART-EURUS_rimgqy.pdf"
+belmont_product_pdfs_url = [ "#{base_url}/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_rnybvk.pdf",
+                            "#{base_url}/v1726750965/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/EURUS_S6_French_20211101_OL_uoqnlx.pdf",
+                            "#{base_url}/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus_S8_lcrvqw.pdf",
+                            "#{base_url}/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/eurus_S4_n7ilfl.pdf",
+                            "#{base_url}/v1726750963/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/CART-EURUS_rimgqy.pdf"
                            ]
-belmont_product_descriptions = ["L'Eurus S1 propose une grande variété de fonctionnalités pour un encombrement minimum requis d’à peine 1m80 de large.",
+belmont_product_descriptions = [ "L'Eurus S1 propose une grande variété de fonctionnalités pour un encombrement minimum requis d’à peine 1m80 de large.",
                               "Le fauteuil Belmont Eurus S6 allie le côté ergonomique de la tablette praticien au confort patient amené par la position chaise",
                               "L’Eurus S8 est l’incarnation du luxe et du confort à la japonaise. Il offre une excellente stabilité et une sécurité maximale.",
                               "Le mécanisme hydraulique du fauteuil Eurus S4 assure souplesse et discrétion, offrant un confort optimal au patient.",
@@ -131,19 +132,19 @@ end
 
 castellini = Brand.find_by_name("Castellini")
 castellinis = [ "Puma Eli R", "Puma Eli Ambi", "Skema 5", "Skema 6", "Skema 8", "Cart chir" ]
-castellini_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750972/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20R/pumaR_vhocci.png",
-                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750978/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20ambidextre/pumaAmbi_rveyg1.png",
-                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750968/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%205/skema5_qpwo6f.png",
-                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750978/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%206/skema6_pmflr3.png",
-                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750966/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%208/skema8_djxzk3.png",
-                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750966/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Cart/cart_ejdart.png"
+castellini_product_images_url = [ "#{base_url}/v1726750972/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20R/pumaR_vhocci.png",
+                                  "#{base_url}/v1726750978/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20ambidextre/pumaAmbi_rveyg1.png",
+                                  "#{base_url}/v1726750968/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%205/skema5_qpwo6f.png",
+                                  "#{base_url}/v1726750978/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%206/skema6_pmflr3.png",
+                                  "#{base_url}/v1726750966/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%208/skema8_djxzk3.png",
+                                  "#{base_url}/v1726750966/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Cart/cart_ejdart.png"
                                 ]
-castellini_product_pdfs_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750977/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20R/Castellini_Puma_Eli_15.5.24_FR_idikam.pdf",
-                                 "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750982/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20ambidextre/CA_Puma_Eli_Ambidextrous_15.5.24_FR_npddzz.pdf",
-                                 "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750972/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%205/Castellini_Skema_5_15.5.24_FR_ijd9vm.pdf",
-                                 "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750982/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%206/Castellini_Skema_6_15.5.24_FR_xwsgvy.pdf",
-                                 "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750971/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%208/Castellini_Skema_8_8.5.24_FR_mcuuvx.pdf",
-                                 "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750968/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Cart/CA_Surgical_cart_8SETT2023_FR_jhbm9l.pdf"
+castellini_product_pdfs_url = [ "#{base_url}/v1726750977/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20R/Castellini_Puma_Eli_15.5.24_FR_idikam.pdf",
+                                 "#{base_url}/v1726750982/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Puma%20Eli%20ambidextre/CA_Puma_Eli_Ambidextrous_15.5.24_FR_npddzz.pdf",
+                                 "#{base_url}/v1726750972/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%205/Castellini_Skema_5_15.5.24_FR_ijd9vm.pdf",
+                                 "#{base_url}/v1726750982/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%206/Castellini_Skema_6_15.5.24_FR_xwsgvy.pdf",
+                                 "#{base_url}/v1726750971/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Skema%208/Castellini_Skema_8_8.5.24_FR_mcuuvx.pdf",
+                                 "#{base_url}/v1726750968/Access%20dental/Produits/Fauteuils%20:%20units/Castellini/Cart/CA_Surgical_cart_8SETT2023_FR_jhbm9l.pdf"
                                 ]
 castellini_product_descriptions = [ "Grâce à ses caractéristiques, Puma ELI R accompagne le dentiste durant son travail quotidien, avec légèreté et facilité.",
                                 "Puma ELI Ambidextre garde l’élan d’un style minimaliste et garantit des performances toujours en phase avec vos besoins.",
@@ -161,10 +162,11 @@ castellinis.each_with_index do |castellini_name, index|
     description: castellini_product_descriptions[index]
   )
 end
-puts "Success"
-puts "Creating Articles"
+puts "Products created!"
 
-articles = ["Changement de direction chez Access Dental", "Congrès International de l'association des Dentistes de France", "Nouveau scanner intra-oral OWANDY-IOS"]
+puts "Creating articles..."
+
+articles = [ "Changement de direction chez Access Dental", "Congrès International de l'association des Dentistes de France", "Nouveau scanner intra-oral OWANDY-IOS" ]
 articles_pre_contents = [ "Thibault Paquet succèdera à Laurent Bergeron en tant que Directeur de la Société.",
                           "Le Congrès International ADF aura lieu du 26 au 30 Novembre 2024.",
                           "Scannez immédiatement, sans préchauffage. 60 secondes pour la bouche entière."
@@ -173,9 +175,9 @@ articles_content = [  "Grosse année de changement chez Access Dental qui voit L
                       "Comme chaque année, le Congrès International de l'association des dentistes de France aura lieu à Paris du 26 au 30 Novembre 2024, vous aurez le plaisir d'y retrouver toute l'equipe d'access dental ainsi que la grande majorité de nos partenaires. Nous vous y attenderons avec impatience ! ",
                       "Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Grâce à des images de Haute Fidélité et au transfert de données ultra rapide!, Meilleur rapport prix/précision. Aucun mouvement mécanique, elle reste précise!"
                   ]
-articles_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849385/Access%20dental/Images/thibault_j6zzf1.jpg",
-                        "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849385/Access%20dental/Images/congres_xtqhvv.png",
-                        "https://res.cloudinary.com/dmlvtscck/image/upload/v1729849386/Access%20dental/Images/owandy_j636dt.png"]
+articles_images_url = [ "#{base_url}/v1729849385/Access%20dental/Images/thibault_j6zzf1.jpg",
+                        "#{base_url}/v1729849385/Access%20dental/Images/congres_xtqhvv.png",
+                        "#{base_url}/v1729849386/Access%20dental/Images/owandy_j636dt.png" ]
 
 articles.each_with_index do |article, index|
   Article.create!(
@@ -185,34 +187,34 @@ articles.each_with_index do |article, index|
     image_url: articles_images_url[index]
   )
 end
-puts "Articles created"
-puts "Seeding done !"
+puts "...articles created!"
 
-
-offers = ["Owandy", "NSK", "Durr Dental", "Gamasonic", "Bien Air", "Acteon"]
+offers = [ "Owandy", "NSK", "Durr Dental", "Gamasonic", "Bien Air", "Acteon" ]
 offers_images_url = [ "https://www.access-dental.fr/wp-content/uploads/2024/10/Owandy_ADF_24.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/NSK_S2.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/Durr_Dental_ADF_2024.png",
-                      "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.png" ,
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/Bien_Air_S2.png",
-                      "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.png"]
+                      "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.png" ]
 offers_pdfs_url = [ "https://www.access-dental.fr/wp-content/uploads/2024/10/Owandy_ADF_24.pdf",
                     "https://www.access-dental.fr/wp-content/uploads/2024/10/NSK_S2.pdf",
                     "https://www.access-dental.fr/wp-content/uploads/2024/10/Durr_Dental_ADF_2024.pdf",
                     "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.pdf",
                     "https://www.access-dental.fr/wp-content/uploads/2024/10/Bien_Air_S2.pdf",
-                    "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.pdf"]
+                    "https://www.access-dental.fr/wp-content/uploads/2024/10/acteon_ADF_24.pdf" ]
 
-puts "Seeding Offers..........."
+puts "Creating offers..."
+
 offers.each_with_index do |offer, index|
-  Offer.create!(name: offer,
-                image_url: offers_images_url[index],
-                pdf_url: offers_pdfs_url[index]
-              )
+  Offer.create!(
+    name: offer,
+    image_url: offers_images_url[index],
+    pdf_url: offers_pdfs_url[index]
+  )
 end
 puts "Success"
 puts "Creating additional brands..........."
-additional_brands = ["Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Metasys", "NSK", "Owandy", "Zenium"]
+additional_brands = [ "Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Metasys", "NSK", "Owandy", "Zenium" ]
 additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_acteon_ygrz3c.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_bien_air_nm1eog.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_carestream_nw4slr.png",
@@ -240,3 +242,7 @@ additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upl
   )
 end
 puts "Success"
+
+puts "...offers created!"
+
+puts "Seeding done!"
