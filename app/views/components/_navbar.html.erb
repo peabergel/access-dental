@@ -1,6 +1,6 @@
-<div class="border-b bg-[#EFF8FF] border-gray-200 flex justify-center pt-2 h-24">
+<div class="border-b border-gray-200 flex justify-center pt-2 h-24">
   <div class="container px-[6rem] 3xl:max-w-[1300px] 3xl:px-0">
-    <header class="bg-[#EFF8FF] items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
+    <header class="items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
       <%= link_to image_tag("https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
         alt: "Logo de votre entreprise",
         class: "w-64 object-cover"), root_path, class: "flex h-full overflow-hidden mix-blend-multiply" %>
@@ -26,16 +26,7 @@
           </div>
         </div>
       </nav>
-      <a href="#" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg">
-        <span class="relative z-10 font-medium">Nous contacter</span>
-        <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
-          <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
-          <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full">
-            <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
-          </span>
-        </span>
-        <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
-      </a>
+      <%= render "components/fill_up_btn", text: "Nous contacter" %>
     </header>
   </div>
 </div>

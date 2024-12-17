@@ -1,28 +1,30 @@
-<div class="bg-white rounded-2xl px-4 mb-10 relative shadow-2xl" style="border: 1px solid <%= brand.primary_color %>;">
-  <div class="absolute w-[31rem] h-96 rounded-lg" style="top: 60px; left: 205px; opacity: 0.1; background-color:<%= brand.secondary_color %>;"></div>
+<div class="bg-white rounded-2xl border-[0.2px] border-access-blue px-4 mb-10 relative">
+  <div class="absolute w-[24rem] h-64 rounded-lg" style="top: 140px; left: 205px; opacity: 0.1; background-color:<%= brand.secondary_color %>;"></div>
 
   <div class="brand-card__header px-5 flex justify-between items-center">
     <%= image_tag brand.image_url, width: 100 %>
-    <%= link_to "Visiter le site",
-      brand.website_url,
-      class: "block px-4 py-2 text-white rounded-full",
-      style: "background-color: #{brand.primary_color};" %>
+    <%= link_to "#", class: "relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
+      <span class="relative z-10 font-light">Visiter le site</span>
+      <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
+        <span class="flex items-center justify-center w-6 h-6 bg-white rounded-full">
+          <i class="fa-solid fa-arrow-right flex items-center justify-center h-3 w-3 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
+        </span>
+      </span>
+      <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+    <% end %>
+
 
   </div>
 
-  <hr class="border-y-[1px] mb-8" style="border-color: <%= brand.primary_color %>;" />
+  <hr class="border-y-[1px] border-access-blue mb-8"/>
 
   <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
     <div class="hs-carousel flex space-x-3">
       <div class="flex-none">
         <div class="hs-carousel-pagination max-h-96 flex flex-col gap-y-2 overflow-y-auto">
-          <style>
-            .little-card-<%= brand.id %>.active {
-              border-color: <%= brand.secondary_color %>;
-            }
-          </style>
+
           <% brand.products.each do |product| %>
-            <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[150px] h-[150px]">
+            <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[150px] h-[150px] hs-carousel-active:border-access-blue">
               <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png", class: "object-cover" %>
             </div>
           <% end %>
@@ -34,13 +36,14 @@
           <% brand.products.each do |product| %>
             <div class="hs-carousel-slide pl-3 flex">
               <div class="left-content flex flex-col justify-around">
-                <h1 class="text-5xl"><%= product&.name %></h1>
+                <h1 class="text-access-dark font-semibold text-5xl tracking-[0.2rem]"><%= product&.name %></h1>
+
                 <p class="leading-7 font-extralight"><%= product&.description %></p>
                 <%= link_to product.pdf_url, class: "block", target: "_blank" do %>
-                  <span class="underline underline-offset-8" style="color: <%= brand.primary_color %>;">Plus d'infos<i class="fa fa-external-link ml-2" aria-hidden="true"></i></span>
+                  <span class="underline underline-offset-8 text-access-dark">Plus d'infos<i class="fa fa-external-link ml-2" aria-hidden="true"></i></span>
                 <% end %>
               </div>
-              <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png", width: 480, class: "object-contain" %>
+              <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png", width: 440, class: "object-contain" %>
             </div>
           <% end %>
         </div>
