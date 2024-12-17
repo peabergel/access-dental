@@ -211,3 +211,32 @@ offers.each_with_index do |offer, index|
               )
 end
 puts "Success"
+puts "Creating additional brands..........."
+additional_brands = ["Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Metasys", "NSK", "Owandy", "Zenium"]
+additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_acteon_ygrz3c.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_bien_air_nm1eog.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_carestream_nw4slr.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_cattani_zxx5h3.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750924/Access%20dental/Images/logos/logo_DBI_h2phoo.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750917/Access%20dental/Images/logos/logo_dental_art_kuavt4.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750918/Access%20dental/Images/logos/logo_durr_dental_g2u57c.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_EMS_ztzwpg.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_euronda_ypplbr.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_faro_tnsh4e.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_Gamain_dahuca.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_gamasonic_t5hsrh.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750917/Access%20dental/Images/logos/logo_gcomm_wwg8pr.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_intercontidental_vfhysm.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_metasys_x4mxax.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750915/Access%20dental/Images/logos/logo_NSK_i328eh.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750924/Access%20dental/Images/logos/logo_owandy_hyiiq8.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750918/Access%20dental/Images/logos/logo_zenium_ucg5fb.png"
+                                ]
+  additional_brands.each_with_index do |brand, index|
+  Brand.create!(
+    category_id: 8,
+    name: brand,
+    image_url: additional_brands_images_url[index]
+  )
+end
+puts "Success"

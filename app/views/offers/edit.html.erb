@@ -1,0 +1,12 @@
+<div class="container mx-auto mt-5 px-[20rem]">
+  <h1 class="text-xl text-center text-access-blue">Editez l'offre <%= @offer.name %></h1>
+  <%= simple_form_for [@offer] do |f| %>
+    <div class='form-group pb-2'>
+      <%= f.input :name, label: 'Nom', placeholder: @offer.name %>
+      <%= f.input :image_url, label: 'Image URL', placeholder: @offer.image_url %>
+      <%= f.input :pdf_url, as: :text, label: 'Pdf URL', placeholder: @offer.pdf_url %>
+      <%= f.input :month_offer, as: :boolean, label: 'Offre du mois', placeholder: @offer.month_offer %>
+      <%= f.submit "Editez #{@offer.name}", class: 'text-white bg-access-blue hover:bg-access-dark font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'%>
+    </div>
+  <% end %>
+</div>
