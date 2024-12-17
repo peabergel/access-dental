@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root "pages#home"
+  post "contact", to: "contact#create"
 
   resources :categories, except: [ :index, :show ] do
     resources :products, only: :index

@@ -13,7 +13,7 @@ export default class extends Controller {
     // Initialiser la carte
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/elendill/cm4l82r58012201qtfj5bfzzp", // Style noir et blanc
+      style: "mapbox://styles/elendill/cm4r5fue100bl01r0fd3ge283", // Style noir et blanc
       center: [0.35384, 46.56725], // Coordonnées de la carte
       zoom: 12,
       config: {
