@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [:new, :create, :edit, :update]
+  before_action :set_brand, only: [ :new, :create, :edit, :update ]
 
   def index
     @current_category = Category.find(params[:category_id])

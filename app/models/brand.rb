@@ -1,6 +1,6 @@
 class Brand < ApplicationRecord
   has_many :products
-  has_many :categories, through: :products
+  has_many :categories, -> { distinct }, through: :products
 
   def products_by_category(category)
     products.where(category: category)
