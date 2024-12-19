@@ -1,15 +1,16 @@
 class ContactMailer < ApplicationMailer
-  default from: 'pe.abergel@gmail.com'
+  default from: "pe.abergel@gmail.com"
 
-  def send_contact
-    @name = params[:name]
-    @message = params[:message]
-    @sender_email = params[:email]
-    @phone_number = params[:phone_number]
-    @mail_subject = params[:mail_subject]
+  def send_contact(name, email, phone, message, source, mail_subject)
+    @name = name
+    @sender_email = email
+    @phone_number = phone
+    @message = message
+    @source = source
+    @mail_subject = mail_subject
 
     mail(
-      to: 'pe.abergel@gmail.com',
+      to: "pe.abergel@gmail.com",
       subject: "#{@mail_subject}"
     )
   end

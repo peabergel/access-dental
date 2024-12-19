@@ -2,9 +2,11 @@ class ProductsController < ApplicationController
   before_action :set_brand, only: [:new, :create, :edit, :update]
 
   def index
+    @current_category = Category.find(params[:category_id])
     @category = Category.find(params[:category_id])
     @products = @category.products
     @brands = @category.brands
+    @brands_names = @brands.pluck(:name)
   end
 
   def new

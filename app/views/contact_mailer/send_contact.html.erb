@@ -1,4 +1,8 @@
-<h1>Nouvelle demande de contact</h1>
+<% if @source == 'home' %>
+  <h1>Nouvelle demande de contact</h1>
+<% else %>
+  <h1>Nouvelle demande de devis</h1>
+<% end %>
 
 <p><strong>Nom :</strong> <%= @name %></p>
 <p><strong>Email :</strong> <%= @sender_email %></p>

@@ -1,31 +1,67 @@
 <div class="border-b border-gray-200 flex justify-center pt-2 h-24">
   <div class="container px-[6rem] 3xl:max-w-[1300px] 3xl:px-0">
     <header class="items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
-      <%= link_to image_tag("https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
-        alt: "Logo de votre entreprise",
-        class: "w-64 object-cover"), root_path, class: "flex h-full overflow-hidden mix-blend-multiply" %>
+      <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
+        <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
+            alt: "Logo de votre entreprise",
+            class: "w-64 object-cover" %>
+      <% end %>
 
       <nav class="text-access-dark hidden items-center md:flex space-x-8 font-medium">
-        <a href="#" class="transition-all duration-200 ease-in ease-out hover:text-access-blue">Actus et offres</a>
-        <a href="#" class="transition-all duration-200 ease-in ease-out hover:text-access-blue">L'entreprise</a>
+        <%= link_to "L'entreprise", "#about-us", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "News", "#news", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "Offres", "#offres", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+
         <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
-          <button id="hs-dropdown-hover-event" type="button" class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 hover:text-access-blue focus:outline-none disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          <button id="hs-dropdown-hover-event"
+                  type="button"
+                  class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 hover:text-access-blue focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded="false">
             Nos Produits
-            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
           </button>
-          <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 z-50 opacity-0 hidden min-w-[19rem] bg-[#0E384C] shadow-md rounded-2xl mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
-              <div class="p-1 space-y-1">
-                <div class="p-1 space-y-0.5">
-                  <ul class="">
-                    <% @categories.each do |category| %>
-                      <li ><%= link_to category.name, category_products_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white transition-all duration-200 ease-in ease-out hover:text-access-blue focus:outline-none focus:bg-gray-100" %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
+
+          <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 z-50 opacity-0 hidden min-w-[19rem] bg-[#0E384C] shadow-md rounded-2xl mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu">
+            <ul class="p-2">
+              <% @categories.each do |category| %>
+                <li class="group/item relative">
+                  <% if category.children.any? %>
+                    <div class="flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue group-hover/item:text-access-blue">
+                      <span class="<%= 'text-access-blue' if category == @current_category || category.children.include?(@current_category) %>">
+                        <%= category.name %>
+                      </span>
+                      <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                      </svg>
+                    </div>
+
+                    <div class="invisible group-hover/item:visible absolute left-full top-0 w-2 h-full -mr-4"></div>
+                    <div class="invisible opacity-0 group-hover/item:visible group-hover/item:opacity-100 absolute left-full top-0 ml-2 min-w-[16rem] bg-[#0E384C] shadow-md rounded-2xl transition-all duration-200">
+                      <ul class="p-2">
+                        <% category.children.each do |subcategory| %>
+                          <li>
+                            <%= link_to subcategory.name,
+                                category_products_path(subcategory),
+                                class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue #{@current_category&.id == subcategory.id ? 'text-access-blue' : ''}" %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% else %>
+                    <%= link_to category.name,
+                        category_products_path(category),
+                        class: "flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue #{@current_category&.id == category.id ? 'text-access-blue' : ''}" %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </nav>
+
       <%= render "components/fill_up_btn", text: "Nous contacter" %>
     </header>
   </div>

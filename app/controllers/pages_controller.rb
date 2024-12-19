@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @categories = Category.all
+    @categories = Category.parents
+    @categories_children = Category.where.not(parent_id: nil)
     @articles = Article.order(created_at: :desc).limit(3)
     @offers = Offer.order(created_at: :desc).limit(6)
     @brands_images_url = Brand.pluck(:image_url)

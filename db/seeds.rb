@@ -19,18 +19,42 @@ puts "Cleaning OK"
 puts "Creating categories..."
 
 categories = [
-  "Fauteuils / units",
+  "Fauteuils / Units",
   "Imagerie extra-orale",
   "Imagerie intra-orale",
-  "Éclairages",
+  "Scialytiques et Luminaires",
   "Hygiène et Stérilisation",
   "Compresseurs et aspirations",
-  "Mobilier",
-  "Gabarits",
-  "Instrumentations - Appareils de table"
+  "Instrumentations - Appareils de table",
+  "Mobilier"
 ]
 
 categories.each { |category| Category.create!(name: category) }
+
+extra_orale = Category.find_by(name: "Imagerie extra-orale")
+intra_orale = Category.find_by(name: "Imagerie intra-orale")
+eclairages = Category.find_by(name: "Scialytiques et Luminaires")
+hygiene = Category.find_by(name: "Hygiène et Stérilisation")
+compresses = Category.find_by(name: "Compresseurs et aspirations")
+instrumentations = Category.find_by(name: "Instrumentations - Appareils de table")
+mobilier = Category.find_by(name: "Mobilier")
+
+Category.create!(name: "Radiographie panoramique", parent: extra_orale)
+Category.create!(name: "Générateurs X-Ray", parent: intra_orale)
+Category.create!(name: "Capteurs numériques", parent: intra_orale)
+Category.create!(name: "Lecteurs de plaques", parent: intra_orale)
+Category.create!(name: "Scanners intra-oraux", parent: intra_orale)
+Category.create!(name: "Caméras intra-orales", parent: intra_orale)
+Category.create!(name: "Scialytiques", parent: eclairages)
+Category.create!(name: "Plafonniers", parent: eclairages)
+Category.create!(name: "Dalles lumière du jour", parent: eclairages)
+Category.create!(name: "Appareils de désinfection", parent: hygiene)
+Category.create!(name: "Thermosoudeuses", parent: hygiene)
+Category.create!(name: "Aspirations", parent: compresses)
+Category.create!(name: "Compresseurs", parent: compresses)
+Category.create!(name: "Colonnes", parent: compresses)
+Category.create!(name: "Récupérateurs d'amalgames", parent: compresses)
+Category.create!(name: "Meubles dentaires", parent: mobilier)
 
 puts "Categories created!"
 puts "Creating brands..."
@@ -48,7 +72,7 @@ brands_images_url = [
 brands_colors = [ [ "#F3196A", "#F7679D" ], [ "#076FBA", "#5CA0D2" ], [ "#1B3362", "#697998" ], [ "#168CA9", "#65B3C6" ], [ "#0866B2", "#5C9ACC" ] ]
 brands_websites_urls = [ "https://airel.com/", "https://belmont.fr/", "https://www.castellini.com/fr/", "https://meunier-carus.fr/", "https://www.tecnodent.com/" ]
 
-fauteuil = Category.find_by(name: "Fauteuils / units")
+fauteuil = Category.find_by(name: "Fauteuils / Units")
 brands.each_with_index do |brand, index|
   new_brand = Brand.create!(
     name: brand,
@@ -68,11 +92,11 @@ puts "Creating products..."
 
 airel = Brand.find_by(name: "Airel Quetin")
 airels = [ "PE9", "K2", "Pacific III", "Cart Evo", "Selle Harley" ]
-airel_product_images_url = [ "#{base_url}/v1726750942/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_wyog7e.png",
-                            "#{base_url}/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_fmxlfb.png",
-                            "#{base_url}/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_k1nhpi.png",
-                            "#{base_url}/v1726750940/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evo_jakzz8.png",
-                            "#{base_url}/v1726750945/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_yvmqqs.png"
+airel_product_images_url = [ "#{base_url}/v1734529665/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_rhdjsf.png",
+                            "#{base_url}/v1734529724/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_txqkze.png",
+                            "#{base_url}/v1734530137/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/Pacific_mh5ox6.png",
+                            "#{base_url}/v1734530329/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/Cart-evo_qzon5g.png",
+                            "#{base_url}/v1734530479/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/Harley_wvbqsg.png"
                            ]
 airel_product_pdfs_url = [ "#{base_url}/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf",
                           "#{base_url}/v1726756480/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_compressed_wdlq9g.pdf",
@@ -100,11 +124,11 @@ end
 
 belmont = Brand.find_by_name("Belmont")
 belmonts = [ "Eurus S1", "Eurus S6", "Eurus S8", "Eurus S4", "Cart Eurus" ]
-belmont_product_images_url = [ "#{base_url}/v1726750959/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_es54oz.png",
-                              "#{base_url}/v1726750964/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_z4iyzh.png",
-                              "#{base_url}/v1726750960/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_ttpzxv.png",
-                              "#{base_url}/v1726750957/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus_S4_vtioiv.png",
-                              "#{base_url}/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/cart_eurus_z5pi05.png"
+belmont_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530521/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus-S1_h7sy7t.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530615/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus-S4_f55fyy.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530638/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_d99cw1.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530660/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_thke7i.png",
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530660/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_thke7i.png"
                             ]
 belmont_product_pdfs_url = [ "#{base_url}/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_rnybvk.pdf",
                             "#{base_url}/v1726750965/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/EURUS_S6_French_20211101_OL_uoqnlx.pdf",
@@ -214,7 +238,7 @@ offers.each_with_index do |offer, index|
 end
 puts "Success"
 puts "Creating additional brands..........."
-additional_brands = [ "Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Metasys", "NSK", "Owandy", "Zenium" ]
+additional_brands = [ "Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "Ekom", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Itero", "Metasys", "Mocom", "NSK", "Owandy", "Zenium" ]
 additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_acteon_ygrz3c.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_bien_air_nm1eog.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_carestream_nw4slr.png",
@@ -223,24 +247,115 @@ additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upl
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750917/Access%20dental/Images/logos/logo_dental_art_kuavt4.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750918/Access%20dental/Images/logos/logo_durr_dental_g2u57c.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750923/Access%20dental/Images/logos/logo_EMS_ztzwpg.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1734457747/Access%20dental/Images/logos/logo_ekom_dq69f7.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_euronda_ypplbr.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_faro_tnsh4e.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_Gamain_dahuca.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_gamasonic_t5hsrh.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750917/Access%20dental/Images/logos/logo_gcomm_wwg8pr.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750919/Access%20dental/Images/logos/logo_intercontidental_vfhysm.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1734459015/Access%20dental/Images/logos/logo_itero_ymsdpd.png",
+                                  "https://res.cloudinary.com/dmlvtscck/image/upload/v1734458340/Access%20dental/Images/logos/logo_mocom_rudeec.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_metasys_x4mxax.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750915/Access%20dental/Images/logos/logo_NSK_i328eh.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750924/Access%20dental/Images/logos/logo_owandy_hyiiq8.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750918/Access%20dental/Images/logos/logo_zenium_ucg5fb.png"
                                 ]
   additional_brands.each_with_index do |brand, index|
-  Brand.create!(
-    category_id: 8,
+    new_brand = Brand.create!(
     name: brand,
     image_url: additional_brands_images_url[index]
   )
 end
+
+acteon = Brand.find_by(name: "Acteon")
+acteon.categories << Category.find_by(name: "Caméras intra-orales")
+acteon.categories << instrumentations
+
+belmont = Brand.find_by(name: "Belmont")
+belmont.categories << Category.find_by(name: "Générateurs X-Ray")
+belmont.categories << Category.find_by(name: "Scialytiques")
+
+bien_air = Brand.find_by(name: "Bien Air")
+bien_air.categories << instrumentations
+
+carestream = Brand.find_by(name: "Carestream")
+carestream.categories << Category.find_by(name: "Radiographie panoramique")
+carestream.categories << Category.find_by(name: "Générateurs X-Ray")
+carestream.categories << Category.find_by(name: "Capteurs numériques")
+carestream.categories << Category.find_by(name: "Caméras intra-orales")
+
+cattani = Brand.find_by(name: "Cattani")
+cattani.categories << Category.find_by(name: "Aspirations")
+cattani.categories << Category.find_by(name: "Compresseurs")
+cattani.categories << Category.find_by(name: "Colonnes")
+
+dental_art = Brand.find_by(name: "Dental Art")
+dental_art.categories << Category.find_by(name: "Meubles dentaires")
+
+durr_dental = Brand.find_by(name: "Dürr Dental")
+durr_dental.categories << Category.find_by(name: "Radiographie panoramique")
+durr_dental.categories << Category.find_by(name: "Lecteurs de plaques")
+durr_dental.categories << Category.find_by(name: "Thermosoudeuses")
+durr_dental.categories << Category.find_by(name: "Aspirations")
+durr_dental.categories << Category.find_by(name: "Compresseurs")
+durr_dental.categories << Category.find_by(name: "Colonnes")
+durr_dental.categories << Category.find_by(name: "Récupérateurs d'amalgames")
+
+ekom = Brand.find_by(name: "Ekom")
+ekom.categories << Category.find_by(name: "Compresseurs")
+
+ems = Brand.find_by(name: "EMS")
+ems.categories << instrumentations
+
+euronda = Brand.find_by(name: "Euronda")
+euronda.categories << Category.find_by(name: "Appareils de désinfection")
+euronda.categories << Category.find_by(name: "Thermosoudeuses")
+
+faro = Brand.find_by(name: "Faro")
+faro.categories << Category.find_by(name: "Scialytiques")
+
+gamain = Brand.find_by(name: "Gamain")
+gamain.categories << Category.find_by(name: "Plafonniers")
+gamain.categories << Category.find_by(name: "Dalles lumière du jour")
+
+gamasonic = Brand.find_by(name: "Gamasonic")
+gamasonic.categories << Category.find_by(name: "Appareils de désinfection")
+
+
+gcomm = Brand.find_by(name: "Gcomm")
+gcomm.categories << Category.find_by(name: "Scialytiques")
+
+intercontidental = Brand.find_by(name: "Intercontidental")
+intercontidental.categories << Category.find_by(name: "Meubles dentaires")
+
+itero = Brand.find_by(name: "Itero")
+itero.categories << Category.find_by(name: "Scanners intra-oraux")
+
+metasys = Brand.find_by(name: "Metasys")
+metasys.categories << Category.find_by(name: "Colonnes")
+metasys.categories << Category.find_by(name: "Récupérateurs d'amalgames")
+
+mocom = Brand.find_by(name: "Mocom")
+mocom.categories << Category.find_by(name: "Appareils de désinfection")
+
+nsk = Brand.find_by(name: "NSK")
+nsk.categories << Category.find_by(name: "Appareils de désinfection")
+nsk.categories << Category.find_by(name: "Thermosoudeuses")
+nsk.categories << instrumentations
+
+owandy = Brand.find_by(name: "Owandy")
+owandy.categories << Category.find_by(name: "Radiographie panoramique")
+owandy.categories << Category.find_by(name: "Générateurs X-Ray")
+owandy.categories << Category.find_by(name: "Capteurs numériques")
+owandy.categories << Category.find_by(name: "Lecteurs de plaques")
+owandy.categories << Category.find_by(name: "Scanners intra-oraux")
+owandy.categories << Category.find_by(name: "Caméras intra-orales")
+
+zenium = Brand.find_by(name: "Zenium")
+zenium.categories << Category.find_by(name: "Plafonniers")
+zenium.categories << Category.find_by(name: "Dalles lumière du jour")
+
 puts "Success"
 
 puts "...offers created!"

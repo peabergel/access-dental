@@ -13,7 +13,7 @@
         <p class="text-access-dark font-light mb-8">
           Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.
         </p>
-        <a href="#" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg">
+        <a href="#contact" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg">
           <span class="relative z-10 font-medium">Prendre RDV</span>
           <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
             <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
@@ -72,7 +72,7 @@
       </div>
     </div>
     <!-- "Make an Appointment" Button -->
-    <a href="#" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out">
+    <a href="#contact" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out">
       <span class="relative z-10 font-medium">Prendre RDV</span>
       <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
         <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
@@ -87,7 +87,7 @@
 
 <%# ////////////////////////////SECTION ABOUT US//////////////////////////////////// %>
 
-<div class="relative w-full flex bg-cover bg-no-repeat justify-center" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
+<div id="about-us" class="relative w-full flex bg-cover bg-no-repeat justify-center" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
   <div class="container px-[6rem] py-24">
     <div class="flex items-center">
 
@@ -179,9 +179,9 @@
 
 <%# ////////////////////////////////SECTION NEWS /////////////////////////////////// %>
 
-<div class="py-28 bg-[#EFF8FF] bg-cover bg-no-repeat" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
+<div id="news" class="py-28 bg-[#EFF8FF] bg-cover bg-no-repeat" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
   <div class="text-center mb-12">
-    <p class="text-access-blue font-semibold text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+    <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 12 12"
@@ -192,7 +192,7 @@
           fill="#1E84B5"
         />
       </svg>
-      ACTU
+      NEWS
     </p>
     <h2 class="text-5xl font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
     <p class="text-access-dark font-light">Cliquez ici pour souscrire à notre Newsletter.</p>
@@ -206,9 +206,9 @@
 
 <%# ////////////////////////////////SECTION OFFERS//////////////////////////////////// %>
 
-<div class="pt-28 pb-[6.5rem] bg-right-bottom" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
+<div id="offres" class="pt-28 pb-[6.5rem] bg-right-bottom" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
   <div class="text-center mb-12">
-    <p class="text-access-blue font-semibold text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+    <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 12 12"
@@ -296,7 +296,7 @@
 <div class="py-28 bg-right-bottom" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
   <div class="px-6 py-10 sm:px-8 lg:px-12">
     <div class="max-w-7xl mx-auto">
-      <div class="text-access-blue font-semibold text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+      <div class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 12 12"
@@ -387,7 +387,7 @@
 
 <%# ///////////////////////////////SECTION CONTACT////////////////////////////////////// %>
 <meta name="mapbox-api-key" content="<%= @mapbox_api_key %>">
-<div class="bg-[#EFF8FF]">
+<div id="contact" class="bg-[#EFF8FF]">
   <div class="grid grid-cols-2 gap-12 py-[7rem] px-[12rem]">
     <div style="width: 100%; height: 650px; border-radius: 2rem;"
       data-controller="map"
@@ -405,7 +405,8 @@
         Obtenez votre <span class="text-access-dark">Devis Gratuit</span>
       </h1>
       <div>
-        <%= simple_form_for :contact, url: contact_path, method: :post, html: { class: "space-y-4" } do |f| %>
+        <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
+          <%= f.hidden_field :source, value: 'home' %>
           <div class="flex grid grid-cols-2 gap-4">
           <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md" } %>
           <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md" } %>

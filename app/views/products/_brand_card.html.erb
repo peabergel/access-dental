@@ -1,9 +1,9 @@
-<div class="bg-white rounded-2xl border-[0.2px] border-access-blue px-4 mb-10 relative">
-  <div class="absolute w-[24rem] h-64 rounded-lg" style="top: 140px; left: 205px; opacity: 0.1; background-color:<%= brand.secondary_color %>;"></div>
+<div class="bg-white max-w-[60rem] mx-auto rounded-2xl border-[0.2px] border-access-blue px-4 mb-10 relative">
+  <div class="absolute w-[20rem] h-64 rounded-lg" style="top: 180px; left: 225px; background: linear-gradient(to right, <%= brand.secondary_color %>1A 0%, <%= brand.secondary_color %>00 100%);"></div>
 
   <div class="brand-card__header px-5 flex justify-between items-center">
     <%= image_tag brand.image_url, width: 100 %>
-    <%= link_to "#", class: "relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
+    <%= link_to brand.website_url, target: "_blank", class: "relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
       <span class="relative z-10 font-light">Visiter le site</span>
       <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
         <span class="flex items-center justify-center w-6 h-6 bg-white rounded-full">
@@ -25,7 +25,7 @@
 
           <% brand.products.each do |product| %>
             <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[150px] h-[150px] hs-carousel-active:border-access-blue">
-              <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png", class: "object-cover" %>
+              <%= image_tag product.image_url, class: "object-cover" %>
             </div>
           <% end %>
         </div>
@@ -36,14 +36,25 @@
           <% brand.products.each do |product| %>
             <div class="hs-carousel-slide pl-3 flex">
               <div class="left-content flex flex-col justify-around">
-                <h1 class="text-access-dark font-semibold text-5xl tracking-[0.2rem]"><%= product&.name %></h1>
+                <h1 class="text-access-dark font-semibold text-5xl tracking-[0.2rem]"><%= product&.name&.upcase %></h1>
 
-                <p class="leading-7 font-extralight"><%= product&.description %></p>
-                <%= link_to product.pdf_url, class: "block", target: "_blank" do %>
-                  <span class="underline underline-offset-8 text-access-dark">Plus d'infos<i class="fa fa-external-link ml-2" aria-hidden="true"></i></span>
+                <p class="leading-7 font-extralight"><%= product&.description %>
+                  <%= link_to product.pdf_url, class: "block pt-1 font-normal", target: "_blank" do %>
+                    <span class="underline underline-offset-8 text-access-dark">Plus d'infos<i class="fa fa-external-link ml-2" aria-hidden="true"></i></span>
+                  <% end %>
+                </p>
+
+                <%= link_to new_contacts_path(product_id: product), class: "relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
+                    <span class="relative z-10 font-light">Demander un devis</span>
+                    <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
+                      <span class="flex items-center justify-center w-6 h-6">
+                        <i class="fa-regular fa-envelope text-white"></i>
+                      </span>
+                    </span>
+                    <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
                 <% end %>
               </div>
-              <%= image_tag "https://airel.com/wp-content/uploads/2023/02/fauteuil_pe9.png", width: 440, class: "object-contain" %>
+              <%= image_tag product.image_url, width: 440, class: "object-contain" %>
             </div>
           <% end %>
         </div>

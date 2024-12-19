@@ -1,0 +1,108 @@
+<div class="bg-[#EFF8FF] h-screen">
+  <div class="max-w-2xl mx-auto my-auto py-8 px-8 bg-white rounded-[2rem] shadow-xl">
+    <h2 class="text-access-blue font-semibold text-3xl mb-2 flex justify-center items-center gap-2">
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 12 12"
+      class="w-3 h-3"
+    >
+      <path
+        d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z"
+        fill="#1E84B5"
+      />
+    </svg>
+    DEMANDEZ VOTRE DEVIS
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 12 12"
+      class="w-3 h-3"
+    >
+      <path
+        d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z"
+        fill="#1E84B5"
+      />
+    </svg>
+  </h2>
+
+  <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-6" } do |f| %>
+    <%= f.hidden_field :source, value: 'contact_page' %>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="relative flex items-center">
+        <div class="absolute ps-3.5 pointer-events-none text-gray-400">
+          <i class="fas fa-user pt-2"></i>
+        </div>
+        <%= f.input :name,
+            label: "Nom",
+            required: true,
+            input_html: {
+              class: "ps-10 rounded-lg border-gray-300 focus:border-access-blue focus:ring focus:ring-access-blue focus:ring-opacity-50 transition-all duration-200",
+              placeholder: "John Doe"
+            } %>
+      </div>
+
+      <div class="relative flex items-center">
+        <div class="absolute ps-3.5 pointer-events-none text-gray-400">
+          <i class="fas fa-envelope pt-2"></i>
+        </div>
+        <%= f.input :email,
+            label: "Email",
+            as: :email,
+            required: true,
+            input_html: {
+              class: "ps-10 rounded-lg border-gray-300 focus:border-access-blue focus:ring focus:ring-access-blue focus:ring-opacity-50 transition-all duration-200",
+              placeholder: "john@example.com"
+            } %>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="relative flex items-center">
+        <div class="absolute ps-3.5 pointer-events-none text-gray-400">
+          <i class="fas fa-phone pt-2"></i>
+        </div>
+        <%= f.input :phone_number,
+            label: "Téléphone",
+            input_html: {
+              type: "tel",
+              class: "ps-10 rounded-lg border-gray-300 focus:border-access-blue focus:ring focus:ring-access-blue focus:ring-opacity-50 transition-all duration-200",
+              placeholder: "06 12 34 56 78"
+            } %>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center ps-3.5 pointer-events-none text-gray-400">
+          <i class="fas fa-tag pt-1"></i>
+        </div>
+        <%= f.input :mail_subject,
+            label: "Objet du mail",
+            required: true,
+            input_html: {
+              class: "ps-10 rounded-lg border-gray-300 bg-gray-100 cursor-not-allowed",
+              value: "Devis pour #{@product.name} de #{@product.brand.name}",
+              readonly: true
+            } %>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute top-[2.10em] left-0 flex items-center ps-3.5 pointer-events-none text-gray-400">
+        <i class="fas fa-message"></i>
+      </div>
+      <%= f.input :message,
+          label: "Message",
+          as: :text,
+          required: true,
+          input_html: {
+            rows: 5,
+            class: "ps-10 rounded-lg border-gray-300 focus:border-access-blue focus:ring focus:ring-access-blue focus:ring-opacity-50 transition-all duration-200",
+            placeholder: "Votre message..."
+          } %>
+    </div>
+
+    <div class="flex items-center justify-end">
+      <%= f.submit "Envoyer",
+          class: "px-6 py-3 bg-access-blue text-white rounded-[2rem] hover:bg-access-dark transform hover:scale-105 transition-all duration-200 flex items-center gap-2" %>
+    </div>
+  <% end %>
+</div>
