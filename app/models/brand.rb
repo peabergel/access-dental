@@ -1,6 +1,10 @@
 class Brand < ApplicationRecord
-  has_many :products, dependent: :destroy
-  has_and_belongs_to_many :categories
+  has_many :products
+  has_many :categories, through: :products
+
+  def products_by_category(category)
+    products.where(category: category)
+  end
 
   # validates :name, :position, :image_url, :website_url, :primary_color, :secondary_color, presence: true
 end

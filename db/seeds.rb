@@ -14,6 +14,7 @@ Category.destroy_all
 Offer.destroy_all
 Article.destroy_all
 Brand.destroy_all
+Product.destroy_all
 
 puts "Cleaning OK"
 puts "Creating categories..."
@@ -31,6 +32,7 @@ categories = [
 
 categories.each { |category| Category.create!(name: category) }
 
+fauteuil_unit = Category.find_by(name: "Fauteuils / Units")
 extra_orale = Category.find_by(name: "Imagerie extra-orale")
 intra_orale = Category.find_by(name: "Imagerie intra-orale")
 eclairages = Category.find_by(name: "Scialytiques et Luminaires")
@@ -72,17 +74,14 @@ brands_images_url = [
 brands_colors = [ [ "#F3196A", "#F7679D" ], [ "#076FBA", "#5CA0D2" ], [ "#1B3362", "#697998" ], [ "#168CA9", "#65B3C6" ], [ "#0866B2", "#5C9ACC" ] ]
 brands_websites_urls = [ "https://airel.com/", "https://belmont.fr/", "https://www.castellini.com/fr/", "https://meunier-carus.fr/", "https://www.tecnodent.com/" ]
 
-fauteuil = Category.find_by(name: "Fauteuils / Units")
 brands.each_with_index do |brand, index|
-  new_brand = Brand.create!(
+  Brand.create!(
     name: brand,
     position: index + 1,
     image_url: brands_images_url[index],
     primary_color: brands_colors[index][0],
     secondary_color: brands_colors[index][1],
     website_url: brands_websites_urls[index])
-
-  new_brand.categories << fauteuil
 end
 
 puts "Brands created!"
@@ -116,7 +115,8 @@ airels.each_with_index do |airel_name, index|
     position: index + 1,
     image_url: airel_product_images_url[index],
     pdf_url: airel_product_pdfs_url[index],
-    description: airel_product_descriptions[index]
+    description: airel_product_descriptions[index],
+    category: fauteuil_unit
   )
 end
 
@@ -148,7 +148,8 @@ belmonts.each_with_index do |belmont_name, index|
     position: index + 1,
     image_url: belmont_product_images_url[index],
     pdf_url: belmont_product_pdfs_url[index],
-    description: belmont_product_descriptions[index]
+    description: belmont_product_descriptions[index],
+    category: fauteuil_unit
   )
 end
 
@@ -183,7 +184,8 @@ castellinis.each_with_index do |castellini_name, index|
     position: index + 1,
     image_url: castellini_product_images_url[index],
     pdf_url: castellini_product_pdfs_url[index],
-    description: castellini_product_descriptions[index]
+    description: castellini_product_descriptions[index],
+    category: fauteuil_unit
   )
 end
 puts "Products created!"
@@ -262,99 +264,12 @@ additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upl
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750918/Access%20dental/Images/logos/logo_zenium_ucg5fb.png"
                                 ]
   additional_brands.each_with_index do |brand, index|
-    new_brand = Brand.create!(
+    Brand.create!(
     name: brand,
     image_url: additional_brands_images_url[index]
   )
 end
 
-acteon = Brand.find_by(name: "Acteon")
-acteon.categories << Category.find_by(name: "Caméras intra-orales")
-acteon.categories << instrumentations
-
-belmont = Brand.find_by(name: "Belmont")
-belmont.categories << Category.find_by(name: "Générateurs X-Ray")
-belmont.categories << Category.find_by(name: "Scialytiques")
-
-bien_air = Brand.find_by(name: "Bien Air")
-bien_air.categories << instrumentations
-
-carestream = Brand.find_by(name: "Carestream")
-carestream.categories << Category.find_by(name: "Radiographie panoramique")
-carestream.categories << Category.find_by(name: "Générateurs X-Ray")
-carestream.categories << Category.find_by(name: "Capteurs numériques")
-carestream.categories << Category.find_by(name: "Caméras intra-orales")
-
-cattani = Brand.find_by(name: "Cattani")
-cattani.categories << Category.find_by(name: "Aspirations")
-cattani.categories << Category.find_by(name: "Compresseurs")
-cattani.categories << Category.find_by(name: "Colonnes")
-
-dental_art = Brand.find_by(name: "Dental Art")
-dental_art.categories << Category.find_by(name: "Meubles dentaires")
-
-durr_dental = Brand.find_by(name: "Dürr Dental")
-durr_dental.categories << Category.find_by(name: "Radiographie panoramique")
-durr_dental.categories << Category.find_by(name: "Lecteurs de plaques")
-durr_dental.categories << Category.find_by(name: "Thermosoudeuses")
-durr_dental.categories << Category.find_by(name: "Aspirations")
-durr_dental.categories << Category.find_by(name: "Compresseurs")
-durr_dental.categories << Category.find_by(name: "Colonnes")
-durr_dental.categories << Category.find_by(name: "Récupérateurs d'amalgames")
-
-ekom = Brand.find_by(name: "Ekom")
-ekom.categories << Category.find_by(name: "Compresseurs")
-
-ems = Brand.find_by(name: "EMS")
-ems.categories << instrumentations
-
-euronda = Brand.find_by(name: "Euronda")
-euronda.categories << Category.find_by(name: "Appareils de désinfection")
-euronda.categories << Category.find_by(name: "Thermosoudeuses")
-
-faro = Brand.find_by(name: "Faro")
-faro.categories << Category.find_by(name: "Scialytiques")
-
-gamain = Brand.find_by(name: "Gamain")
-gamain.categories << Category.find_by(name: "Plafonniers")
-gamain.categories << Category.find_by(name: "Dalles lumière du jour")
-
-gamasonic = Brand.find_by(name: "Gamasonic")
-gamasonic.categories << Category.find_by(name: "Appareils de désinfection")
-
-
-gcomm = Brand.find_by(name: "Gcomm")
-gcomm.categories << Category.find_by(name: "Scialytiques")
-
-intercontidental = Brand.find_by(name: "Intercontidental")
-intercontidental.categories << Category.find_by(name: "Meubles dentaires")
-
-itero = Brand.find_by(name: "Itero")
-itero.categories << Category.find_by(name: "Scanners intra-oraux")
-
-metasys = Brand.find_by(name: "Metasys")
-metasys.categories << Category.find_by(name: "Colonnes")
-metasys.categories << Category.find_by(name: "Récupérateurs d'amalgames")
-
-mocom = Brand.find_by(name: "Mocom")
-mocom.categories << Category.find_by(name: "Appareils de désinfection")
-
-nsk = Brand.find_by(name: "NSK")
-nsk.categories << Category.find_by(name: "Appareils de désinfection")
-nsk.categories << Category.find_by(name: "Thermosoudeuses")
-nsk.categories << instrumentations
-
-owandy = Brand.find_by(name: "Owandy")
-owandy.categories << Category.find_by(name: "Radiographie panoramique")
-owandy.categories << Category.find_by(name: "Générateurs X-Ray")
-owandy.categories << Category.find_by(name: "Capteurs numériques")
-owandy.categories << Category.find_by(name: "Lecteurs de plaques")
-owandy.categories << Category.find_by(name: "Scanners intra-oraux")
-owandy.categories << Category.find_by(name: "Caméras intra-orales")
-
-zenium = Brand.find_by(name: "Zenium")
-zenium.categories << Category.find_by(name: "Plafonniers")
-zenium.categories << Category.find_by(name: "Dalles lumière du jour")
 
 puts "Success"
 
