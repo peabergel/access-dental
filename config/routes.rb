@@ -13,15 +13,11 @@ Rails.application.routes.draw do
   resource :contacts, only: [:new, :create]
 
   resources :categories, except: [ :index, :show ] do
-    resources :products, only: :index
+    resources :products, except: [ :destroy ]
   end
 
-  # /categories/1/products
-
-  resources :brands, except: [ :index, :show ] do
-    resources :products, only: [ :new, :create, :edit, :update, :destroy ]
-  end
-
+  resources :products, only: [ :destroy ]
+  resources :brands, except: [ :index, :show ]
   resources :articles, except: [ :index, :show ]
   resources :offers, except: [ :index, :show ]
   # Defines the root path route ("/")

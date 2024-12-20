@@ -1,16 +1,57 @@
-<div class="container mx-auto mt-5 px-[20rem]">
-  <h1 class="text-xl text-center" style="color: <%= @brand.primary_color %>">Editez le produit "<%= @product.name %>"</h1>
-  <%= simple_form_for [@brand, @product] do |f| %>
-    <div class='form-group pb-2'>
-      <%= f.input :name, input_html: { value: @product.name } %>
-      <%= f.input :brand_name, label: 'Marque', input_html: { value: @brand.name, disabled: true } %>
-      <%= f.hidden_field :brand_id, value: @brand.id %>
-      <%= f.input :description, as: :text, label: 'Description', input_html: { value: @product.description } %>
-      <%= f.input :image_url, label: 'Image', input_html: { value: @product.image_url } %>
-      <%= f.input :pdf_url, label: 'Fiche technique', input_html: { value: @product.pdf_url } %>
-      <%= f.input :position, label: 'Position', input_html: { value: @product.position } %>
-      <%= f.submit 'Editer', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none',
-                             style: "background-color: #{ @brand.primary_color.present? ? @brand.primary_color : @brand.primary_color_was };" %>
-    </div>
-  <% end %>
+<div class="container mx-auto mt-8 max-w-2xl">
+  <div class="bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+      Modification du produit <span class="font-bold text-access-blue"><%= @product.name %></span>
+      <br>
+      <span class="font-bold text-access-blue"><%= @product.brand.name %></span>
+    </h1>
+
+    <%= simple_form_for [@category, @product] do |f| %>
+      <div class="space-y-4">
+        <%= f.input :name,
+            label: 'Nom',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.association :brand,
+            label: 'Marque',
+            as: :select,
+            collection: Brand.all,
+            label_method: :name,
+            value_method: :id,
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :description,
+            as: :text,
+            label: 'Description',
+            input_html: { class: 'rounded-lg', rows: 4 },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :image_url,
+            label: 'Image',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :pdf_url,
+            label: 'Fiche technique',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :position,
+            label: 'Position',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-6' } %>
+
+        <div class="flex justify-center space-x-4">
+          <%= link_to 'Annuler',
+              category_products_path(@category),
+              class: 'w-1/3 bg-gray-500 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 text-center' %>
+
+          <%= f.submit 'Mettre à jour',
+              class: 'w-2/3 bg-access-blue hover:bg-access-dark text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

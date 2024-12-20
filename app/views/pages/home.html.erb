@@ -402,21 +402,21 @@
         <span class="text-access-blue font-semibold text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
       </div>
       <h1 class="text-5xl font-bold text-access-blue mb-4 leading-tight">
-        Obtenez votre <span class="text-access-dark">Devis Gratuit</span>
+        Obtenez votre <span class="text-access-dark">RDV en visio</span>
       </h1>
       <div>
         <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
           <%= f.hidden_field :source, value: 'home' %>
           <div class="flex grid grid-cols-2 gap-4">
-          <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md" } %>
-          <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md" } %>
+          <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md", placeholder: "John Doe" } %>
+          <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md", placeholder: "john@example.com" } %>
           </div>
           <div class="flex grid grid-cols-2 gap-4">
-          <%= f.input :phone_number, label: "Téléphone", input_html: { type: "tel", class: "rounded-md" } %>
-          <%= f.input :mail_subject, label: "Objet du mail", input_html: { class: "rounded-md" } %>
+          <%= f.input :phone_number, label: "Téléphone", required: true, as: :tel, input_html: { class: "rounded-md", placeholder: "06 05 04 03 02" } %>
+          <%= f.input :mail_subject, label: "Objet du mail", required: true, input_html: { class: "rounded-md", placeholder: "Demande de RDV telephonique" } %>
           </div>
-          <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md" } %>
-          <%= f.button :submit, "Envoyer", class: "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+          <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md", placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire..." } %>
+          <%= f.button :submit, "Envoyer", class: "px-4 py-2 text-white rounded" %>
         <% end %>
       </div>
     </div>

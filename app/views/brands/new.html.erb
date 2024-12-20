@@ -1,15 +1,57 @@
-<div class="container mx-auto mt-5 px-[20rem]">
-  <h1 class="text-xl text-center">Create a New Brand</h1>
-  <%= simple_form_for @brand do |f| %>
-    <div class='form-group pb-2'>
-      <%= f.input :name, label: 'Nom', placeholder: 'Airel Quetin' %>
-      <%= f.association :categories, as: :check_boxes, collection: @categories %>
-      <%= f.input :position, label: 'Position', placeholder: '1' %>
-      <%= f.input :image_url, label: 'Logo', placeholder: "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png" %>
-      <%= f.input :website_url, label: 'Site internet', placeholder: "https://airel.com/" %>
-      <%= f.input :primary_color, label: 'Couleur principale', placeholder: "#F3196A" %>
-      <%= f.input :secondary_color, label: 'Couleur secondaire', placeholder: "#F7679D" %>
-      <%= f.submit 'Submit', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800' %>
-    </div>
-  <% end %>
+<div class="container mx-auto mt-8 max-w-2xl px-4">
+  <div class="bg-white rounded-lg shadow-lg p-8">
+    <h1 class="text-2xl font-bold text-center mb-6">Créer une nouvelle marque</h1>
+
+    <%= simple_form_for @brand do |f| %>
+      <div class="space-y-6">
+        <%= f.input :name,
+            label: 'Nom',
+            placeholder: 'Airel Quetin',
+            input_html: { class: 'rounded-lg' } %>
+
+        <div class="categories-section">
+          <label class="block text-sm font-medium mb-2">Catégories</label>
+          <div class="grid grid-cols-2 gap-4">
+            <%= f.association :categories,
+                as: :check_boxes,
+                collection: @categories,
+                label: false,
+                input_html: { class: 'rounded' } %>
+          </div>
+        </div>
+
+        <%= f.input :position,
+            label: 'Position',
+            placeholder: '1',
+            input_html: { class: 'rounded-lg' } %>
+
+        <%= f.input :image_url,
+            label: 'Logo',
+            placeholder: "URL du logo",
+            input_html: { class: 'rounded-lg' } %>
+
+        <%= f.input :website_url,
+            label: 'Site internet',
+            placeholder: "https://airel.com/",
+            input_html: { class: 'rounded-lg' } %>
+
+        <div class="grid grid-cols-2 gap-4">
+          <%= f.input :primary_color,
+              label: 'Couleur principale',
+              placeholder: "#F3196A",
+              input_html: { class: 'rounded-lg' } %>
+
+          <%= f.input :secondary_color,
+              label: 'Couleur secondaire',
+              placeholder: "#F7679D",
+              input_html: { class: 'rounded-lg' } %>
+        </div>
+
+        <div class="text-center mt-8">
+          <%= f.submit 'Créer la marque',
+              class: 'w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

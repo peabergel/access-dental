@@ -1,10 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [ :new, :create, :edit, :update ]
 
   def index
-    @current_category = Category.find(params[:category_id])
     @category = Category.find(params[:category_id])
-    @products = @category.products
+    @products = @category.products.order(position: :asc)
     @brands = @category.brands
     @brands_names = @brands.pluck(:name)
   end
@@ -16,14 +14,17 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @category = Category.find(params[:category_id])
+    @product.category = @category
     if @product.save
-      redirect_to root_path, notice: "#{@product.name} à bien été crée"
+      redirect_to category_products_path(@category), notice: "#{@product.name} à bien été crée"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @category = Category.find(params[:category_id])
     @product = Product.find(params[:id])
   end
 
@@ -49,7 +50,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :position, :description, :image_url, :pdf_url, :category_id, :brand_id)
   end
 
-  def set_brand
-    @brand = Brand.find(params[:brand_id])
-  end
 end

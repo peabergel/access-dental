@@ -128,7 +128,7 @@ belmont_product_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/uploa
                               "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530615/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S4/Eurus-S4_f55fyy.png",
                               "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530638/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/Eurus-S6_d99cw1.png",
                               "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530660/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_thke7i.png",
-                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530660/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S8/Eurus-S8_thke7i.png"
+                              "https://res.cloudinary.com/dmlvtscck/image/upload/v1734530718/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Cart%20Eurus/Eurus-cart_pmrjft.png"
                             ]
 belmont_product_pdfs_url = [ "#{base_url}/v1726750961/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S1/Eurus_S1_rnybvk.pdf",
                             "#{base_url}/v1726750965/Access%20dental/Produits/Fauteuils%20:%20units/Belmont/Eurus%20S6/EURUS_S6_French_20211101_OL_uoqnlx.pdf",
