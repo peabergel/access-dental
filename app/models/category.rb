@@ -5,4 +5,8 @@ class Category < ApplicationRecord
   has_many :brands, -> { distinct }, through: :products
 
   scope :parents, -> { where(parent_id: nil) }
+
+  def brand_category_products(brand)
+    products.where(brand: brand).order(position: :asc)
+  end
 end

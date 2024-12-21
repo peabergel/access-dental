@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     @products = @category.products.order(position: :asc)
     @brands = @category.brands
     @brands_names = @brands.pluck(:name)
+    @brand_category_products = @category.products
+    .includes(:brand)
+    .order(position: :asc)
+    .group_by(&:brand)
   end
 
   def new

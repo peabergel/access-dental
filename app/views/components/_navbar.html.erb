@@ -8,9 +8,15 @@
       <% end %>
 
       <nav class="text-access-dark hidden items-center md:flex space-x-8 font-medium">
-        <%= link_to "L'entreprise", "#about-us", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-        <%= link_to "News", "#news", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-        <%= link_to "Offres", "#offres", class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
+          L'entreprise
+        <% end %>
+        <%= link_to root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
+          News
+        <% end %>
+        <%= link_to root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
+          Offres
+        <% end %>
 
         <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
           <button id="hs-dropdown-hover-event"

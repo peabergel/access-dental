@@ -15,21 +15,23 @@
 
   <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
     <div class="hs-carousel flex space-x-3">
+      <% if products.count > 1 %>
       <div class="flex-none">
         <div class="hs-carousel-pagination max-h-96 flex flex-col gap-y-2 overflow-y-auto">
 
-          <% brand.products.each do |product| %>
+          <% products.each do |product| %>
             <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[150px] h-[150px] hs-carousel-active:border-access-blue">
               <%= image_tag product.image_url, class: "object-cover" %>
             </div>
           <% end %>
         </div>
+      <% end %>
       </div>
 
       <div class="relative grow overflow-hidden min-h-96 rounded-lg">
         <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
-          <% brand.products.each do |product| %>
-            <div class="hs-carousel-slide pl-3 flex">
+          <% products.each do |product| %>
+            <div class="hs-carousel-slide pl-3 flex <%= "gap-32" if products.count == 1 %>">
               <div class="left-content flex flex-col justify-around">
                 <h1 class="text-access-dark font-semibold text-5xl tracking-[0.2rem]"><%= product&.name&.upcase %></h1>
 
