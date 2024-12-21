@@ -8,7 +8,6 @@
     </div>
 
       <% @brands.each_with_index do |brand| %>
-      <%# Pour la ligne du dessous, on aurait pu faire @brand_category_products: @category.products.where(brand: brand), mais ce n'est pas bien de faire ça dans la vue non ?%>
         <%= render "brand_card", brand: brand, category: @category, products: @category.brand_category_products(brand) %>
       <% end %>
 

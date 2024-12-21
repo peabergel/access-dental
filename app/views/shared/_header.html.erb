@@ -1,6 +1,6 @@
-<div class="border-b border-gray-200 flex justify-center pt-2 h-24">
+<header class="border-b border-gray-200 flex justify-center pt-2 h-24">
   <div class="container px-[6rem] 3xl:max-w-[1300px] 3xl:px-0">
-    <header class="items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
+    <div class="items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
         <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750925/Access%20dental/Images/logos/logo_access_dental_xllfue.png",
             alt: "Logo de votre entreprise",
@@ -8,15 +8,9 @@
       <% end %>
 
       <nav class="text-access-dark hidden items-center md:flex space-x-8 font-medium">
-        <%= link_to root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
-          L'entreprise
-        <% end %>
-        <%= link_to root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
-          News
-        <% end %>
-        <%= link_to root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" do %>
-          Offres
-        <% end %>
+        <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
 
         <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
           <button id="hs-dropdown-hover-event"
@@ -68,7 +62,7 @@
         </div>
       </nav>
 
-      <%= render "components/fill_up_btn", text: "Nous contacter" %>
-    </header>
+      <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Nous contacter" %>
+    </div>
   </div>
-</div>
+</header>
