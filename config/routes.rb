@@ -9,17 +9,16 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  # Defines the root path route ("/")
   root "pages#home"
-  resource :contacts, only: [ :new, :create ]
 
-  resources :categories, except: [ :index, :show ] do
-    resources :products, except: [ :destroy ]
+  resources :categories, except: [ :index ] do
+    resources :products, only: [ :new, :create ]
   end
 
-  resources :products, only: [ :destroy ]
+  resource :contacts, only: [ :new, :create ]
+  resources :products, only: [ :destroy, :edit, :update ]
   resources :brands, except: [ :index, :show ]
   resources :articles, except: [ :index, :show ]
   resources :offers, except: [ :index, :show ]
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

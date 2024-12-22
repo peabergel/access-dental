@@ -42,7 +42,7 @@
                     <% end %>
 
                     <div class="flex gap-3">
-                      <%= link_to edit_category_product_path(product.category, product), class: "text-gray-600 hover:text-access-blue transition-colors" do %>
+                      <%= link_to edit_product_path(product), class: "text-gray-600 hover:text-access-blue transition-colors" do %>
                         <i class="fa-regular fa-pen-to-square"></i>
                       <% end %>
                       <%= link_to product_path(product),

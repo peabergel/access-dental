@@ -10,11 +10,11 @@
 puts "Seeding DB"
 puts "Cleaning"
 
-Category.destroy_all
+Product.destroy_all
+Brand.destroy_all
 Offer.destroy_all
 Article.destroy_all
-Brand.destroy_all
-Product.destroy_all
+Category.destroy_all
 
 puts "Cleaning OK"
 puts "Creating categories..."
