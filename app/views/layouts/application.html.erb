@@ -21,12 +21,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="min-h-[100vh] flex flex-col">
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/header' %>
     <main>
-      <%= render 'shared/flashes' %>
-      <%= render 'shared/header' %>
       <%= yield %>
-      <%= render 'shared/footer' %>
     </main>
+    <%= render 'shared/footer' %>
   </body>
 </html>

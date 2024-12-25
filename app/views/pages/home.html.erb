@@ -204,9 +204,13 @@
     <h2 class="text-5xl font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières Offres</span></h2>
     <p class="text-access-dark font-light">Découvrez les dernières offres de nos partenaires.</p>
   </div>
-  <div class="flex justify-center items-center">
-    <%= link_to 'Créer une offre', new_offer_path(@offer), class: "inline-block px-4 py-3 text-white bg-access-dark hover:bg-[#2A4E9E] font-medium rounded-full text-sm" %>
-  </div>
+
+  <% if current_user %>
+    <div class="flex justify-center items-center">
+      <%= link_to 'Créer une offre', new_offer_path(@offer), class: "inline-block px-4 py-3 text-white bg-access-dark hover:bg-[#2A4E9E] font-medium rounded-full text-sm" %>
+    </div>
+  <% end %>
+
   <div class="container justify-center mx-auto pt-[6rem] px-[6rem] flex gap-4">
     <% @offers.each_with_index do |offer, index| %>
       <div class="flex flex-col h-72 relative group">
@@ -216,18 +220,20 @@
           <% end %>
         </div>
 
-        <!-- Boutons Edit et Destroy -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <!-- Bouton Edit -->
-          <%= link_to edit_offer_path(offer), class: "bg-access-blue text-white p-2 rounded-full mx-3 hover:bg-access-dark", title: "Edit" do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
+        <% if current_user %>
+          <!-- Boutons Edit et Destroy -->
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <!-- Bouton Edit -->
+            <%= link_to edit_offer_path(offer), class: "bg-access-blue text-white p-2 rounded-full mx-3 hover:bg-access-dark", title: "Edit" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
 
-          <!-- Bouton Destroy -->
-          <%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette offre ?" }, class: "bg-red-500 text-white p-2 rounded-full mx-3 hover:bg-red-600", title: "Delete" do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </div>
+            <!-- Bouton Destroy -->
+            <%= link_to offer_path(offer), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette offre ?" }, class: "bg-red-500 text-white p-2 rounded-full mx-3 hover:bg-red-600", title: "Delete" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
