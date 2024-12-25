@@ -30,7 +30,7 @@
                 <li class="group/item relative">
                   <% if category.children.any? %>
                     <div class="flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue group-hover/item:text-access-blue">
-                      <span class="<%= 'text-access-blue' if category == @current_category || category.children.include?(@current_category) %>">
+                      <span class="<%= 'text-access-blue' if category == @category || category == @category_parent %>">
                         <%= category.name %>
                       </span>
                       <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -45,7 +45,7 @@
                           <li>
                             <%= link_to sub_category.name,
                                 category_path(sub_category),
-                                class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue #{@current_category&.id == sub_category.id ? 'text-access-blue' : ''}" %>
+                                class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm hover:text-access-blue text-#{@category == sub_category ? 'access-blue' : 'white'}" %>
                           </li>
                         <% end %>
                       </ul>
@@ -53,7 +53,7 @@
                   <% else %>
                     <%= link_to category.name,
                         category_path(category),
-                        class: "flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue #{@current_category&.id == category.id ? 'text-access-blue' : ''}" %>
+                        class: "flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm hover:text-access-blue text-#{@category == category ? 'access-blue' : 'white'}" %>
                   <% end %>
                 </li>
               <% end %>
