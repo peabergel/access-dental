@@ -1,7 +1,7 @@
-<div class="bg-white max-w-[60rem] mx-auto rounded-2xl border-[0.2px] border-access-blue px-4 mb-10 relative">
-  <div class="absolute w-[20rem] h-64 rounded-lg" style="top: 180px; left: 225px; background: linear-gradient(to right, <%= brand.secondary_color %>1A 0%, <%= brand.secondary_color %>00 100%);"></div>
+<div class="bg-white max-w-[60rem] mx-auto rounded-2xl border-[0.2px] border-access-blue px-4 my-10 relative">
+  <div class="absolute w-[20rem] h-64 rounded-lg top-44 left-52" style="background: linear-gradient(to right, <%= brand.secondary_color %>1A 0%, <%= brand.secondary_color %>00 100%);"></div>
 
-  <div class="brand-card__header px-5 flex justify-between items-center">
+  <div class="brand-card__header px-5 flex flex justify-between items-center">
     <%= image_tag brand.image_url, width: 100 %>
     <%= link_to brand.website_url, target: "_blank", class: "inline-flex items-center text-access-blue hover:text-access-dark transition-colors duration-300 group" do %>
       <span class="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-access-dark after:transition-all after:duration-300 group-hover:after:w-full">Visiter le site</span>
@@ -56,7 +56,7 @@
                   </div>
                 </p>
 
-                <%= link_to new_contacts_path(product_id: product), class: "relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
+                <%= link_to new_contacts_path(product_id: product), class: "whitespace-nowrap relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
                     <span class="relative z-10 font-light">Demander un devis</span>
                     <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
                       <span class="flex items-center justify-center w-6 h-6">
@@ -66,7 +66,7 @@
                     <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
                 <% end %>
               </div>
-              <%= image_tag product.image_url, width: 440, class: "object-contain" %>
+              <%= image_tag product.image_url, width: 440, class: "hidden md:block object-contain" %>
             </div>
           <% end %>
         </div>

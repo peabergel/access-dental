@@ -1,16 +1,16 @@
-<div class="bg-[#EFF8FF] bg-no-repeat bg-center" style="background-image: url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg');">
-  <div class="container min-h-[62vh] mx-auto md:px-0 lg:px-[4rem] xl:px-[12rem] py-10">
-    <div class="brand-filters flex justify-center gap-2 items-center rounded-2xl p-4 mb-10">
+<div class="bg-[#EFF8FF] bg-center" style="background-image: url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg');">
+  <div class="container min-h-[62vh] mx-auto px-2 py-10 lg:px-[4rem] xl:px-[12rem]">
+    <div class="flex flex-wrap justify-center gap-2 rounded-2xl">
       <% if @brands.any? %>
-        <%= link_to "Toutes les marques", category_path(@category), class: "inline-block px-4 py-2 text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-[#1E3A8A] font-medium rounded-lg text-sm px-5 py-2.5" %>
+        <%= link_to "Toutes les marques", category_path(@category), class: "whitespace-nowrap text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
         <% @brands_names.each do |brand_name| %>
-          <%= link_to brand_name, category_path(@category, brand: brand_name), class: "inline-block px-4 py-2 text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-[#1E3A8A] font-medium rounded-lg text-sm px-5 py-2.5" %>
+          <%= link_to brand_name, category_path(@category, brand: brand_name), class: "whitespace-nowrap text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
         <% end %>
       <% else %>
         <h1 class="text-xl">Oups, il n'y a aucun produit ici...</h1>
       <% end %>
       <% if current_user %>
-        <%= link_to '+ Ajouter un produit', new_category_product_path(@category), class: "inline-block px-4 py-2 text-white rounded-full bg-access-dark hover:bg-[#2A4E9E] focus:ring-4 focus:ring-[#1E3A8A] font-medium rounded-lg text-sm px-5 py-2.5" %>
+        <%= link_to '+ Ajouter un produit', new_category_product_path(@category), class: "text-white rounded-full bg-access-dark hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
       <% end %>
     </div>
 
