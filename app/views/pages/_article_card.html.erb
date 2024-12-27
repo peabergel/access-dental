@@ -1,4 +1,4 @@
-<div class="relative bg-white rounded-[2rem] overflow-hidden shadow-lg flex-1" data-controller="card">
+<div class="relative bg-[#EFF8FF] rounded-[2rem] overflow-hidden flex-1 flex flex-col" data-controller="card">
   <!-- Texte qui apparaitra avec l'overlay -->
   <div class="absolute inset-0 flex items-center justify-center text-white text-lg px-5 opacity-0 transition-opacity duration-500 ease-out z-20 pointer-events-none" data-card-target="content">
     <p>
@@ -7,27 +7,41 @@
   </div>
 
   <!-- Image de la card -->
-  <div class="h-64 overflow-hidden rounded-t-[2rem]">
-    <%= image_tag article.image_url, alt: "Thibault Paquet", class: "w-full h-64 object-cover transform transition duration-500 hover:scale-110 rounded-t-[2rem]" %>
+  <div class="h-64 overflow-hidden rounded-[2rem]">
+    <%= image_tag article.image_url, alt: "Thibault Paquet", class: "w-full h-64 object-cover transform transition duration-500 hover:scale-110 rounded-[2rem]" %>
   </div>
 
   <!-- Contenu par défaut visible -->
-  <div class="p-6 relative z-10">
-    <h3 class="text-xl font-semibold text-access-dark mb-2">
+  <div class="py-6 relative z-10 flex flex-col flex-grow justify-between gap-5">
+    <h3 class="text-xl font-semibold text-access-dark">
       <%= article.title %>
     </h3>
-    <p class="text-access-dark font-light mb-4">
-      <%= article.pre_content  %>
+    <p class="text-access-dark font-light">
+      <%= article.pre_content %>
     </p>
-    <!-- Lien modifiable pour "En Savoir Plus" ou "Revenir" -->
-    <a href="#" class="text-access-blue w-1/3 font-semibold text-sm flex justify-between items-center cursor-pointer z-50 relative group hover:text-access-dark transition-colors duration-300" data-action="click->card#toggleOverlay" data-card-target="link">
-      En Savoir Plus
-      <span class="flex items-center justify-center w-6 h-6 bg-access-blue rounded-full group-hover:bg-access-dark transition-colors duration-700">
-        <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-700 ease-out text-white"></i>
-      </span>
-    </a>
+    <div class="flex justify-between items-center">
+      <a href="#" class="text-access-blue w-1/3 font-semibold text-sm flex justify-between items-center cursor-pointer z-50 relative group hover:text-access-dark transition-colors duration-300" data-action="click->card#toggleOverlay" data-card-target="link">
+        En Savoir Plus
+        <span class="flex items-center justify-center w-6 h-6 bg-access-blue rounded-full group-hover:bg-access-dark transition-colors duration-700">
+          <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-700 ease-out text-white"></i>
+        </span>
+      </a>
+
+      <% if current_user %>
+        <div class="flex gap-3">
+          <%= link_to edit_article_path(article), class: "text-gray-600 hover:text-access-blue transition-colors duration-300" do %>
+            <i class="fa-regular fa-pen-to-square text-xl"></i>
+          <% end %>
+          <%= link_to article_path(article),
+              data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" },
+              class: "text-gray-600 hover:text-red-500 transition-colors duration-300" do %>
+            <i class="fa-regular fa-trash-can text-xl"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <!-- Overlay de fond qui se déplace de gauche à droite et déclenche aussi toggle -->
-  <div class="absolute inset-0 bg-access-dark bg-opacity-95 rounded-[2rem] transition-transform duration-500 ease-out transform -translate-x-full z-10 cursor-pointer" data-card-target="overlay" data-action="click->card#toggleOverlay"></div>
+  <div class="absolute -left-[1px] inset-y-0 right-0 bg-access-dark bg-opacity-95 rounded-[2rem] transition-transform duration-500 ease-out transform -translate-x-full z-10 cursor-pointer" data-card-target="overlay" data-action="click->card#toggleOverlay"></div>
 </div>

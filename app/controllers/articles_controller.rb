@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to root_path, notice: "Article was successfully created"
+      redirect_to root_path, notice: "#{@article.title} à bien été créé"
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to root_path, notice: "Article was successfully updated"
+      redirect_to root_path, notice: "#{@article.title} à bien été modifié"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,12 +29,12 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: "#{@article.title} à bien été supprimé"
   end
 
   private
 
   def article_params
-    params.expect(article: [ :title, :image_url, :content ])
+    params.require(:article).permit(:title, :image_url, :pre_content, :content)
   end
 end

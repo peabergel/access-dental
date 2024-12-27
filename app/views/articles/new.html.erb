@@ -1,0 +1,41 @@
+<div class="container mx-auto max-w-2xl">
+  <div class="bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2 text-center">
+      Création d'un article
+    </h1>
+
+    <%= simple_form_for @article do |f| %>
+      <div class="space-y-4">
+        <%= f.input :title,
+            label: 'Titre',
+            placeholder: 'Titre de l\'article',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :pre_content,
+            label: 'Résumé',
+            placeholder: 'Bref résumé de l\'article',
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :content,
+            as: :text,
+            label: 'Contenu',
+            placeholder: "Contenu détaillé de l'article",
+            input_html: { class: 'rounded-lg', rows: 6 },
+            wrapper_html: { class: 'mb-4' } %>
+
+        <%= f.input :image_url,
+            label: 'Image',
+            placeholder: "https://res.cloudinary.com/...",
+            input_html: { class: 'rounded-lg' },
+            wrapper_html: { class: 'mb-6' } %>
+
+        <div class="text-center">
+          <%= f.submit 'Créer l\'article',
+              class: 'w-full bg-access-blue hover:bg-access-dark text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
