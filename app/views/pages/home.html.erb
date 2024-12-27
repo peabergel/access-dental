@@ -114,7 +114,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
             <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
           </svg>
-          <span class="text-access-blue font-semibold text-sm tracking-[0.2rem] uppercase">A Propos de nous</span>
+          <span class="text-access-blue font-normal text-sm tracking-[0.2rem] uppercase">A Propos de nous</span>
         </div>
         <h1 class="text-5xl font-bold text-access-dark mb-6 leading-tight">
           <span class="text-access-blue">Notre Experience</span> et Nos Engagements
@@ -184,7 +184,7 @@
     </div>
   <% end %>
 
-  <div class="container mx-auto flex md:flex-row gap-8">
+  <div class="container mx-auto flex md:flex-row gap-8" data-controller=<%= "sortable" if current_user %>>
     <% @articles.each do |article| %>
       <%= render "article_card", article: article %>
     <% end %>
@@ -212,7 +212,7 @@
       </svg>
       OFFRES
     </p>
-    <h2 class="text-5xl font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières Offres</span></h2>
+    <h2 class="text-5xl font-bold text-access-blue mb-4">Profitez de nos <span class="text-access-dark">Dernières Offres</span></h2>
     <p class="text-access-dark font-light">Découvrez les dernières offres de nos partenaires.</p>
   </div>
 
@@ -222,10 +222,10 @@
     </div>
   <% end %>
 
-  <div class="container justify-center mx-auto pt-[6rem] px-[6rem] flex gap-4">
-    <% @offers.each_with_index do |offer, index| %>
-      <div class="flex flex-col h-72 relative group">
-        <div class="<%= index.even? ? 'mb-auto' : 'mt-auto' %>">
+  <div class="container justify-center mx-auto pt-[6rem] px-[6rem] flex gap-4" data-controller=<%= "sortable" if current_user %>>
+    <% @offers.each_with_index do |offer| %>
+      <div class="flex flex-col h-72 relative group" data-sortable-url="<%= offer_positions_path(offer) %>" data-sortable-handle="">
+        <div class="<%= offer.position.even? ? 'mb-auto' : 'mt-auto' %>">
           <%= link_to offer.pdf_url, target: "_blank" do %>
             <%= image_tag offer.image_url, class: "max-h-48 w-full rounded-[2rem] shadow-lg transform transition duration-500 hover:scale-110 object-cover" %>
           <% end %>
@@ -369,7 +369,7 @@
         Nous utilisons les dernières technologies et techniques de conception pour garantir des solutions optimales à nos partenaires dentistes.
       </div>
       <div class="flex justify-center mt-6">
-        <%= link_to "Faites nous confiance", "#", class: "bg-access-blue text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
+        <%= link_to "Faites nous confiance", root_path(anchor: "contact"), class: "bg-access-blue text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
       </div>
     </div>
   </div>
