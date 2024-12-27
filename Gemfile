@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "acts_as_list"
+# Gem pour le drag and drop
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -23,6 +25,7 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 # Use .env file
 gem "devise"
+gem "pry-byebug"
 gem "simple_form-tailwind"
 gem "simple_form"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

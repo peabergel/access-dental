@@ -210,7 +210,8 @@ articles.each_with_index do |article, index|
     title: article,
     pre_content: articles_pre_contents[index],
     content: articles_content[index],
-    image_url: articles_images_url[index]
+    image_url: articles_images_url[index],
+    position: index
   )
 end
 puts "...articles created!"
@@ -235,6 +236,7 @@ offers.each_with_index do |offer, index|
   Offer.create!(
     name: offer,
     image_url: offers_images_url[index],
+    position: index,
     pdf_url: offers_pdfs_url[index]
   )
 end
