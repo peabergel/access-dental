@@ -14,15 +14,10 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/elendill/cm4r5fue100bl01r0fd3ge283", // Style noir et blanc
-      center: [0.35384, 46.56725], // Coordonnées de la carte
-      zoom: 12,
-      config: {
-        // Initial configuration for the Mapbox Standard style set above. By default, its ID is `basemap`.
-        basemap: {
-          // Here, we're setting the light preset to `night`.
-          lightPreset: 'night'
-        }
-      }
+      center: [2, 47], // Position initiale plus centrée sur le globe
+      zoom: 5, // Zoom très large pour voir le globe
+      pitch: 0,
+      bearing: 0
     });
     console.log(this.map)
     // Ajouter un marqueur
@@ -40,14 +35,32 @@ export default class extends Controller {
       .setPopup(new mapboxgl.Popup().setText("Access Dental"))
       .addTo(this.map);
 
-    // Application du filtre au survol
+    // Configuration de l'animation de zoom
+    const zoomTarget = {
+      center: [marker.lat, marker.lng],
+      zoom: 12,
+      bearing: 0, // Ajout d'une rotation pour plus d'effet
+      pitch: 0,
+      duration: 2000 // Animation plus longue pour le zoom
+    };
+
+    const initialView = {
+      center: [2, 47], // Même position initiale que dans le connect()
+      zoom: 5,
+      bearing: 0,
+      pitch: 0,
+      duration: 2000 // Animation plus longue pour le retour
+    };
+
+    // Application du filtre et zoom au survol
     this.element.addEventListener("mouseenter", () => {
-      this.element.style.filter = "grayscale(0%)"; // Enlever le filtre (couleurs)
+      this.element.style.filter = "grayscale(0%)";
+      this.map.flyTo(zoomTarget);
     });
 
-    // Réappliquer le filtre au départ
+    // Réappliquer le filtre et retour à la vue initiale
     this.element.addEventListener("mouseleave", () => {
-      this.element.style.filter = "grayscale(100%)"; // Repasser en noir et blanc
+      this.element.style.filter = "grayscale(100%)";
     });
   }
 }

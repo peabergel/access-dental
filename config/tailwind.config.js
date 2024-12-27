@@ -19,6 +19,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        zoom: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '50%': {
+            transform: 'scale(0.8)',
+          },
+          '100%': {
+            transform: 'scale(1)',
+          }
+        }
+      },
       screens: {
         '3xl': '1800px'
       },
@@ -26,7 +39,7 @@ module.exports = {
         sans: ['Poppins', 'sans-serif'],
       },
       colors: {
-        'access-blue': '#1c75bc',
+        'access-blue': '#1E84B5',
         'access-dark': '#0E384C'
       }
     },
