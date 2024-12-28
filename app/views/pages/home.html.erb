@@ -1,75 +1,73 @@
-<section class="bg-[#EFF8FF] flex justify-center bg-no-repeat bg-center bg-[url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg')]">
-  <div class="flex flex-col items-center justify-between px-8 relative sm:px-2 lg:px-6 md:px-4 3xl:max-w-[1640px] lg:flex-row xl:px-[12rem] 2xl:px-[13rem]">
-
-      <!-- Hero Section avec image de fond animée -->
-      <div class="z-10 w-1/2 mb-8 md:mb-0 md:pr-12">
-        <h1 class="text-6xl font-bold mb-6">
-          <span class="mb-3 block text-access-dark">Réalisez vos</span>
-          <span class="mb-3 block text-access-blue animate-pulse">Projets de</span>
-          <span class="block text-access-dark">Cabinets&nbsp;Dentaire</span>
+<section class="bg-[#EFF8FF] bg-no-repeat bg-center bg-[url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg')]">
+  <div class="lg:container columns-2 px-5 lg:px-0 mx-auto pt-12 lg:pt-0 flex flex-col items-center lg:flex-row 2xl:px-64">
+      <!-- Colonne de gauche -->
+      <div class="w-full mb-8 md:pr-12">
+        <h1 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
+          Réalisez vos
+          <span class="lg:block text-access-blue animate-pulse">Projets de</span>
+          Cabinets&nbsp;Dentaire
         </h1>
-        <p class="text-access-dark font-light mb-8">
-          Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.
-        </p>
+        <p class="text-access-dark font-light my-8">Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.</p>
         <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV" %>
       </div>
       <!-- Colonne de droite -->
-      <%= image_tag "banner.jpeg", alt: "Cabinet dentaire moderne", class: "w-1/2 h-full object-cover opacity-75 z-0" %>
-
-
-    <!-- Boutons de contact flottants -->
-    <div class="absolute inset-x-0 flex justify-center -bottom-8 space-x-4">
-      <% [
-        { icon: 'fas fa-phone-alt', link: '#' },
-        { icon: 'fas fa-envelope', link: '#' },
-        { icon: 'fab fa-facebook-f', link: '#' },
-        { icon: 'fab fa-instagram', link: '#' }
-      ].each do |item| %>
-        <%= link_to item[:link], class: 'group' do %>
-          <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg text-access-blue transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
-            <i class="<%= item[:icon] %> fa-xl"></i>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+      <%= image_tag "banner.png", alt: "Cabinet dentaire moderne", class: "hidden lg:block w-1/2 lg:max-h-[86vh] lg:w-full object-cover opacity-75" %>
   </div>
 </section>
 
 <%# ////////////////////////////////////////////////////////////////////////////////////////////// %>
 
-<section class="bg-access-dark h-40 flex items-center justify-center py-5">
   <!-- Section "Need Dental Services?" -->
-  <div class="flex container justify-between text-white px-[6rem]">
-    <div class="flex w-1/2 justify-between">
-      <div class="flex items-center space-x-3">
-        <i class="fas fa-phone-alt text-access-blue text-2xl"></i>
-        <div>
-          <h3 class="text-white font-semibold">Un projet à réaliser ?</h3>
+<section class="relative bg-access-dark py-8 md:py-12">
+    <!-- Boutons de contact flottants -->
+  <div class="absolute inset-x-0 flex justify-center -top-6 md:-top-8 space-x-4">
+    <% [
+      { icon: 'fas fa-phone-alt', link: '#' },
+      { icon: 'fas fa-envelope', link: '#' },
+      { icon: 'fab fa-facebook-f', link: '#' },
+      { icon: 'fab fa-instagram', link: '#' }
+    ].each do |item| %>
+      <%= link_to item[:link], class: 'group' do %>
+        <div class="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shadow-lg text-access-blue transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
+          <i class="<%= item[:icon] %> fa-lg"></i>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="lg:flex xl:container mx-auto px-4 3xl:px-64 justify-between text-white">
+    <div class="md:flex gap-5 w-full lg:w-auto mb-10 lg:mb-0">
+      <div class="mb-5 md:mb-0 md:w-1/2 lg:w-auto flex items-center md:border-r border-1 border-[#FFFFFF1F]">
+        <i class="fas fa-phone-alt text-access-blue text-3xl"></i>
+        <div class="mx-5">
+          <h3 class="font-semibold mb-3 text-xl">Un projet à réaliser ?</h3>
           <p class="text-access-light">Appelez au : 05 49 56 57 22</p>
         </div>
       </div>
-      <!-- Separator -->
-      <div class="border-l border-access-light h-10"></div>
+
       <!-- Section "Opening Hours" -->
-      <div class="flex items-center space-x-3">
-        <i class="fas fa-clock text-access-blue text-2xl"></i>
-        <div>
-          <h3 class="text-white font-semibold">Heures d'ouverture</h3>
+      <div class="flex items-center">
+        <i class="fas fa-clock text-access-blue text-3xl"></i>
+        <div class="mx-5">
+          <h3 class="text-xl font-semibold mb-3">Heures d'ouverture</h3>
           <p class="text-access-light">Du Lundi au Vendredi 8h - 17h</p>
         </div>
       </div>
     </div>
     <!-- "Make an Appointment" Button -->
-    <a href="#contact" class="relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out">
-      <span class="relative z-10 font-medium">Prendre RDV</span>
-      <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
-        <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
-        <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full group-hover:bg-access-dark transition-all duration-500 ease-out">
-          <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
+    <div class="text-center">
+      <%= link_to "#contact", class: "relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out" do %>
+        <span class="relative z-10 font-medium">Prendre un rendez-vous</span>
+        <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
+          <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
+          <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full group-hover:bg-access-dark transition-all duration-500 ease-out">
+            <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
+          </span>
         </span>
-      </span>
-      <span class="absolute rounded-full inset-0 bg-white transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
-    </a>
+        <span class="absolute rounded-full inset-0 bg-white transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+      <% end %>
+    </div>
+
   </div>
 </section>
 

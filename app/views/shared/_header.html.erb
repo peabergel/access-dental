@@ -1,71 +1,68 @@
-<header class="border-b border-gray-200 flex justify-center pt-2 h-[14vh]">
-  <div class="container px-[6rem] 3xl:max-w-[1300px] 3xl:px-0">
-    <div class="items-center top-0 flex justify-between px-5 min-h-20 h-[8vh] z-50">
+<header class="flex py-7">
+  <nav class="w-full mx-auto px-0 lg:px-4 lg:max-w-[83rem] lg:flex lg:items-center">
+    <div class="flex items-center justify-between px-4 lg:px-0">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
-        <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1735225106/Access%20dental/Images/logos/Access-dental-logo-new-transparent_jfsruw.png",
-            alt: "Logo de votre entreprise",
-            class: "w-64 object-cover" %>
+        <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1735307876/Access%20dental/Images/logos/logo-access-rectangle_pzsuy8.png",
+            alt: "Logo Access Dental",
+            class: "w-64 lg:w-[26rem] 2xl:w-[28rem]" %>
       <% end %>
 
-      <nav class="text-access-dark hidden items-center md:flex space-x-8 font-medium">
-        <% if current_user %>
-          <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "transition-all duration-200 ease-in-out text-red-600 hover:text-access-blue" %>
-        <% end %>
+      <div class="lg:hidden">
+        <button type="button" class="hs-collapse-toggle relative size-9 flex justify-center items-center gap-x-2 rounded-lg border border-access-dark bg-access-dark text-white shadow-sm hover:bg-access-blue hover:border-access-blue focus:outline-none disabled:opacity-50 disabled:pointer-events-none" id="hs-navbar-example-collapse" aria-expanded="false" aria-controls="hs-navbar-example" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-example">
+          <svg class="hs-collapse-open:hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+          <svg class="hs-collapse-open:block hidden shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+      </div>
+    </div>
+    <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow lg:block lg:bg-transparent lg:text-access-dark bg-access-dark text-white">
+      <div class="text-inherit font-medium flex flex-col gap-5 lg:gap-10 my-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:my-0">
         <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-
-        <div class="m-1 hs-dropdown [--trigger:hover] relative inline-flex">
-          <button id="hs-dropdown-hover-event"
-                  type="button"
-                  class="hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 hover:text-access-blue focus:outline-none"
-                  aria-haspopup="menu"
-                  aria-expanded="false">
-            Nos Produits
-            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+        <div class="hs-dropdown [--strategy:static] lg:[--strategy:fixed] [--adaptive:none] lg:[--trigger:hover]">
+          <button id="hs-navbar-example-dropdown" type="button" class="hs-dropdown-toggle flex items-center w-full text-inherit hover:text-access-blue focus:outline-none focus:text-access-blue font-medium" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
+            Nos&nbsp;produits
+            <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:rotate-0 duration-300 ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
 
-          <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 z-50 opacity-0 hidden min-w-[19rem] bg-[#0E384C] shadow-md rounded-2xl mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full" role="menu">
-            <ul class="p-2">
-              <% @categories.each do |category| %>
-                <li class="group/item relative">
-                  <% if category.children.any? %>
-                    <div class="flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm text-white hover:text-access-blue group-hover/item:text-access-blue">
-                      <span class="<%= 'text-access-blue' if category == @category || category == @category_parent %>">
-                        <%= category.name %>
-                      </span>
-                      <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m9 18 6-6-6-6"/>
-                      </svg>
-                    </div>
+          <div class="hs-dropdown-menu transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-80 z-10 bg-access-dark lg:shadow-md rounded-lg p-1 space-y-1 lg: before:absolute top-full lg:border before:-top-5 before:start-0 before:w-full before:h-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown">
+            <% @categories.each do |category| %>
+              <% if category.children.any? %>
+                <div class="hs-dropdown [--strategy:static] lg:[--strategy:absolute] [--adaptive:none] relative">
+                  <button id="hs-navbar-example-dropdown-sub" type="button" class="hs-dropdown-toggle w-full flex justify-between items-center text-sm text-<%= (category == @category || category == @category_parent) ? 'access-blue' : 'white' %> rounded-lg py-2 px-3 hover:text-access-blue focus:outline-none focus:text-access-blue">
+                    <%= category.name %>
+                    <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:-rotate-90 lg:-rotate-90 duration-300 ms-2 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
 
-                    <div class="invisible group-hover/item:visible absolute left-full top-0 w-2 h-full -mr-4"></div>
-                    <div class="invisible opacity-0 group-hover/item:visible group-hover/item:opacity-100 absolute left-full top-0 ml-2 min-w-[16rem] bg-[#0E384C] shadow-md rounded-2xl transition-all duration-200">
-                      <ul class="p-2">
-                        <% category.children.each do |sub_category| %>
-                          <li>
-                            <%= link_to sub_category.name,
-                                category_path(sub_category),
-                                class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm hover:text-access-blue text-#{@category == sub_category ? 'access-blue' : 'white'}" %>
-                          </li>
-                        <% end %>
-                      </ul>
+                  <div class="hs-dropdown-menu lg:[--placement:right] transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-64 hidden z-10 lg:mt-2 bg-access-dark lg:shadow-md rounded-lg lg: before:absolute lg:border lg:before:-end-5 lg:before:top-0 lg:before:h-full lg:before:w-5 lg:!mx-[10px] top-0 end-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown-sub">
+                    <div class="p-1 space-y-1">
+                      <% category.children.each do |sub_category| %>
+                        <%= link_to sub_category.name,
+                          category_path(sub_category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-#{@category == sub_category ? 'access-blue' : 'white'} hover:text-access-blue focus:outline-none focus:text-access-blue" %>
+                      <% end %>
                     </div>
-                  <% else %>
-                    <%= link_to category.name,
-                        category_path(category),
-                        class: "flex items-center justify-between gap-x-3.5 py-2 px-3 rounded-lg text-sm hover:text-access-blue text-#{@category == category ? 'access-blue' : 'white'}" %>
-                  <% end %>
-                </li>
+                  </div>
+                </div>
+              <% else %>
+                <%= link_to category.name,
+                  category_path(category), class: "flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-#{@category == category ? 'access-blue' : 'white'} hover:text-access-blue focus:outline-none focus:text-access-blue" %>
               <% end %>
-            </ul>
+            <% end %>
           </div>
         </div>
-      </nav>
-
-      <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Nous contacter" %>
+      </div>
     </div>
-  </div>
+    <div class="hidden lg:flex lg:justify-end">
+      <%= link_to root_path, class: "whitespace-nowrap relative inline-flex items-center px-4 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
+        <span class="relative z-10 font-medium">Nous contacter</span>
+        <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
+          <span class="flex items-center justify-center w-6 h-6 bg-white rounded-full">
+            <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
+          </span>
+        </span>
+        <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+      <% end %>
+    </div>
+  </nav>
 </header>
