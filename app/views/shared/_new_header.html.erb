@@ -1,10 +1,10 @@
-<header class="relative flex lg:h-[14vh] flex-wrap lg:justify-start lg:flex-nowrap w-full py-3">
-  <nav class="w-full mx-auto px-0 lg:px-4 lg:max-w-[80rem] lg:grid lg:grid-cols-3 lg:items-center">
+<header class="flex py-7">
+  <nav class="w-full mx-auto px-0 lg:px-4 lg:max-w-[83rem] lg:flex lg:items-center">
     <div class="flex items-center justify-between px-4 lg:px-0">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
         <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1735307876/Access%20dental/Images/logos/logo-access-rectangle_pzsuy8.png",
             alt: "Logo Access Dental",
-            class: "w-64 lg:w-72" %>
+            class: "w-64 lg:w-[26rem] 2xl:w-[28rem]" %>
       <% end %>
 
       <div class="lg:hidden">
@@ -16,13 +16,13 @@
       </div>
     </div>
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow lg:block lg:bg-transparent lg:text-access-dark bg-access-dark text-white">
-      <div class="text-inherit font-medium flex flex-col gap-5 mt-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:mt-0 lg:ps-5">
+      <div class="text-inherit font-medium flex flex-col gap-5 lg:gap-10 my-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:my-0">
         <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <div class="hs-dropdown [--strategy:static] lg:[--strategy:fixed] [--adaptive:none] lg:[--trigger:hover]">
           <button id="hs-navbar-example-dropdown" type="button" class="hs-dropdown-toggle flex items-center w-full text-inherit hover:text-access-blue focus:outline-none focus:text-access-blue font-medium" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
-            Nos produits
+            Nos&nbsp;produits
             <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:rotate-0 duration-300 ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
 
@@ -35,7 +35,7 @@
                     <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:-rotate-90 lg:-rotate-90 duration-300 ms-2 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
 
-                  <div class="hs-dropdown-menu transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-64 hidden z-10 lg:mt-2 bg-access-dark lg:shadow-md rounded-lg lg: before:absolute lg:border lg:before:-end-5 lg:before:top-0 lg:before:h-full lg:before:w-5 lg:!mx-[10px] top-0 end-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown-sub">
+                  <div class="hs-dropdown-menu lg:[--placement:right] transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-64 hidden z-10 lg:mt-2 bg-access-dark lg:shadow-md rounded-lg lg: before:absolute lg:border lg:before:-end-5 lg:before:top-0 lg:before:h-full lg:before:w-5 lg:!mx-[10px] top-0 end-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown-sub">
                     <div class="p-1 space-y-1">
                       <% category.children.each do |sub_category| %>
                         <%= link_to sub_category.name,
