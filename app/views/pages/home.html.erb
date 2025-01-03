@@ -1,5 +1,5 @@
 <section class="bg-[#EFF8FF] bg-no-repeat bg-center bg-[url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg')]">
-  <div class="lg:container columns-2 px-5 lg:px-0 mx-auto pt-12 lg:pt-0 flex flex-col items-center lg:flex-row 2xl:px-64">
+  <div class="lg:container columns-2 px-5 lg:px-0 mx-auto pt-12 lg:pt-0 flex flex-col items-center lg:flex-row 2xl:px-32 3xl:px-64">
       <!-- Colonne de gauche -->
       <div class="w-full mb-8 md:pr-12">
         <h1 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
@@ -73,15 +73,15 @@
 
 <%# ////////////////////////////SECTION ABOUT US//////////////////////////////////// %>
 
-<section id="about-us" class="relative w-full flex bg-cover bg-no-repeat justify-center" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
-  <div class="container px-[6rem] py-24">
-    <div class="flex items-center">
+<section id="about-us" class="relative w-full bg-cover bg-no-repeat lg:px-12 2xl:px-48 3xl:px-64" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
+  <div class="xl:container lg:py-24">
+    <div class="lg:flex items-center">
 
       <!-- Colonne gauche avec les images superposées -->
-      <div class="left-content w-[50%] pl-8 pt-24">
+      <div class="left-content lg:w-[50%] px-4 pt-8 md:px-[6rem] lg:px-0 md:pt-12 lg:pt-12">
         <div class="relative">
-          <%= image_tag "carte_V3.png", class: "w-[65%] border shadow-lg rounded-[2rem] object-cover 3xl:max-w-[416px]" %>
-          <div class="absolute top-16 right-32 w-32 h-32 3xl:right-64">
+          <%= image_tag "carte_V3.png", class: "w-[65%] border shadow-lg rounded-[2rem] object-cover lg:min-w-[416px]" %>
+          <div class="absolute top-16 right-24 w-32 h-32 sm:right-40 lg:right-12 xl:right-40 3xl:right-64">
             <div class="animate-[spin_20s_linear_infinite]">
               <svg viewBox="0 0 100 100" class="w-full h-full">
                 <defs>
@@ -100,21 +100,21 @@
           </div>
         </div>
 
-        <%= image_tag "expo.png", class: "w-[60%] object-cover rounded-[2rem] translate-x-40 -translate-y-12 border-white border-8" %>
+        <%= image_tag "expo.png", class: "w-[60%] object-cover rounded-[2rem] translate-x-40 sm:translate-x-40 md:translate-x-40 -translate-y-12 border-white border-8 lg:min-w-[316px]" %>
       </div>
 
       <!-- Colonne droite avec texte -->
-      <div class="w-[50%] lg:pl-12">
+      <div class="w-full px-5 sm:px-0 lg:w-[50%] lg:pl-12">
         <div class="flex items-center gap-2 mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
             <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
           </svg>
           <span class="text-access-blue font-normal text-sm tracking-[0.2rem] uppercase">A Propos de nous</span>
         </div>
-        <h1 class="text-5xl font-bold text-access-dark mb-6 leading-tight">
+        <h1 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
           <span class="text-access-blue">Notre Experience</span> et Nos Engagements
         </h1>
-        <p class="text-access-dark font-light mb-8">
+        <p class="text-access-dark font-light my-8">
           Depuis plus de 20 ans, Access Dental accompagne les dentistes et chirurgiens-dentistes dans la conception de leurs cabinets. Nous sommes présents sur les départements de la Vienne, des Deux-Sèvres, de la Charente, de la Charente-Maritime, de la Vendée, du Limousin, de la Dordogne et de l’Indre, avec une antenne à Poitiers et une autre à Angoulême. <br /><br />
 
           Afin de correspondre au maximum avec vos besoins, nous avons sélectionné un panel de marques et de produits répondant à nos nombreux critères d’exigence pour une gestion sereine du cabinet dentaire. Nous assurons également un suivi poussé de vos projets en nous engageant à répondre et à intervenir rapidement.
@@ -154,7 +154,7 @@
 
 <%# ////////////////////////////////SECTION NEWS /////////////////////////////////// %>
 
-<section id="news" class="py-28 px-[12rem] bg-[#EFF8FF] bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
+<section id="news" class="py-12 sm:py-28 px-0 2xl:px-[12rem] bg-[#EFF8FF] bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
   <div class="text-center mb-12">
     <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
       <svg
@@ -169,7 +169,7 @@
       </svg>
       NEWS
     </p>
-    <h2 class="text-5xl font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
+    <h2 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
     <p class="text-access-dark font-light mb-8">Cliquez ici pour souscrire à notre Newsletter.</p>
   </div>
 
@@ -179,7 +179,7 @@
     </div>
   <% end %>
 
-  <div class="container mx-auto flex md:flex-row gap-8" data-controller=<%= "sortable" if current_user %>>
+  <div class="container mx-auto sm:flex sm:grid sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8" data-controller=<%= "sortable" if current_user %>>
     <% @articles.each do |article| %>
       <%= render "article_card", article: article %>
     <% end %>
