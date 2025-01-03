@@ -154,7 +154,7 @@
 
 <%# ////////////////////////////////SECTION NEWS /////////////////////////////////// %>
 
-<section id="news" class="py-28 px-[12rem] bg-[#EFF8FF] bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
+<section id="news" class="py-12 sm:py-28 px-0 2xl:px-[12rem] bg-[#EFF8FF] bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
   <div class="text-center mb-12">
     <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
       <svg
@@ -169,7 +169,7 @@
       </svg>
       NEWS
     </p>
-    <h2 class="text-5xl font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
+    <h2 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
     <p class="text-access-dark font-light mb-8">Cliquez ici pour souscrire à notre Newsletter.</p>
   </div>
 
@@ -179,7 +179,7 @@
     </div>
   <% end %>
 
-  <div class="container mx-auto flex md:flex-row gap-8" data-controller=<%= "sortable" if current_user %>>
+  <div class="container mx-auto sm:flex sm:grid sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8" data-controller=<%= "sortable" if current_user %>>
     <% @articles.each do |article| %>
       <%= render "article_card", article: article %>
     <% end %>
