@@ -1,0 +1,36 @@
+<section id="contact" class="bg-access-light-blue">
+  <div class="py-10 lg:py-[7rem] flex flex-col-reverse px-5 mx-auto lg:container lg:grid lg:grid-cols-2 lg:gap-12 2xl:px-32 3xl:px-64">
+    <div class="w-full h-[480px] lg:h-[650px] rounded-[2rem] shadow-lg"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="pb-10 lg:pb-0 flex flex-col justify-center">
+      <div class="mb-4 justify-center lg:justify-start flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
+          <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
+        </svg>
+        <span class="text-primary font-semibold text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
+      </div>
+      <h1 class="text-5xl mb-4 font-bold text-primary leading-tight">
+        Obtenez votre <span class="text-access-dark">RDV en visio</span>
+      </h1>
+      <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
+        <%= f.hidden_field :source, value: 'home' %>
+        <div class="flex grid grid-cols-2 gap-4">
+          <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md", placeholder: "John Doe" } %>
+          <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md", placeholder: "john@example.com" } %>
+        </div>
+        <div class="flex grid grid-cols-2 gap-4">
+          <%= f.input :phone_number, label: "Téléphone", required: true, as: :tel, input_html: { class: "rounded-md", placeholder: "06 05 04 03 02" } %>
+          <%= f.input :mail_subject, label: "Objet du mail", required: true, input_html: { class: "rounded-md", placeholder: "Demande de RDV telephonique" } %>
+        </div>
+        <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md", placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire..." } %>
+        <div class="flex justify-center lg:block">
+          <%= f.button :submit, "Envoyer", class: "bg-primary text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</section>

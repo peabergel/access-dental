@@ -2,10 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 
 export default class extends Controller {
-  static values = {
-    apiKey: String,
-    markers: Array
-  }
+  static values = { apiKey: String, markers: Object }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
@@ -19,7 +16,7 @@ export default class extends Controller {
       pitch: 0,
       bearing: 0
     });
-    console.log(this.map)
+
     // Ajouter un marqueur
     this.#addMarkersToMap();
 
@@ -29,7 +26,7 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    const marker = this.markersValue[0];
+    const marker = this.markersValue;
     new mapboxgl.Marker({ color: "#1c75bc" })
       .setLngLat([marker.lat, marker.lng])
       .setPopup(new mapboxgl.Popup().setText("Access Dental"))
@@ -42,14 +39,6 @@ export default class extends Controller {
       bearing: 0, // Ajout d'une rotation pour plus d'effet
       pitch: 0,
       duration: 2000 // Animation plus longue pour le zoom
-    };
-
-    const initialView = {
-      center: [2, 47], // Même position initiale que dans le connect()
-      zoom: 5,
-      bearing: 0,
-      pitch: 0,
-      duration: 2000 // Animation plus longue pour le retour
     };
 
     // Application du filtre et zoom au survol
