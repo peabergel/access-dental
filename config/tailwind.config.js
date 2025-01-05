@@ -39,6 +39,7 @@ module.exports = {
         sans: ['Poppins', 'sans-serif'],
       },
       colors: {
+        'access-light-blue': '#EFF8FF',
         'access-blue': '#1E84B5',
         'access-dark': '#0E384C'
       }

@@ -1,0 +1,16 @@
+<section class="bg-access-light-blue bg-no-repeat bg-center bg-[url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg')]">
+  <div class="columns-2 px-5 mx-auto py-12 flex flex-col items-center lg:container lg:py-0 lg:flex-row 2xl:px-32 3xl:px-64">
+      <!-- Colonne de gauche -->
+      <div class="w-full mb-8 md:pr-12">
+        <h1 class="text-center lg:text-start text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
+          Réalisez vos
+          <span class="lg:block text-access-blue animate-pulse">Projets de</span>
+          Cabinets&nbsp;Dentaire
+        </h1>
+        <p class="text-access-dark font-light my-8">Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.</p>
+        <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV" %>
+      </div>
+      <!-- Colonne de droite -->
+      <%= image_tag "banner.png", alt: "Cabinet dentaire moderne", class: "hidden lg:block w-1/2 lg:max-h-[86vh] lg:w-full object-cover opacity-75" %>
+  </div>
+</section>

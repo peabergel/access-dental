@@ -1,0 +1,27 @@
+<section id="news" class="py-12 sm:py-28 px-0 2xl:px-[12rem] bg-access-light-blue bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
+  <div class="text-center mb-12">
+    <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
+        <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
+      </svg>
+      NEWS
+    </p>
+    <h2 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
+  </div>
+
+  <% if current_user %>
+    <div class="text-center mb-12">
+      <%= link_to "Créer une news", new_article_path, class: "bg-access-blue text-white font-medium px-6 mt-3 py-3 rounded-full hover:bg-access-dark transition-colors" %>
+    </div>
+  <% end %>
+
+  <div class="container mx-auto sm:flex sm:grid sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8" data-controller=<%= "sortable" if current_user %>>
+    <% @articles.each do |article| %>
+      <%= render "components/article_card", article: article %>
+    <% end %>
+  </div>
+
+  <div class="hidden 2xl:block flex justify-center items-center">
+    <%= image_tag "icon-star.svg", class: "absolute bottom-[28rem] w-20 left-12 animate-[zoom_1s_linear_infinite] object-cover" %>
+  </div>
+</section>

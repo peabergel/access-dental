@@ -1,0 +1,31 @@
+<div class="bg-access-light-blue flex items-center justify-center px-5 lg:px-[6rem] xl:px-[10rem] py-6">
+  <h3 class="text-access-dark text-2xl text-center font-semibold pr-5">Des marques de confiance, <br>partenaires de notre réussite</h3>
+  <!-- Slider -->
+  <div data-hs-carousel='{
+    "loadingClasses": "opacity-0",
+    "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 rounded-full cursor-pointer",
+    "isAutoPlay": true,
+    "speed": 1500,
+    "slidesQty": {
+      "xs": 1,
+      "lg": 3
+    }
+  }' class="relative w-full">
+    <div class="hs-carousel w-full overflow-hidden rounded-lg">
+      <div class="relative h-32 -mx-1">
+        <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap opacity-0 transition-transform duration-700">
+          <% @brands_images_url.each do |image_url| %>
+          <div class="hs-carousel-slide px-1">
+            <!-- Conteneur du logo -->
+            <div class="bg-access-light-blue flex justify-center items-center h-full">
+              <!-- Image avec légère échelle -->
+              <%= image_tag image_url, class: "h-full max-h-full w-auto object-contain mix-blend-multiply transform scale-125" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Slider -->
+</div>

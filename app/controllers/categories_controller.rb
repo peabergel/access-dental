@@ -12,7 +12,6 @@ class CategoriesController < ApplicationController
     end
 
     @category_parent = @category.parent if @category.parent_id
-    @products = @category.products.order(position: :asc)
     @brands_names = @category.brands.pluck(:name)
   end
 

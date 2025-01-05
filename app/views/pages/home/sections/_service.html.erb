@@ -1,0 +1,43 @@
+<section class="py-5 lg:py-16 bg-right-bottom" style="background-image: url(<%= image_path('our-service-bg.svg')%>)">
+  <div class="px-6 py-10 max-w-7xl mx-auto sm:px-8 lg:px-12">
+    <div class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
+        <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
+      </svg>
+      NOS SERVICES
+    </div>
+    <h1 class="text-center text-5xl font-bold text-access-blue mb-4">
+      Une Prestation <span class="text-access-dark">Haute Qualité</span>
+    </h1>
+    <p class="flex font-light justify-center text-access-dark mt-4">Découvrez l'ensemble de nos compétences</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 py-4">
+      <%= render "components/service_card",
+        image: "rouage.png",
+        title: "Étude de Projet",
+        text: "En lien direct avec les cabinets d'architectes, nous réalisons les plans d'implantation et participons aux réunions de chantier afin de trouver la solution adaptée à vos besoins." %>
+
+      <%= render "components/service_card",
+        image: "solution.png",
+        title: "Solution",
+        text: "Nous proposons un large choix de matériels, sélectionnés avec soin pour vous assurer une solution qualitative à long terme. Pour le reste, c'est à vous de jouer !" %>
+
+      <%= render "components/service_card",
+        image: "install.png",
+        title: "Installation",
+        text: "Après installation, nous nous engageons à vous former, vous et vos assistantes, sur l'utilisation et l'entretien de vos nouveaux matériels." %>
+
+      <%= render "components/service_card",
+        image: "SAV.png",
+        title: "SAV",
+        text: "Afin de préserver votre sérénité au sein du cabinet, nous assurons une prise en charge rapide de vos demandes d'intervention." %>
+    </div>
+
+    <p class="text-access-dark mt-8 text-center font-light lg:px-[12rem] xl:px-[20rem]">
+      Nous utilisons les dernières technologies et techniques de conception pour garantir des solutions optimales à nos partenaires dentistes.
+    </p>
+
+    <%= link_to "Faites nous confiance", root_path(anchor: "contact"), class: "block max-w-fit bg-access-blue text-white font-medium text-center mt-6 mx-auto px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
+
+  </div>
+</section>

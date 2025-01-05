@@ -1,0 +1,38 @@
+<section data-controller="scroll-reveal" class="relative bg-access-dark py-6 md:py-6 lg:py-12">
+  <%= render "components/social_media_icons" %>
+
+  <div class="justify-between text-white mx-auto px-4 py-8 lg:py-0 lg:flex xl:container 3xl:px-64">
+    <div class="md:flex gap-5 w-full lg:w-auto mb-10 lg:mb-0">
+      <div data-scroll-reveal-target="item" class="reveal mb-5 md:mb-0 md:w-1/2 lg:w-auto flex items-center md:border-r border-1 border-[#FFFFFF1F]">
+        <i class="fas fa-phone-alt text-access-blue text-3xl"></i>
+        <div class="mx-5">
+          <h3 class="font-semibold mb-3 text-xl">Un projet à réaliser ?</h3>
+          <p class="text-access-light">Appelez au : 05 49 56 57 22</p>
+        </div>
+      </div>
+
+      <!-- Section "Opening Hours" -->
+      <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal flex items-center">
+        <i class="fas fa-clock text-access-blue text-3xl"></i>
+        <div class="mx-5">
+          <h3 data-scroll-reveal-target="item" class="text-xl font-semibold mb-3">Heures d'ouverture</h3>
+          <p data-scroll-reveal-target="item" class="text-access-light">Du Lundi au Vendredi 8h - 17h</p>
+        </div>
+      </div>
+    </div>
+    <!-- "Make an Appointment" Button -->
+    <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal text-center">
+      <%= link_to "#contact", class: "relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out" do %>
+        <span class="relative z-10 font-medium">Prendre un rendez-vous</span>
+        <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
+          <!-- Flèche orientée à 45 degrés vers le haut, entourée d'un cercle blanc -->
+          <span class="flex items-center justify-center w-8 h-8 bg-white rounded-full group-hover:bg-access-dark transition-all duration-500 ease-out">
+            <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out text-access-blue"></i>
+          </span>
+        </span>
+        <span class="absolute rounded-full inset-0 bg-white transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+      <% end %>
+    </div>
+
+  </div>
+</section>
