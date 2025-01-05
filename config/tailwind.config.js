@@ -20,6 +20,25 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        reveal: {
+          '0%': {
+            transform: 'translateY(30px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        fadeIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        },
         zoom: {
           '0%': {
             transform: 'scale(1)',
@@ -31,6 +50,10 @@ module.exports = {
             transform: 'scale(1)',
           }
         }
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-out forwards',
+        reveal: 'reveal 1s ease-in-out forwards'
       },
       screens: {
         '3xl': '1800px'

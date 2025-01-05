@@ -6,7 +6,10 @@ import ScrollReveal from '@stimulus-components/scroll-reveal'
 
 // Register the above dropdown controller with Stimulus.
 import CardController from "./card_controller";
+import FadeinController from "./fadein_controller";
+
 application.register("card", CardController)
+application.register("fadein", FadeinController)
 application.register('notification', Notification)
 application.register('scroll-reveal', ScrollReveal)
 
