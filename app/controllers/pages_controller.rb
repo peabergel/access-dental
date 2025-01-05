@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @articles = Article.order(position: :asc).limit(3)
-    @offers = Offer.order(position: :asc).limit(6)
+    @articles = Article.order(position: :desc).limit(3)
+    @offers = Offer.order(position: :desc).limit(6)
     @brands_images_url = Brand.pluck(:image_url)
     @mapbox_api_key = ENV["MAPBOX_API_KEY"]
     @markers = [
