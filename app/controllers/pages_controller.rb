@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  append_view_path Rails.root.join("app/views/pages/home")
+
   def home
     @articles = Article.recents(3)
     @offers = Offer.recents(6)

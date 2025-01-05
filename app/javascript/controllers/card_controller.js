@@ -3,9 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["content", "overlay"]
 
-  toggleOverlay(event) {
-    event.preventDefault();
-
+  toggleOverlay() {
     if (this.overlayTarget.classList.contains('-translate-x-full')) {
       // Afficher l'overlay et le texte
       this.overlayTarget.classList.remove('transform', '-translate-x-full');

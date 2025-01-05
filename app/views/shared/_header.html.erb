@@ -1,4 +1,4 @@
-<header class="flex py-7">
+<header class="relative flex py-7">
   <nav class="w-full mx-auto px-0 lg:px-4 lg:max-w-[83rem] lg:flex lg:items-center">
     <div class="flex items-center justify-between px-4 lg:px-0">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
@@ -17,6 +17,9 @@
     </div>
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow lg:block lg:bg-transparent lg:text-access-dark bg-access-dark text-white">
       <div class="text-inherit font-medium flex flex-col gap-5 lg:gap-10 my-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:my-0">
+        <% if current_user %>
+          <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete }, class: "transition-all duration-200 ease-in-out text-red-500 hover:text-red-700" %>
+        <% end %>
         <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>

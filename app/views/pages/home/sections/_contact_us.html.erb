@@ -10,9 +10,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
           <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
         </svg>
-        <span class="text-primary font-semibold text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
+        <span class="text-access-blue font-semibold text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
       </div>
-      <h1 class="text-5xl mb-4 font-bold text-primary leading-tight">
+      <h1 class="text-center lg:text-start text-5xl mb-4 font-bold text-access-blue leading-tight">
         Obtenez votre <span class="text-access-dark">RDV en visio</span>
       </h1>
       <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
@@ -27,7 +27,7 @@
         </div>
         <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md", placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire..." } %>
         <div class="flex justify-center lg:block">
-          <%= f.button :submit, "Envoyer", class: "bg-primary text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
+          <%= f.button :submit, "Envoyer", class: "bg-access-blue text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
         </div>
       <% end %>
 
