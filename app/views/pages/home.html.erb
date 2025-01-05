@@ -18,7 +18,7 @@
 <%# ////////////////////////////////////////////////////////////////////////////////////////////// %>
 
   <!-- Section "Need Dental Services?" -->
-<section class="relative bg-access-dark py-8 md:py-12">
+<section data-controller="scroll-reveal" class="relative bg-access-dark py-8 md:py-12">
     <!-- Boutons de contact flottants -->
   <div class="absolute inset-x-0 flex justify-center -top-6 md:-top-8 space-x-4">
     <% [
@@ -37,7 +37,7 @@
 
   <div class="lg:flex xl:container mx-auto px-4 3xl:px-64 justify-between text-white">
     <div class="md:flex gap-5 w-full lg:w-auto mb-10 lg:mb-0">
-      <div class="mb-5 md:mb-0 md:w-1/2 lg:w-auto flex items-center md:border-r border-1 border-[#FFFFFF1F]">
+      <div data-scroll-reveal-target="item" class="reveal mb-5 md:mb-0 md:w-1/2 lg:w-auto flex items-center md:border-r border-1 border-[#FFFFFF1F]">
         <i class="fas fa-phone-alt text-access-blue text-3xl"></i>
         <div class="mx-5">
           <h3 class="font-semibold mb-3 text-xl">Un projet à réaliser ?</h3>
@@ -46,16 +46,16 @@
       </div>
 
       <!-- Section "Opening Hours" -->
-      <div class="flex items-center">
+      <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal flex items-center">
         <i class="fas fa-clock text-access-blue text-3xl"></i>
         <div class="mx-5">
-          <h3 class="text-xl font-semibold mb-3">Heures d'ouverture</h3>
-          <p class="text-access-light">Du Lundi au Vendredi 8h - 17h</p>
+          <h3 data-scroll-reveal-target="item" class="text-xl font-semibold mb-3">Heures d'ouverture</h3>
+          <p data-scroll-reveal-target="item" class="text-access-light">Du Lundi au Vendredi 8h - 17h</p>
         </div>
       </div>
     </div>
     <!-- "Make an Appointment" Button -->
-    <div class="text-center">
+    <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal text-center">
       <%= link_to "#contact", class: "relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out" do %>
         <span class="relative z-10 font-medium">Prendre un rendez-vous</span>
         <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">

@@ -10,7 +10,7 @@ window.Stimulus   = application
 export { application }
 
 document.addEventListener("turbo:load", () => {
-    HSStaticMethods.autoInit();
+  HSStaticMethods.autoInit();
 });
 
 document.addEventListener("turbo:render", () => {

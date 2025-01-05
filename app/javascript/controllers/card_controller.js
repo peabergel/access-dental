@@ -3,13 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["content", "overlay"]
 
-  connect() {
-    console.log("Card controller connected")
-  }
-
   toggleOverlay(event) {
     event.preventDefault();
-    console.log("Overlay toggled");
 
     if (this.overlayTarget.classList.contains('-translate-x-full')) {
       // Afficher l'overlay et le texte
