@@ -1,12 +1,16 @@
-<section id="news" class="py-12 sm:py-28 px-0 2xl:px-[12rem] bg-access-light-blue bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
+<section id="news" data-controller="fadein scroll-reveal"class="py-12 sm:py-28 px-0 2xl:px-[12rem] bg-access-light-blue bg-center bg-content bg-no-repeat relative" style="background-image: url(<%= image_path('our-blog-bg.svg')%>)">
   <div class="text-center mb-12">
-    <p class="text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
+    <p data-scroll-reveal-target="item" class="reveal text-access-blue font-normal text-sm tracking-[0.2rem] mb-2 flex justify-center items-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">
         <path d="M12 5.98442C7.01299 6.54546 6.57662 7.01299 6.01558 12C5.45455 7.01299 4.98701 6.54546 0 5.98442C4.98701 5.42338 5.45455 4.98701 6.01558 0C6.57662 4.98701 7.01299 5.42338 12 5.98442Z" fill="#1E84B5"/>
       </svg>
       NEWS
     </p>
-    <h2 class="text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-blue mb-4">Consultez nos <span class="text-access-dark">Dernières News</span></h2>
+    <h2 class="text-4xl lg:text-[48px] lg:leading-[4rem] font-bold mb-4">
+      <span data-fadein-target="part" data-delay="0.25" class="text-access-blue">Consultez nos</span>
+      <span data-fadein-target="part" data-delay="0.6" class="text-access-dark">Dernières News</span>
+    </h2>
+    <p data-scroll-reveal-target="item" data-delay="200ms" class="reveal font-light text-gray-500">Suivez l'actualité d'Access Dental : innovations, événements et moments forts de notre entreprise.</p>
   </div>
 
   <% if current_user %>
@@ -16,8 +20,8 @@
   <% end %>
 
   <div class="container mx-auto sm:flex sm:grid sm:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-8" data-controller=<%= "sortable" if current_user %>>
-    <% @articles.each do |article| %>
-      <%= render "components/article_card", article: article %>
+    <% @articles.each_with_index do |article, index| %>
+      <%= render "components/article_card", article: article, delay: index * 300 %>
     <% end %>
   </div>
 

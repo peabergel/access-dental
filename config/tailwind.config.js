@@ -22,16 +22,24 @@ module.exports = {
       keyframes: {
         reveal: {
           '0%': {
-            transform: 'translateY(30px)'
+            transform: 'translateY(50px)'
           },
           '100%': {
             opacity: '1',
             transform: 'translateY(0)'
           }
         },
+        revealside: {
+          '0%': {
+            transform: 'translateX(30px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        },
         fadeIn: {
           '0%': {
-            opacity: '0',
             transform: 'translateX(10px)'
           },
           '100%': {
@@ -53,7 +61,8 @@ module.exports = {
       },
       animation: {
         fadeIn: 'fadeIn 0.5s ease-out forwards',
-        reveal: 'reveal 1s ease-in-out forwards'
+        reveal: 'reveal 1s ease-in-out forwards',
+        revealside: 'revealside 1s ease-in-out forwards'
       },
       screens: {
         '3xl': '1800px'
