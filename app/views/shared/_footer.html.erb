@@ -1,3 +1,41 @@
-<footer class="bg-access-dark text-white flex items-center justify-center py-20 px-5 lg:px-[6rem] xl:px-[10rem]">
-  <p>Copyright © 2024 Access Dental : Équipement dentaire à Poitiers (86, Vienne, Poitou-Charentes, Nouvelle-Aquitaine)</p>
+<footer class="bg-access-dark text-white flex-col items-center justify-center py-14 md:px-2 lg:px-[3rem] xl:px-[10rem]">
+  <div class="lg:grid lg:grid-cols-3 lg:gap-9">
+    <div class="lg:flex-col">
+      <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1736346424/Access%20dental/Images/logos/Logo_dark_axrok9.png",
+          alt: "Logo Access Dental",
+          class: "w-48 lg:w-[16rem] 2xl:w-[14rem] py-5" %>
+      <p class="leading-7 text-white">Votre partenaire pour des cabinets dentaires d’exception, où qualité, innovation et accompagnement personnalisé sont au cœur de nos engagements.</p>
+    </div>
+    <div class="md:flex md:justify-between lg:col-span-2">
+      <div class="py-2 md:py-0">
+        <h4 class="font-semibold text-xl py-5">Liens</h4>
+        <ul>
+          <li class="py-1"><%= link_to "Accueil", root_path(anchor: "header") %></li>
+          <li class="py-1"><%= link_to "A propos", root_path(anchor: "about-us") %></li>
+          <li class="py-1"><%= link_to "News", root_path(anchor: "news") %></li>
+          <li class="py-1"><%= link_to "Offres", root_path(anchor: "offres") %></li>
+          <li class="py-1"><%= link_to "Services", root_path(anchor: "services") %></li>
+        </ul>
+      </div>
+      <div class="py-2 md:py-0">
+        <h4 class="font-semibold text-xl py-5">Réseaux</h4>
+        <ul>
+          <li class="py-1"><i class="fa-brands fa-facebook pr-2"></i><%= link_to "Facebook", "https://www.facebook.com/accessdental86/", target: "_blank" %></li>
+          <li class="py-1"><i class="fa-brands fa-instagram pr-2"></i><%= link_to "Instagram", "https://www.instagram.com/accessdentalpoitiers" %></li>
+        </ul>
+      </div>
+      <div class="py-2 md:py-0">
+        <h4 class="font-semibold text-xl py-5">Nous Contacter</h4>
+        <ul>
+          <li class="py-1"><i class="fa-solid fa-location-dot pr-2"></i>8 rue des Ajassons, 86000 POITIERS</li>
+          <li class="py-1"><i class="fa-solid fa-phone pr-2"></i><%= link_to "+33 5 49 67 57 22 ", "tel:+33549675722" %></li>
+          <li class="py-1"><i class="fa-solid fa-envelope pr-2"></i><%= link_to "Prendre Rendez-vous", root_path(anchor: "contact"), data: { turbo: false } %></li>
+          <li class="py-1"><i class="fa-solid fa-clock pr-2"></i>Lun - Ven / 8h - 17h</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pt-10 mt-10 text-center w-full border-t-[0.1px] border-gray-500">
+    <p class="">Copyright © 2024 Access Dental : Équipement dentaire à Poitiers (86, Vienne, Poitou-Charentes, Nouvelle-Aquitaine)</p>
+  </div>
 </footer>

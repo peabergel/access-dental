@@ -1,4 +1,4 @@
-<header class="relative flex py-2">
+<header id="header" class="relative flex py-2">
   <nav class="w-full mx-auto px-0 lg:px-4 lg:max-w-[83rem] lg:flex lg:items-center">
     <div class="flex items-center justify-between px-4 lg:px-0">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
@@ -23,6 +23,7 @@
         <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "Services", root_path(anchor: "services"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
         <div class="hs-dropdown [--strategy:static] lg:[--strategy:fixed] [--adaptive:none] lg:[--trigger:hover]">
           <button id="hs-navbar-example-dropdown" type="button" class="hs-dropdown-toggle flex items-center w-full text-inherit hover:text-access-blue focus:outline-none focus:text-access-blue font-medium" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
             Nos&nbsp;produits
@@ -57,7 +58,7 @@
       </div>
     </div>
     <div class="hidden lg:flex lg:justify-end">
-      <%= link_to root_path, class: "whitespace-nowrap relative inline-flex items-center px-4 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
+      <%= link_to root_path(anchor: "contact"), class: "whitespace-nowrap relative inline-flex items-center px-4 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg" do %>
         <span class="relative z-10 font-medium">Nous contacter</span>
         <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
           <span class="flex items-center justify-center w-6 h-6 bg-white rounded-full">

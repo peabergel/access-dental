@@ -1,10 +1,10 @@
-<div class="bg-access-light-blue bg-center bg-[url('https://demo.awaikenthemes.com/html-preview/dentaire/images/hero-bg.svg')]">
+<div data-controller="scroll-reveal" class="bg-access-light-blue bg-center bg-[url('<%= asset_path('hero-bg.svg') %>')]">
   <div class="container min-h-[62vh] mx-auto py-10 px-2 lg:px-24 xl:px-48">
     <div class="flex flex-wrap justify-center gap-2 rounded-2xl">
       <% if @brands.any? %>
-        <%= link_to "Toutes les marques", category_path(@category), class: "whitespace-nowrap text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
+        <%= link_to "Toutes les marques", category_path(@category), class: "whitespace-nowrap text-white rounded-full bg-access-dark focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
         <% @brands_names.each do |brand_name| %>
-          <%= link_to brand_name, category_path(@category, brand: brand_name), class: "whitespace-nowrap text-white rounded-full bg-access-blue hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
+          <%= link_to brand_name, category_path(@category, brand: brand_name), class: "whitespace-nowrap text-white rounded-full bg-access-blue hover:bg-access-dark focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
         <% end %>
       <% else %>
         <h1 class="text-xl">Oups, il n'y a aucun produit ici...</h1>
@@ -13,10 +13,11 @@
         <%= link_to '+ Ajouter un produit', new_category_product_path(@category), class: "text-white rounded-full bg-access-dark hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
       <% end %>
     </div>
-
+    <div data-scroll-reveal-target="item" class="reveal">
       <% @brands.each_with_index do |brand| %>
         <%= render "brand_card", brand: brand, category: @category, products: @category.brand_category_products(brand) %>
       <% end %>
+    </div>
 
   </div>
 </div>
