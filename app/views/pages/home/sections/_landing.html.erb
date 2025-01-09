@@ -19,16 +19,17 @@
         }' class="hidden lg:block w-full relative">
         <div class="hs-carousel relative overflow-hidden w-full min-h-[86vh]">
           <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
-          <% (0..7).each do |i| %>
+          <% 6.times do |i| %>
             <div class="hs-carousel-slide">
               <div class="flex justify-center h-full">
-                <%= image_tag "landing#{i}.png", alt: "Image de cabinet dentaire #{i}", class: "hidden transition duration-700 lg:block lg:w-full object-cover" %>
+                <%= image_tag "landing#{i}.png", alt: "Image de cabinet dentaire #{i} - Access Dental", class: "hidden transition duration-700 lg:block lg:w-full object-cover" %>
               </div>
             </div>
           <% end %>
           </div>
         </div>
       </div>
+
 <!-- End Slider -->
 
   </div>

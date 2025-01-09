@@ -1,5 +1,7 @@
 import { Application } from "@hotwired/stimulus"
 import "preline"
+import { register } from "swiper/element/bundle";
+register();
 
 const application = Application.start()
 

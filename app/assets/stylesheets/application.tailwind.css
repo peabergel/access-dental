@@ -12,4 +12,7 @@
     @apply opacity-100 transform-none;
   }
 
+  .group:hover .reveal {
+    @apply translate-y-0;
+  }
 }

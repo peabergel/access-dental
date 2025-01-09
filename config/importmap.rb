@@ -13,3 +13,6 @@ pin "stimulus-use" # @0.52.3
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "sortablejs" # @1.15.6
 pin "@stimulus-components/scroll-reveal", to: "@stimulus-components--scroll-reveal.js" # @4.0.0
+pin "@stimulus-components/carousel", to: "@stimulus-components--carousel.js" # @6.0.0
+pin "swiper/bundle", to: "swiper--bundle.js" # @11.2.0
+pin "swiper/element/bundle", to: "swiper--element--bundle.js" # @11.2.0

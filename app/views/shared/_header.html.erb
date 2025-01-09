@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between px-4 lg:px-0">
       <%= link_to root_path, class: "flex h-full overflow-hidden mix-blend-multiply" do %>
         <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1736258524/Access%20dental/Images/logos/Logo_recadre%CC%81_stpv9y.png",
-            alt: "Logo Access Dental",
+            alt: "Logo Access Dental - Conception de cabinets dentaires",
             class: "w-48 lg:w-[16rem] 2xl:w-[20rem]" %>
       <% end %>
 
@@ -18,12 +18,12 @@
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow lg:block lg:bg-transparent lg:text-access-dark bg-access-dark text-white">
       <div class="text-inherit font-medium flex flex-col gap-5 lg:gap-10 my-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:my-0">
         <% if current_user %>
-          <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete }, class: "transition-all duration-200 ease-in-out text-red-500 hover:text-red-700" %>
+          <%= link_to raw('<i class="fa-solid fa-user-slash text-red-500 text-lg"></i>'), destroy_user_session_path, data: { turbo_method: :delete }, class: "transition-all duration-200 ease-in-out hover:text-red-700", title: "Déconnexion" %>
         <% end %>
-        <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-        <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-        <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
-        <%= link_to "Services", root_path(anchor: "services"), class: "transition-all duration-200 ease-in-out hover:text-access-blue" %>
+        <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "En savoir plus sur notre entreprise" %>
+        <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "Consulter nos actualités" %>
+        <%= link_to "Offres", root_path(anchor: "offres"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "Voir nos offres" %>
+        <%= link_to "Services", root_path(anchor: "services"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "Découvrir nos services" %>
         <div class="hs-dropdown [--strategy:static] lg:[--strategy:fixed] [--adaptive:none] lg:[--trigger:hover]">
           <button id="hs-navbar-example-dropdown" type="button" class="hs-dropdown-toggle flex items-center w-full text-inherit hover:text-access-blue focus:outline-none focus:text-access-blue font-medium" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
             Nos&nbsp;produits

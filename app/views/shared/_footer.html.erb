@@ -1,4 +1,4 @@
-<footer class="bg-access-dark text-white flex-col items-center justify-center py-14 md:px-2 lg:px-[3rem] xl:px-[10rem]">
+<footer class="bg-access-dark text-white flex-col items-center justify-center py-14 px-5 md:px-2 lg:px-[3rem] xl:px-[10rem]">
   <div class="lg:grid lg:grid-cols-3 lg:gap-9">
     <div class="lg:flex-col">
       <%= image_tag "https://res.cloudinary.com/dmlvtscck/image/upload/v1736346424/Access%20dental/Images/logos/Logo_dark_axrok9.png",
@@ -28,7 +28,7 @@
         <h4 class="font-semibold text-xl py-5">Nous Contacter</h4>
         <ul>
           <li class="py-1"><i class="fa-solid fa-location-dot pr-2"></i>8 rue des Ajassons, 86000 POITIERS</li>
-          <li class="py-1"><i class="fa-solid fa-phone pr-2"></i><%= link_to "+33 5 49 67 57 22 ", "tel:+33549675722" %></li>
+          <li class="py-1"><i class="fa-solid fa-phone pr-2"></i><%= link_to "+33 5 49 67 57 22", "tel:+33549675722" %></li>
           <li class="py-1"><i class="fa-solid fa-envelope pr-2"></i><%= link_to "Prendre Rendez-vous", root_path(anchor: "contact"), data: { turbo: false } %></li>
           <li class="py-1"><i class="fa-solid fa-clock pr-2"></i>Lun - Ven / 8h - 17h</li>
         </ul>

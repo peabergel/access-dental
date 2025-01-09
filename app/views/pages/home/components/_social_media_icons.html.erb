@@ -1,12 +1,12 @@
-<div class="absolute inset-x-0 flex justify-center -top-6 md:-top-8 space-x-4">
+<div data-controller="scroll-reveal" class="absolute inset-x-0 flex justify-center -top-6 md:-top-8 space-x-4">
   <% [
-    { icon: 'fas fa-phone-alt', link: '#' },
-    { icon: 'fas fa-envelope', link: '#' },
-    { icon: 'fab fa-facebook-f', link: '#' },
-    { icon: 'fab fa-instagram', link: '#' }
+    { icon: 'fas fa-phone-alt', link: 'tel:+33549675722' },
+    { icon: 'fas fa-envelope', link: '#contact' },
+    { icon: 'fab fa-facebook-f', link: 'https://www.facebook.com/accessdental86/', target: "_blank" },
+    { icon: 'fab fa-instagram', link: 'https://www.instagram.com/accessdentalpoitiers', target: "_blank" }
   ].each do |item| %>
-    <%= link_to item[:link], class: 'group' do %>
-      <div class="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shadow-lg text-access-blue transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
+    <%= link_to item[:link], target: item[:target], class: 'group' do %>
+      <div data-scroll-reveal-target="item" class="reveal bg-white border border-[0.1px] border-gray-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shadow-lg text-access-blue transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
         <i class="<%= item[:icon] %> fa-lg"></i>
       </div>
     <% end %>
