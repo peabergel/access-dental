@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import "preline"
 
 const application = Application.start()
 

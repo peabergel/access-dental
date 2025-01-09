@@ -1,7 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* mapboxGL */
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+/* SwiperJS */
+@import url("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
+/* Google Font Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
 @layer components {
   .reveal {
