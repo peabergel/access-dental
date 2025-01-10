@@ -18,7 +18,7 @@
     <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow lg:block lg:bg-transparent lg:text-access-dark bg-access-dark text-white">
       <div class="text-inherit font-medium flex flex-col gap-5 lg:gap-10 my-5 px-4 lg:px-0 lg:flex-row lg:items-center lg:justify-center lg:my-0">
         <% if current_user %>
-          <%= link_to raw('<i class="fa-solid fa-user-slash text-red-500 text-lg"></i>'), destroy_user_session_path, data: { turbo_method: :delete }, class: "transition-all duration-200 ease-in-out hover:text-red-700", title: "Déconnexion" %>
+          <%= link_to sanitize('<i class="fa-solid fa-user-slash text-red-500 hover:text-red-800 transition ease-out duration-300 text-lg"></i>'), destroy_user_session_path, data: { turbo_method: :delete }, class: "transition-all duration-200 ease-in-out hover:text-red-700", title: "Déconnexion" %>
         <% end %>
         <%= link_to "L'entreprise", root_path(anchor: "about-us"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "En savoir plus sur notre entreprise" %>
         <%= link_to "News", root_path(anchor: "news"), class: "transition-all duration-200 ease-in-out hover:text-access-blue", title: "Consulter nos actualités" %>
