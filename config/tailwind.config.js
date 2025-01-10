@@ -8,6 +8,8 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   safelist: [
+    'will-change-transform',
+    'will-change-opacity',
     "border-red-500",
     "text-sky-500",
     "border-green-400",
