@@ -1,5 +1,5 @@
 <div class="bg-white max-w-[60rem] mx-auto rounded-2xl border-[0.2px] border-access-blue px-4 my-10 relative">
-  <div class="absolute w-[20rem] h-64 rounded-lg top-44 left-52" style="background: linear-gradient(to right, <%= brand.secondary_color %>1A 0%, <%= brand.secondary_color %>00 100%);"></div>
+  <div class="absolute w-[12rem] sm:w-[20rem] h-64 rounded-lg top-40 left-40 sm:top-44 sm:left-56" style="background: linear-gradient(to right, <%= brand.secondary_color %>1A 0%, <%= brand.secondary_color %>00 100%);"></div>
   <div class="brand-card__header px-5 flex flex justify-between items-center">
     <%= image_tag brand.image_url, width: 100 %>
     <%= link_to brand.website_url, target: "_blank", class: "inline-flex items-center text-access-blue hover:text-access-dark transition-colors duration-300 group" do %>
@@ -17,7 +17,7 @@
         <div class="hs-carousel-pagination max-h-96 flex flex-col gap-y-2 overflow-y-auto">
 
           <% products.each do |product| %>
-            <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[150px] h-[150px] hs-carousel-active:border-access-blue">
+            <div class="hs-carousel-pagination-item little-card-<%= brand.id %> shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] hs-carousel-active:border-access-blue">
               <%= image_tag product.image_url, class: "object-cover" %>
             </div>
           <% end %>
@@ -29,8 +29,8 @@
         <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
           <% products.each do |product| %>
             <div class="hs-carousel-slide pl-3 flex <%= "gap-32" if products.count == 1 %>">
-              <div class="left-content flex flex-col justify-around pr-3">
-                <h1 class="text-access-dark font-semibold text-5xl tracking-[0.2rem]"><%= product&.name&.upcase %></h1>
+              <div class="left-content flex flex-col justify-between sm:justify-around pr-3">
+                <h1 class="text-access-dark font-semibold text-3xl sm:text-4xl md:text-5xl tracking-[0.2rem]"><%= product&.name&.upcase %></h1>
 
                 <p class="leading-7 font-extralight"><%= product&.description %>
                   <div class="flex justify-between items-center pt-1">
@@ -53,8 +53,9 @@
                   </div>
                 </p>
 
-                <%= link_to new_contacts_path(product_id: product), class: "whitespace-nowrap relative inline-flex items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
-                    <span class="relative z-10 font-light">Demander un devis</span>
+                <%= link_to new_contacts_path(product_id: product), class: "whitespace-nowrap relative inline-flex mb-2 sm:mb-0 items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
+                    <span class="relative z-10 font-light hidden sm:inline">Demander un devis</span>
+                    <span class="relative z-10 font-light inline sm:hidden">Devis</span>
                     <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
                       <span class="flex items-center justify-center w-6 h-6">
                         <i class="fa-regular fa-envelope text-white"></i>
