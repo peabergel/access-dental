@@ -13,3 +13,4 @@ pin "@stimulus-components/notification", to: "@stimulus-components--notification
 pin "@stimulus-components/scroll-reveal", to: "@stimulus-components--scroll-reveal.js" # @4.0.0
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "sortablejs" # @1.15.6
+pin "animejs" # @3.2.2
