@@ -30,7 +30,7 @@
             <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:rotate-0 duration-300 ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
 
-          <div class="hs-dropdown-menu transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-80 z-10 bg-access-dark lg:shadow-md rounded-lg p-1 space-y-1 lg: before:absolute top-full lg:border before:-top-5 before:start-0 before:w-full before:h-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown">
+          <div class="hs-dropdown-menu border-none transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 lg:w-80 z-10 bg-access-dark lg:shadow-md rounded-lg p-1 space-y-1 lg: before:absolute top-full lg:border before:-top-5 before:start-0 before:w-full before:h-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown">
             <% @categories.each do |category| %>
               <% if category.children.any? %>
                 <div class="hs-dropdown [--strategy:static] lg:[--strategy:absolute] [--adaptive:none] relative">
