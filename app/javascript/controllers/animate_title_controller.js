@@ -4,6 +4,7 @@ import anime from "animejs"
 // Connects to data-controller="animate_title"
 export default class extends Controller {
   connect() {
+    document.querySelectorAll(".ml1").forEach(el => el.style.opacity = 1);
     var textWrappers = document.querySelectorAll('.ml1 .letters');
     textWrappers.forEach((textWrapper) => {
       textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -18,6 +19,6 @@ export default class extends Controller {
         easing: "easeOutExpo",
         duration: 1200,
         delay: (el, i) => 500 + 30 * i
-      }).add({ opacity: 1 });
+      });
   }
 }

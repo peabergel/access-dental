@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import anime from "animejs"
 
 // Connects to data-controller="fadein"
 export default class extends Controller {
@@ -6,7 +7,6 @@ export default class extends Controller {
 
   connect() {
     this.observer = new IntersectionObserver(this.#handleIntersect.bind(this), {
-    threshold: 0.1, // 10% de l'élément visible pour déclencher l'animation
     });
 
     // Observer chaque cible
@@ -23,15 +23,17 @@ export default class extends Controller {
   }
 
   #animateTitle(target) {
-    const delayOffset = parseFloat(target.dataset.delay || "0"); // Option de délai depuis un attribut
-    const text = target.innerText;
-    target.innerHTML = text
-      .split("")
-      .map(
-        (letter, index) =>
-          `<span class="opacity-0 animate-fadeIn" style="animation-delay:${delayOffset + index * 0.03
-          }s">${letter}</span>`
-      )
-      .join("");
+    target.innerHTML = target.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({loop: false})
+      .add({
+        targets: '.ml1 .letter',
+        translateX: [40,0],
+        translateZ: 0,
+        opacity: [0,1],
+        easing: "easeOutExpo",
+        duration: 1200,
+        delay: (el, i) => 500 + 30 * i
+      });
   }
 }
