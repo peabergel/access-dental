@@ -2,10 +2,10 @@
   <div class="columns-2 px-5 mx-auto py-12 flex flex-col items-center lg:container lg:py-0 lg:flex-row 2xl:px-32 3xl:px-64">
       <!-- Colonne de gauche -->
       <div class="w-full mb-8 md:pr-12">
-        <h1 data-controller="fadein" class="text-center lg:text-start text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
-          <span data-fadein-target="part" data-delay="0.25" class="animate-[revealX_1s_ease-in-out_forwards_250ms] whitespace-nowrap lg:block">Réalisez&nbsp;vos</span>
-          <span data-fadein-target="part" data-delay="0.50" class="animate-[revealX_1s_ease-in-out_forwards_450ms] whitespace-nowrap lg:block text-access-blue">Projets&nbsp;de</span>
-          <span data-fadein-target="part" data-delay="0.75" class="animate-[revealX_1s_ease-in-out_forwards_700ms] whitespace-nowrap lg:block">Cabinets&nbsp;Dentaire</span>
+        <h1 class="ml1 text-center lg:text-start text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
+          <span class="letters whitespace-nowrap lg:block">Réalisez&nbsp;vos</span>
+          <span class="letters whitespace-nowrap lg:block text-access-blue">Projets&nbsp;de</span>
+          <span class="letters whitespace-nowrap lg:block">Cabinets&nbsp;Dentaire</span>
         </h1>
         <p class="opacity-0 animate-revealY text-access-dark font-light my-8">Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.</p>
         <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV", extra_class: "opacity-0 animate-[revealY_1s_ease-in-out_forwards_300ms]" %>
@@ -22,3 +22,37 @@
       </div>
   </div>
 </section>
+
+
+<script>
+
+var textWrappers = document.querySelectorAll('.ml1 .letters');
+textWrappers.forEach((textWrapper) => {
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+})
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 600,
+    delay: (el, i) => 70 * (i+1)
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: (el, i, l) => 80 * (l - i)
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script>
