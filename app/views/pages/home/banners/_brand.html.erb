@@ -13,17 +13,3 @@
     </div>
   </div>
 </div>
-
-<div class="bg-access-light-blue flex items-center justify-center px-5 lg:px-[6rem] xl:px-[10rem] py-6">
-  <h3 class="w-1/4 text-access-dark mr-4 text-2xl text-center font-semibold pr-5">Des marques de confiance, <br>partenaires de notre réussite</h3>
-
-  <div data-controller="carousel-slide" class="swiper mySwiper2 w-3/4">
-    <div class="swiper-wrapper">
-      <% @brands_images_url.each do |image_url| %>
-        <div class="swiper-slide bg-access-light-blue">
-          <%= image_tag image_url, class: "h-40 object-contain mix-blend-multiply" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
