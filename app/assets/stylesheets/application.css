@@ -54,4 +54,16 @@
   .offer-8 {
     transition-delay: 1600ms;
   }
+
+  .service-card-1 {
+    transition-delay: 300ms;
+  }
+
+  .service-card-2 {
+    transition-delay: 600ms;
+  }
+
+  .service-card-3 {
+    transition-delay: 900ms;
+  }
 }

@@ -21,7 +21,7 @@
       ] %>
 
       <% services.each_with_index do |service, index| %>
-        <%= render "components/service_card", image: service[:image], title: service[:title], text: service[:text] , delay: index * 300 %>
+        <%= render "components/service_card", image: service[:image], title: service[:title], text: service[:text], index: index %>
       <% end %>
     </div>
 
