@@ -12,9 +12,9 @@
         </svg>
         <span data-scroll-reveal-target="item" class="reveal text-access-blue font-normal text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
       </div>
-      <h1 class="text-center lg:text-start text-4xl lg:text-[48px] mb-4 font-bold text-access-blue leading-tight">
-        <span data-fadein-target="part" data-delay="0.25">Obtenez votre</span>
-        <span data-fadein-target="part" data-delay="0.6" class="text-access-dark">RDV en visioconférence</span>
+      <h1 class="ml2 opacity-0 text-center lg:text-start text-4xl lg:text-[48px] mb-4 font-bold text-access-blue leading-tight">
+        <span data-fadein-target="part" data-truc="5" class="letters-5">Obtenez votre</span>
+        <span data-fadein-target="part" data-truc="5" class="letters-5 text-access-dark">RDV en visioconférence</span>
       </h1>
       <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal">
         <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>

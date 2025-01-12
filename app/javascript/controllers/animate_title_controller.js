@@ -18,7 +18,7 @@ export default class extends Controller {
         opacity: [0,1],
         easing: "easeOutExpo",
         duration: 1200,
-        delay: (el, i) => 500 + 30 * i
+        delay: (el, i) => 200 + 30 * i
       });
   }
 }

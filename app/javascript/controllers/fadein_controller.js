@@ -18,7 +18,7 @@ export default class extends Controller {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const id = entry.target.dataset.truc;
-        document.querySelectorAll(`.letters-${id}`).forEach(el => el.innerHTML = el.textContent.replace(/\S/g, `<span class='letter-${id} opacity-0'>$&</span>`));
+        document.querySelectorAll(`.letters-${id}`).forEach(el => el.innerHTML = el.textContent.replace(/\S/g, `<span class='letter-${id} inline-block opacity-0'>$&</span>`));
         this.#animateTitle(entry.target); // Lance l'animation
         this.observer.unobserve(entry.target); // Arrête d'observer l'élément après animation
       }
@@ -32,6 +32,7 @@ export default class extends Controller {
       .add({
         targets: `.ml2 .letter-${id}`,
         translateX: [40,0],
+        translateZ: 0,
         opacity: 1,
         easing: "easeOutExpo",
         duration: 1200,
