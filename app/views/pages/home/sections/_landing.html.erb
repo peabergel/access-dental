@@ -1,17 +1,18 @@
 <section class="bg-access-light-blue bg-no-repeat bg-center bg-[url('hero-bg.svg')]">
   <div class="columns-2 px-5 mx-auto py-12 flex flex-col items-center lg:container lg:py-0 lg:flex-row 2xl:px-32 3xl:px-64">
       <!-- Colonne de gauche -->
-      <div data-controller="animate-title" class="w-full mb-8 md:pr-12">
-        <h1 class="ml1 opacity-0 text-center lg:text-start text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
-          <span class="letters whitespace-nowrap lg:block">Réalisez&nbsp;vos</span>
-          <span class="letters whitespace-nowrap lg:block text-access-blue">Projets&nbsp;de</span>
-          <span class="letters whitespace-nowrap lg:block">Cabinets&nbsp;Dentaire</span>
+      <div class="w-full mb-8 md:pr-12">
+        <h1 data-animate-title-target="title" class="text-center lg:text-start text-3xl sm:text-4xl lg:text-[54px] lg:leading-[4rem] font-bold text-access-dark">
+          <span class="opacity-0 whitespace-nowrap">Réalisez&nbsp;vos</span>
+          <span class="opacity-0 whitespace-nowrap text-access-blue">Projets&nbsp;de</span>
+          <span class="opacity-0 whitespace-nowrap">Création&nbsp;de</span>
+          <span class="opacity-0 whitespace-nowrap">Cabinets&nbsp;Dentaire</span>
         </h1>
         <p class="opacity-0 animate-revealY text-access-dark font-light my-8">Forte de 20 ans d'expérience et plus de 500 réalisations, notre équipe d'experts vous accompagne dans la création de votre cabinet dentaire. De la conception à la réalisation, nous gérons l'intégralité de votre projet pour vous permettre de vous concentrer sur l'essentiel : vos patients.</p>
         <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV", extra_class: "opacity-0 animate-[revealY_1s_ease-in-out_forwards_300ms]" %>
       </div>
 
-      <div data-controller="swiper" id="landingSwiper" class="swiper lg:block w-full">
+      <div id="landingSwiper" class="swiper lg:block w-full">
         <div class="swiper-wrapper">
           <% 6.times do |i| %>
             <div class="swiper-slide h-full">

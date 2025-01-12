@@ -1,4 +1,4 @@
-<section data-controller="fadein scroll-reveal" id="contact" class="bg-access-light-blue">
+<section id="contact" class="bg-access-light-blue">
   <div class="py-10 lg:py-[7rem] flex flex-col-reverse px-5 mx-auto lg:container lg:grid lg:grid-cols-2 lg:gap-12 2xl:px-32 3xl:px-64">
     <div class="w-full h-[480px] lg:h-[650px] rounded-[2rem] shadow-lg"
       data-controller="map"
@@ -12,10 +12,11 @@
         </svg>
         <span data-scroll-reveal-target="item" class="reveal text-access-blue font-normal text-sm tracking-[0.2rem] uppercase">Contactez nous</span>
       </div>
-      <h1 class="ml2 opacity-0 text-center lg:text-start text-4xl lg:text-[48px] mb-4 font-bold text-access-blue leading-tight">
-        <span data-fadein-target="part" data-truc="5" class="letters-5">Obtenez votre</span>
-        <span data-fadein-target="part" data-truc="5" class="letters-5 text-access-dark">RDV en visioconférence</span>
-      </h1>
+      <h2 data-animate-title-target="title" class="text-center lg:text-start text-3xl sm:text-4xl lg:text-[48px] mb-4 font-bold text-access-blue lg:leading-[3.5rem]">
+        <span class="opacity-0 whitespace-nowrap">Obtenez votre</span>
+        <span class="opacity-0 text-access-dark whitespace-nowrap">RDV en</span>
+        <span class="opacity-0 text-access-dark whitespace-nowrap">Visioconférence</span>
+      </h2>
       <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal">
         <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
           <%= f.hidden_field :source, value: 'home' %>

@@ -14,10 +14,44 @@
  *= require_self
  */
 
- .ml1 .letter {
-   display: inline-block;
- }
+ @media (min-width: 768px) {
+  .article-card-1 {
+    transition-delay: 300ms;
+  }
 
- h1 {
-  opacity: 0;
- }
+  .article-card-2 {
+    transition-delay: 600ms;
+  }
+
+  .offer-1 {
+    transition-delay: 200ms;
+  }
+
+  .offer-2 {
+    transition-delay: 400ms;
+  }
+
+  .offer-3 {
+    transition-delay: 600ms;
+  }
+
+  .offer-4 {
+    transition-delay: 800ms;
+  }
+
+  .offer-5 {
+    transition-delay: 1000ms;
+  }
+
+  .offer-6 {
+    transition-delay: 1200ms;
+  }
+
+  .offer-7 {
+    transition-delay: 1400ms;
+  }
+
+  .offer-8 {
+    transition-delay: 1600ms;
+  }
+}

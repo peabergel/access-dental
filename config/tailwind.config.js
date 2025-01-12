@@ -8,6 +8,8 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   safelist: [
+    'delay-300',
+    'delay-600',
     'will-change-transform',
     'will-change-opacity',
     "border-red-500",
@@ -21,17 +23,9 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        revealX: {
-          '0%': { transform: 'translateX(30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' }
-        },
         revealY: {
           '0%': { transform: 'translateY(50px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
-        },
-        fadeIn: {
-          '0%': { transform: 'translateX(10px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' }
         },
         zoom: {
           '0%': { transform: 'scale(1)' },
@@ -40,8 +34,6 @@ module.exports = {
         }
       },
       animation: {
-        fadeIn: 'fadeIn 0.5s ease-out forwards',
-        revealX: 'revealX 1s ease-in-out forwards',
         revealY: 'revealY 1s ease-in-out forwards'
       },
       screens: {
@@ -61,6 +53,6 @@ module.exports = {
     require('../vendor/lib/preline/plugin'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/container-queries'),
+    require('@tailwindcss/container-queries')
   ],
 }
