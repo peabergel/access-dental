@@ -83,7 +83,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "https://access-dental.osc-fr1.scalingo.io/" }
-
+  config.action_mailer.smtp_settings = {
+    address: "mail.access-dental.com",
+    port: 465,
+    tls: true,
+    domain: "access-dental.com",
+    user_name: "contact@access-dental.com", # Ton email Gmail
+    password: "Bl.211564Bl.211564", # Ton mot de passe ou mot de passe d'application
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
