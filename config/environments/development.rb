@@ -42,8 +42,8 @@ Rails.application.configure do
     port: 465,
     tls: true,
     domain: "access-dental.com",
-    user_name: "contact@access-dental.com", # Ton email Gmail
-    password: "Bl.211564Bl.211564", # Ton mot de passe ou mot de passe d'application
+    user_name: ENV["ACCESS_DENTAL_USERNAME"], # Ton email Gmail
+    password: ENV["ACCESS_DENTAL_PASSWORD"], # Ton mot de passe ou mot de passe d'application
     authentication: "plain",
     enable_starttls_auto: true
   }

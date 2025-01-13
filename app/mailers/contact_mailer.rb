@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-  default from: "contact@access-dental.com"
+  default from: ENV["ACCESS_DENTAL_USERNAME"]
 
   def send_contact(name, email, phone, message, source, mail_subject)
     @name = name
@@ -10,7 +10,7 @@ class ContactMailer < ApplicationMailer
     @mail_subject = mail_subject
 
     mail(
-      to: "contact@access-dental.com",
+      to: ENV["ACCESS_DENTAL_USERNAME"],
       subject: @mail_subject
     )
   end
