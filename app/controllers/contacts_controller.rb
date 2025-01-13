@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
     # Envoyer l'email
     ContactMailer.send_contact(@name, @email, @phone_number, @message, @source, @mail_subject).deliver_now
 
-    flash[:notice] = "Votre demande a bien été envoyée !"
+    flash[:notice] = "Votre demande a bien été envoyée!"
     redirect_to root_path
   end
 
