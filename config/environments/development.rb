@@ -38,11 +38,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "gmail.com",
-    user_name: ENV["GMAIL_USERNAME"], # Ton email Gmail
-    password: ENV["GMAIL_PASSWORD"], # Ton mot de passe ou mot de passe d'application
+    address: "mail.access-dental.com",
+    port: 465,
+    tls: true,
+    domain: "access-dental.com",
+    user_name: "contact@access-dental.com", # Ton email Gmail
+    password: "Bl.211564Bl.211564", # Ton mot de passe ou mot de passe d'application
     authentication: "plain",
     enable_starttls_auto: true
   }
