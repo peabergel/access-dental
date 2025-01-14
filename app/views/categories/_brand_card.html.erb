@@ -63,7 +63,7 @@
                     <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
                 <% end %>
               </div>
-              <%= image_tag product.image_url, width: 440, class: "hidden md:block object-contain" %>
+              <%= image_tag product.image_url, width: 440, class: "hidden md:block object-contain", data: { action: "touchend->brand-carousel#stopPropagation" } %>
             </div>
           <% end %>
         </div>
