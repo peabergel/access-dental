@@ -1,9 +1,9 @@
-<div data-scroll-reveal-target="item" class="service-card-<%= index %> reveal relative bg-access-light-blue rounded-[2rem] shadow-lg p-6 group overflow-hidden">
+<div data-controller="prevent-effect" data-action="touchstart->prevent-effect#preventTouchStart" data-scroll-reveal-target="item" class="service-card-<%= index %> reveal relative bg-access-light-blue rounded-[2rem] shadow-lg p-6 group overflow-hidden">
   <!-- Contenu principal -->
-  <span class="relative z-10 transition-transform duration-300 ease-out lg:group-hover:text-white focus:text-white">
+  <span class="relative z-10 transition-transform duration-300 ease-out lg:group-hover:text-white">
     <%= image_tag image, class: "mx-auto md:mx-0 w-12" %>
-    <h3 class="text-center md:text-start font-semibold text-xl pt-4 transition-colors duration-300 group-hover:text-white focus:text-white"><%= title %></h3>
-    <p class="mt-4 pb-4 transition-colors duration-300 font-light group-hover:text-white focus:text-white"><%= text %></p>
+    <h3 class="text-center md:text-start font-semibold text-xl pt-4 transition-colors duration-300"><%= title %></h3>
+    <p class="mt-4 pb-4 transition-colors duration-300 font-light"><%= text %></p>
   </span>
 
   <!-- Arrière-plan interactif -->

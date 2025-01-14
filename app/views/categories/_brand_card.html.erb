@@ -10,11 +10,11 @@
 
   <hr class="border-y-[1px] border-access-blue mb-8"/>
 
-  <div data-controller="brand-carousel" data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
+  <div data-controller="prevent-effect" data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
     <div class="hs-carousel flex space-x-3">
       <% if products.count > 1 %>
       <div class="flex-none">
-        <div data-action="touchend->brand-carousel#stopPropagation" class="hs-carousel-pagination pointer-events-auto max-h-96 flex flex-col gap-y-2 overflow-y-auto">
+        <div data-action="touchend->prevent-effect#stopPropagation" class="hs-carousel-pagination pointer-events-auto max-h-96 flex flex-col gap-y-2 overflow-y-auto">
           <% products.each do |product| %>
             <div class="hs-carousel-pagination-item shrink-0 border flex items-center rounded-md overflow-hidden cursor-pointer w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] hs-carousel-active:border-access-blue">
               <%= image_tag product.image_url, class: "object-cover" %>
@@ -28,7 +28,7 @@
         <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
           <% products.each do |product| %>
             <div class="hs-carousel-slide pl-3 flex <%= "gap-32" if products.count == 1 %>">
-              <div data-action="touchend->brand-carousel#stopPropagation" class="left-content flex flex-col justify-between sm:justify-around pr-3">
+              <div data-action="touchend->prevent-effect#stopPropagation" class="left-content flex flex-col justify-between sm:justify-around pr-3">
                 <h2 class="text-access-dark font-semibold text-3xl sm:text-4xl md:text-5xl tracking-[0.2rem]"><%= product&.name&.upcase %></h2>
 
                 <p class="leading-7 font-extralight"><%= product&.description %>
@@ -63,7 +63,7 @@
                     <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
                 <% end %>
               </div>
-              <%= image_tag product.image_url, width: 440, class: "hidden md:block object-contain", data: { action: "touchend->brand-carousel#stopPropagation" } %>
+              <%= image_tag product.image_url, width: 440, class: "hidden md:block object-contain", data: { action: "touchend->prevent-effect#stopPropagation" } %>
             </div>
           <% end %>
         </div>

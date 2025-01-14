@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal text-center">
+    <div data-controller="prevent-effect" data-action="touchstart->prevent-effect#preventHover" data-scroll-reveal-target="item" data-delay="400ms" class="reveal text-center">
       <%= link_to "#contact", class: "relative inline-flex items-center px-6 py-3 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg hover:text-access-dark transition-all duration-500 ease-out" do %>
         <span class="relative z-10 font-medium">Prendre un rendez-vous</span>
         <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
