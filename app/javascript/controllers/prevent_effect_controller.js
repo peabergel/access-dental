@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["overlay"]
 
   stopPropagation(event) {
     event.stopPropagation();
@@ -11,6 +12,6 @@ export default class extends Controller {
   }
 
   preventHover() {
-    this.element.children[0].children[2].classList.remove('group-hover:translate-x-0')
+    this.overlayTarget.classList.remove('group-hover:translate-x-0')
   }
 }
