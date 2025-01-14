@@ -1,11 +1,11 @@
 <div class="absolute z-10 inset-x-0 flex justify-center -top-6 md:-top-8 space-x-4">
   <% [
-    { icon: 'fas fa-phone-alt', link: 'tel:+33549675722' },
-    { icon: 'fas fa-envelope', link: '#contact' },
-    { icon: 'fab fa-facebook-f', link: 'https://www.facebook.com/accessdental86/', target: "_blank" },
-    { icon: 'fab fa-instagram', link: 'https://www.instagram.com/accessdentalpoitiers', target: "_blank" }
+    { icon: 'fas fa-phone-alt', title: "Contacter Access Dental par téléphone", link: 'tel:+33549675722' },
+    { icon: 'fas fa-envelope', title: "Contacter Access Dental par mail", link: '#contact' },
+    { icon: 'fab fa-facebook-f', title: "Page Facebook d'Access Dental - Nouvelle fenêtre", link: 'https://www.facebook.com/accessdental86/', rel: "noopener external", target: "_blank" },
+    { icon: 'fab fa-instagram', title: "Page Instagram d'Access Dental - Nouvelle fenêtre", link: 'https://www.instagram.com/accessdentalpoitiers', rel: "noopener external", target: "_blank" }
   ].each do |item| %>
-    <%= link_to item[:link], target: item[:target], class: 'group' do %>
+    <%= link_to item[:link], title: item[:title], rel: item[:rel], target: item[:target], class: 'group' do %>
       <div data-scroll-reveal-target="item" class="reveal bg-white border border-[0.1px] border-gray-400 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center shadow-lg text-access-blue transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:shadow-xl">
         <i class="<%= item[:icon] %> fa-lg"></i>
       </div>

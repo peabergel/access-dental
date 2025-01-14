@@ -24,7 +24,7 @@
       <div class="mb-8 md:mb-0 flex flex-col h-full sm:h-48 lg:h-72 relative group <%= 'cursor-grab' if current_user %>" data-sortable-url="<%= offer_positions_path(offer) %>" data-sortable-handle="">
         <div data-scroll-reveal-target="item" class="offer-<%= index %> <%= offer.position.even? ? 'mb-auto reveal' : 'mt-auto reveal' %>">
           <%= link_to offer.pdf_url, target: "_blank" do %>
-            <%= image_tag offer.image_url, class: "max-h-48 w-full rounded-[2rem] shadow-lg transform transition duration-500 hover:scale-110 object-cover" %>
+            <%= image_tag offer.image_url, alt: "illustration de l'offre #{offer.name}", class: "max-h-48 w-full rounded-[2rem] shadow-lg transform transition duration-500 hover:scale-110 object-cover" %>
           <% end %>
         </div>
 

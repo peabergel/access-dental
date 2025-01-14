@@ -8,7 +8,7 @@
     </div>
     <div class="md:flex md:justify-between lg:col-span-2">
       <div class="py-2 md:py-0">
-        <h4 class="font-semibold text-xl py-5">Liens</h4>
+        <p class="font-semibold text-xl py-5">Liens</p>
         <ul>
           <li class="py-1"><%= link_to "Accueil", root_path(anchor: "header") %></li>
           <li class="py-1"><%= link_to "A propos", root_path(anchor: "about-us") %></li>
@@ -18,14 +18,14 @@
         </ul>
       </div>
       <div class="py-2 md:py-0">
-        <h4 class="font-semibold text-xl py-5">Réseaux</h4>
+        <p class="font-semibold text-xl py-5">Réseaux</p>
         <ul>
           <li class="py-1"><%= link_to content_tag(:i, "", class: "fa-brands fa-facebook pr-2") + "Facebook", "https://www.facebook.com/accessdental86/", target: "_blank" %></li>
           <li class="py-1"><%= link_to content_tag(:i, "", class: "fa-brands fa-instagram pr-2") + "Instagram", "https://www.instagram.com/accessdentalpoitiers" %></li>
         </ul>
       </div>
       <div class="py-2 md:py-0">
-        <h4 class="font-semibold text-xl py-5">Nous Contacter</h4>
+        <p class="font-semibold text-xl py-5">Nous Contacter</p>
         <ul>
           <li class="py-1"><%= link_to content_tag(:i, "", class: "fa-solid fa-location-dot pr-2") + "8 rue des Ajassons, 86000 POITIERS", "#" %></li>
           <li class="py-1"><%= link_to content_tag(:i, "", class: "fa-solid fa-phone pr-2") + "+33 5 49 67 57 22", "tel:+33549675722" %></li>

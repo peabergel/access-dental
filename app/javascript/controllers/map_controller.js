@@ -2,9 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 
 export default class extends Controller {
-  static values = { apiKey: String, markers: Object }
+  static values = { apiKey: String, marker: Object }
 
   connect() {
+    const mapElement = document.getElementById('map');
+    if (mapElement) mapElement.innerHTML = '';
+
     mapboxgl.accessToken = this.apiKeyValue;
 
     // Initialiser la carte
@@ -18,15 +21,17 @@ export default class extends Controller {
     });
 
     // Ajouter un marqueur
-    this.#addMarkersToMap();
+    this.#addMarkerToMap();
+
+    document.querySelector('.mapboxgl-ctrl-attrib').remove(); // Supprimer le bouton de Mapbox
 
     // S'assurer que le filtre est bien appliqué dès le départ
     this.element.style.filter = "grayscale(100%)";
     this.element.style.transition = "filter 0.6s ease"; // Transition fluide
   }
 
-  #addMarkersToMap() {
-    const marker = this.markersValue;
+  #addMarkerToMap() {
+    const marker = this.markerValue;
     new mapboxgl.Marker({ color: "#1c75bc" })
       .setLngLat([marker.lat, marker.lng])
       .setPopup(new mapboxgl.Popup().setText("Access Dental"))

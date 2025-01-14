@@ -1,8 +1,8 @@
 <section id="contact" class="bg-access-light-blue">
   <div class="py-10 lg:py-[7rem] flex flex-col-reverse px-5 mx-auto lg:container lg:grid lg:grid-cols-2 lg:gap-12 2xl:px-32 3xl:px-64">
-    <div class="w-full h-[360px] lg:h-[650px] rounded-[2rem] shadow-lg"
+    <div id="map" class="w-full h-[360px] lg:h-[650px] rounded-[2rem] shadow-lg"
       data-controller="map"
-      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-marker-value="<%= @marker.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <p class="text-center font-light text-gray-400 md:hidden">Maintenir le doigt appuyé sur la carte pour zoomer vers le marqueur<i class="block p-5 text-xl fa-regular fa-hand-point-down"></i></p>
