@@ -13,5 +13,6 @@ export default class extends Controller {
 
   preventHover() {
     this.overlayTarget.classList.remove('group-hover:translate-x-0')
+    this.element.classList.remove('group')
   }
 }
