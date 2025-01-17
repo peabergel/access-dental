@@ -95,6 +95,7 @@
 }
 
 .reveal-horizontal.in {
+  opacity: 1;
   animation: leftToRight 1s ease-in-out forwards;
 }
 
