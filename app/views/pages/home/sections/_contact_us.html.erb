@@ -5,6 +5,8 @@
       data-map-markers-value="<%= @marker.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <p class="text-center font-light text-gray-400 md:hidden">Maintenir le doigt appuyé sur la carte pour zoomer vers le marqueur<i class="block p-5 text-xl fa-regular fa-hand-point-down"></i></p>
+
     <div class="pb-10 lg:pb-0 flex flex-col justify-center">
       <div class="mb-4 justify-center lg:justify-start flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3">

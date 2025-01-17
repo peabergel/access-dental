@@ -202,7 +202,7 @@ articles_content = [  "Grosse année de changement chez Access Dental qui voit L
                       "Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Grâce à des images de Haute Fidélité et au transfert de données ultra rapide!, Meilleur rapport prix/précision. Aucun mouvement mécanique, elle reste précise!"
                   ]
 articles_images_url = [ "#{base_url}/v1729849385/Access%20dental/Images/thibault_j6zzf1.jpg",
-                        "#{base_url}/v1729849385/Access%20dental/Images/congres_xtqhvv.png",
+                        "#{base_url}/v1737061741/Access%20dental/Images/congres_im1lpq.jpg",
                         "#{base_url}/v1729849386/Access%20dental/Images/owandy_j636dt.png" ]
 
 articles.each_with_index do |article, index|
