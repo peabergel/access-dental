@@ -47,6 +47,11 @@ export default class extends Controller {
       this.map.flyTo(zoomTarget);
     });
 
+    this.element.addEventListener("touchstart", () => {
+      this.element.style.filter = "grayscale(0%)";
+      this.map.flyTo(zoomTarget);
+    });
+
     // Réappliquer le filtre et retour à la vue initiale
     this.element.addEventListener("mouseleave", () => {
       this.element.style.filter = "grayscale(100%)";
