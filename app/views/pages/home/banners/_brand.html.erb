@@ -3,10 +3,10 @@
 
   <div id="brandSwiper" class="w-full swiper">
     <div class="swiper-wrapper">
-      <% @brands_images_url.each do |image_url| %>
+      <% @brands.each do |brand| %>
         <div class="swiper-slide bg-access-light-blue">
           <div class="flex justify-center items-center w-full">
-            <%= image_tag image_url, class: "w-40 object-contain mix-blend-multiply" %>
+            <%= image_tag brand.image_url, alt: "logo #{brand.name}", class: "w-40 object-contain mix-blend-multiply" %>
           </div>
         </div>
       <% end %>

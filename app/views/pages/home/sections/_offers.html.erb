@@ -21,10 +21,10 @@
 
   <div class="lg:container px-[7rem] sm:px-[14rem] md:px-[3rem] lg:px-5 xl:px-0 justify-center w-full lg:mx-auto pt-8 md:pt-[6rem] xl:px-[6rem] md:flex md:gap-4" data-controller=<%= "sortable" if current_user %>>
     <% @offers.each_with_index do |offer, index| %>
-      <div class="mb-8 md:mb-0 flex flex-col h-full sm:h-48 lg:h-72 relative group <%= 'cursor-grab' if current_user %>" data-sortable-url="<%= offer_positions_path(offer) %>" data-sortable-handle="">
+      <div class="mb-8 md:mb-0 flex flex-col h-full sm:h-48 lg:h-72 relative group <%= 'cursor-grab' if current_user %>" data-sortable-class="offer" data-sortable-url="<%= positions_path(offer) %>" data-sortable-handle="">
         <div data-scroll-reveal-target="item" class="offer-<%= index %> <%= offer.position.even? ? 'mb-auto reveal' : 'mt-auto reveal' %>">
           <%= link_to offer.pdf_url, target: "_blank" do %>
-            <%= image_tag offer.image_url, class: "max-h-48 w-full rounded-[2rem] shadow-lg transform transition duration-500 hover:scale-110 object-cover" %>
+            <%= image_tag offer.image_url, alt: "illustration de l'offre #{offer.name}", class: "max-h-48 w-full rounded-[2rem] shadow-lg transform transition duration-500 hover:scale-110 object-cover" %>
           <% end %>
         </div>
 

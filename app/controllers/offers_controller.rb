@@ -6,7 +6,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     if @offer.save
-      redirect_to root_path, notice: "Offer was successfully created"
+      redirect_to root_path, notice: "L'offre #{@offer.name} a été créée"
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class OffersController < ApplicationController
   def update
     @offer = Offer.find(params[:id])
     if @offer.update(offer_params)
-      redirect_to root_path, notice: "Offer was successfully updated"
+      redirect_to root_path, notice: "L'offre #{@offer.name} a été mise à jour"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offer.destroy
 
-    redirect_to root_path, notice: "Offer was successfully deleted"
+    redirect_to root_path, notice: "L'offre #{@offer.name} a été supprimée"
   end
 
   private
