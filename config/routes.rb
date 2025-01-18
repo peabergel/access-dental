@@ -20,10 +20,8 @@ Rails.application.routes.draw do
   resource :contacts, only: [ :new, :create ]
   resources :products, only: [ :destroy, :edit, :update ]
   resources :brands, except: [ :index, :show ]
-  resources :articles, except: [ :index, :show ] do
-    resource :positions, only: :update, module: :articles
-  end
-  resources :offers, except: [ :index, :show ] do
-    resource :positions, only: :update, module: :offers
-  end
+  resources :articles, except: [ :index, :show ]
+  resources :offers, except: [ :index, :show ]
+
+  put "/:item_id/positions" => "positions#update", as: :positions
 end
