@@ -13,28 +13,6 @@
  *= require_tree .
  *= require_self
  */
-/* Ajoutez ceci dans votre fichier CSS */
-
-/* .reveal-horizontal {
-  position: relative;
-  overflow: hidden;
-}
-
-.reveal-horizontal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  transform: translateX(0%);
-  transition: transform 1.7s ease-in-out;
-  z-index: 5;
-}
-
-.reveal-horizontal.revealed::after {
-  transform: translateX(100%);
-} */
 
  @media (min-width: 768px) {
   .article-card-1 {
