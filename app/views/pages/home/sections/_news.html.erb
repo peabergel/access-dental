@@ -21,9 +21,7 @@
 
   <div class="container mx-auto sm:flex sm:grid sm:grid-cols-2 lg:px-5 xl:px-0 lg:grid-cols-3 md:gap-4 lg:gap-8" data-controller=<%= "sortable" if current_user %>>
     <% @articles.each_with_index do |article, index| %>
-      <article class="mb-4">
-        <%= render "components/article_card", article: article, index: index %>
-      </article>
+      <%= render "components/article_card", article: article, index: index %>
     <% end %>
   </div>
 

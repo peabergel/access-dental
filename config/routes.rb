@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   resources :products, only: [ :destroy, :edit, :update ]
   resources :brands, except: [ :index, :show ]
   resources :articles, except: [ :index, :show ] do
-    resource :positions, only: [:update], module: :articles
+    resource :positions, only: :update, module: :articles
   end
   resources :offers, except: [ :index, :show ] do
-    resource :positions, only: [:update], module: :offers
+    resource :positions, only: :update, module: :offers
   end
 end
