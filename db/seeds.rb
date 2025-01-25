@@ -77,7 +77,6 @@ brands_websites_urls = [ "https://airel.com/", "https://belmont.fr/", "https://w
 brands.each_with_index do |brand, index|
   Brand.create!(
     name: brand,
-    position: index + 1,
     image_url: brands_images_url[index],
     primary_color: brands_colors[index][0],
     secondary_color: brands_colors[index][1],
@@ -241,7 +240,7 @@ offers.each_with_index do |offer, index|
   )
 end
 puts "Success"
-puts "Creating additional brands..........."
+puts "Creating additional brands..."
 additional_brands = [ "Acteon", "Bien Air", "Carestream", "Cattani", "DBI", "Dental Art", "Dürr Dental", "Ekom", "EMS", "Euronda", "Faro", "Gamain", "Gamasonic", "Gcomm", "Intercontidental", "Itero", "Metasys", "Mocom", "NSK", "Owandy", "Zenium" ]
 additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750922/Access%20dental/Images/logos/logo_acteon_ygrz3c.png",
                                   "https://res.cloudinary.com/dmlvtscck/image/upload/v1726750920/Access%20dental/Images/logos/logo_bien_air_nm1eog.png",
@@ -268,13 +267,12 @@ additional_brands_images_url = [ "https://res.cloudinary.com/dmlvtscck/image/upl
   additional_brands.each_with_index do |brand, index|
     Brand.create!(
     name: brand,
+    primary_color: "#000000",
+    secondary_color: "#000000",
+    website_url: "https://www.access-dental.fr/",
     image_url: additional_brands_images_url[index]
   )
 end
 
-
 puts "Success"
-
-puts "...offers created!"
-
 puts "Seeding done!"

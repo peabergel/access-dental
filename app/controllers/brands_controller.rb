@@ -7,7 +7,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      redirect_to category_products_path(@brand.categories.first), notice: "#{@brand.name} à bien été crée"
+      redirect_to root_path, notice: "#{@brand.name} à bien été crée"
     else
       render :new, status: :unprocessable_entity
     end

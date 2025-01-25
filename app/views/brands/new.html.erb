@@ -1,28 +1,12 @@
-<div class="container mx-auto mt-8 max-w-2xl px-4">
-  <div class="bg-white rounded-lg shadow-lg p-8">
-    <h1 class="text-2xl font-bold text-center mb-6">Créer une nouvelle marque</h1>
+<div class="container mx-auto max-w-2xl">
+  <div class="bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Créer une nouvelle marque</h1>
 
     <%= simple_form_for @brand do |f| %>
       <div class="space-y-6">
         <%= f.input :name,
             label: 'Nom',
             placeholder: 'Airel Quetin',
-            input_html: { class: 'rounded-lg' } %>
-
-        <div class="categories-section">
-          <label class="block text-sm font-medium mb-2">Catégories</label>
-          <div class="grid grid-cols-2 gap-4">
-            <%= f.association :categories,
-                as: :check_boxes,
-                collection: @categories,
-                label: false,
-                input_html: { class: 'rounded' } %>
-          </div>
-        </div>
-
-        <%= f.input :position,
-            label: 'Position',
-            placeholder: '1',
             input_html: { class: 'rounded-lg' } %>
 
         <%= f.input :image_url,
@@ -49,7 +33,7 @@
 
         <div class="text-center mt-8">
           <%= f.submit 'Créer la marque',
-              class: 'w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' %>
+              class: 'w-full cursor-pointer bg-access-blue hover:bg-access-dark text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' %>
         </div>
       </div>
     <% end %>
