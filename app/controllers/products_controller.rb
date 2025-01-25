@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @brands = Brand.sorted_by_name
   end
 
   def create

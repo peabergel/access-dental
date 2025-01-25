@@ -10,7 +10,8 @@
         <h1 class="text-xl">Oups, il n'y a aucun produit ici...</h1>
       <% end %>
       <% if current_user %>
-        <%= link_to '+ Ajouter un produit', new_category_product_path(@category), class: "text-white rounded-full bg-access-dark hover:bg-[#2A4E9E] focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
+        <%= link_to '+ Ajouter une marque', new_brand_path, class: "text-white rounded-full bg-access-dark hover:bg-red-600 focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
+        <%= link_to '+ Ajouter un produit', new_category_product_path(@category), class: "text-white rounded-full bg-access-dark hover:bg-red-600 focus:ring-4 focus:ring-access-dark rounded-lg text-sm px-5 py-2.5" %>
       <% end %>
     </div>
     <div data-scroll-reveal-target="item" class="reveal">
