@@ -6,9 +6,9 @@ class CategoriesController < ApplicationController
 
   def show
     @brands = if params[:brand]
-      @category.brands.where(name: params[:brand])
+      @category.brands.where(name: params[:brand]).ordered
     else
-      @category.brands
+      @category.brands.ordered
     end
 
     @category_parent = @category.parent if @category.parent_id

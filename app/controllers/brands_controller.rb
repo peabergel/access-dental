@@ -1,7 +1,6 @@
 class BrandsController < ApplicationController
   def new
     @brand = Brand.new
-    @categories = Category.all
   end
 
   def create

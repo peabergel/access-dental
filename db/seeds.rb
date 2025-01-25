@@ -111,7 +111,6 @@ airel_product_descriptions = [ "Le PE9 a été conçu afin de s’adapter à tou
 airels.each_with_index do |airel_name, index|
   airel.products.create!(
     name: airel_name,
-    position: index + 1,
     image_url: airel_product_images_url[index],
     pdf_url: airel_product_pdfs_url[index],
     description: airel_product_descriptions[index],
@@ -144,7 +143,6 @@ belmont_product_descriptions = [ "L'Eurus S1 propose une grande variété de fon
 belmonts.each_with_index do |belmont_name, index|
   belmont.products.create!(
     name: belmont_name,
-    position: index + 1,
     image_url: belmont_product_images_url[index],
     pdf_url: belmont_product_pdfs_url[index],
     description: belmont_product_descriptions[index],
@@ -180,7 +178,6 @@ castellini_product_descriptions = [ "Grâce à ses caractéristiques, Puma ELI R
 castellinis.each_with_index do |castellini_name, index|
   castellini.products.create!(
     name: castellini_name,
-    position: index + 1,
     image_url: castellini_product_images_url[index],
     pdf_url: castellini_product_pdfs_url[index],
     description: castellini_product_descriptions[index],
