@@ -207,14 +207,14 @@ articles.each_with_index do |article, index|
     pre_content: articles_pre_contents[index],
     content: articles_content[index],
     image_url: articles_images_url[index],
-    position: index
+    position: index + 1
   )
 end
 puts "...articles created!"
 
 offers = [ "Owandy", "NSK", "Durr Dental", "Gamasonic", "Bien Air", "Acteon" ]
 offers_images_url = [ "https://www.access-dental.fr/wp-content/uploads/2024/10/Owandy_ADF_24.png",
-                      "https://www.access-dental.fr/wp-content/uploads/2024/10/NSK_S2.png",
+                      "https://www.access-dental.fr/wp-content/uploads/2025/01/NSK_S1_25.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/Durr_Dental_ADF_2024.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/Gamasonic_ADF_24.png",
                       "https://www.access-dental.fr/wp-content/uploads/2024/10/Bien_Air_S2.png",
@@ -232,7 +232,7 @@ offers.each_with_index do |offer, index|
   Offer.create!(
     name: offer,
     image_url: offers_images_url[index],
-    position: index,
+    position: index + 1,
     pdf_url: offers_pdfs_url[index]
   )
 end

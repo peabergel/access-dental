@@ -14,3 +14,5 @@ pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "sortablejs" # @1.15.6
 pin "animejs" # @3.2.2
 pin "mapbox-gl" # @3.9.3
+pin "simple-parallax-js" # @6.0.1
+pin "react" # @19.0.0

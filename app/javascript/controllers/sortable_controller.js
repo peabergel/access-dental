@@ -24,7 +24,7 @@ export default class extends Controller {
     const url = item.dataset["sortableUrl"]
     const klass = item.dataset["sortableClass"]
     put(url, {
-      body: JSON.stringify({ position: newIndex, klass: klass }),
+      body: JSON.stringify({ position: newIndex + 1, klass: klass }),
     });
   }
 }
