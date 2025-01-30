@@ -13,7 +13,7 @@ export default class extends Controller {
   updateParallax() {
     const scrollPosition = window.scrollY;
     const parallaxSpeed = 0.5;
-    const offset = window.innerWidth < 650 ? 7200 : (window.innerWidth < 768 ? 6200 : (window.innerWidth < 1024 ? 5000 : 4500));
+    const offset = window.innerWidth < 650 ? 7300 : (window.innerWidth < 768 ? 6600 : (window.innerWidth < 1024 ? 5100 : 4500));
     this.element.style.backgroundPositionY = `${(-scrollPosition + offset) * parallaxSpeed}px`;
   }
   // 0.1 = 2400
