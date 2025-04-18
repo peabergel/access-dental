@@ -62,14 +62,14 @@ puts "Categories created!"
 puts "Creating brands..."
 
 brands = [ "Airel Quetin", "Belmont", "Castellini", "Meunier Carus", "Tecnodent" ]
-base_url = "https://res.cloudinary.com/dmlvtscck/image/upload"
+base_url = "https://res.cloudinary.com/dlrov9mea/image/upload"
 
 brands_images_url = [
-  "#{base_url}/v1726750916/Access%20dental/Images/logos/logo_airel_lfk6vc.png",
-  "#{base_url}/v1726750919/Access%20dental/Images/logos/logo_belmont_llfcox.png",
-  "#{base_url}/v1726750923/Access%20dental/Images/logos/logo_castellini_wv0noe.png",
-  "#{base_url}/v1726750920/Access%20dental/Images/logos/logo_meunier_carus_iq7zov.png",
-  "#{base_url}/v1726750921/Access%20dental/Images/logos/logo_tecnodent_rlin9j.png"
+  "#{base_url}/v1739457872/logo_airel_t2d6vw.png",
+  "#{base_url}/v1739457872/logo_belmont_hmi2xj.png",
+  "#{base_url}/v1739457874/logo_castellini_eni7kw.png",
+  "#{base_url}/v1739457871/logo_meunier_carus_kkwqd2.png",
+  "#{base_url}/v1739457874/logo_tecnodent_mgpyww.png"
 ]
 brands_colors = [ [ "#F3196A", "#F7679D" ], [ "#076FBA", "#5CA0D2" ], [ "#1B3362", "#697998" ], [ "#168CA9", "#65B3C6" ], [ "#0866B2", "#5C9ACC" ] ]
 brands_websites_urls = [ "https://airel.com/", "https://belmont.fr/", "https://www.castellini.com/fr/", "https://meunier-carus.fr/", "https://www.tecnodent.com/" ]
@@ -90,17 +90,17 @@ puts "Creating products..."
 
 airel = Brand.find_by(name: "Airel Quetin")
 airels = [ "PE9", "K2", "Pacific III", "Cart Evo", "Selle Harley" ]
-airel_product_images_url = [ "#{base_url}/v1734529665/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_rhdjsf.png",
-                            "#{base_url}/v1734529724/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_txqkze.png",
-                            "#{base_url}/v1734530137/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/Pacific_mh5ox6.png",
-                            "#{base_url}/v1734530329/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/Cart-evo_qzon5g.png",
-                            "#{base_url}/v1734530479/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/Harley_wvbqsg.png"
+airel_product_images_url = [ "#{base_url}/v1739457901/PE9_fy2fyw.png",
+                            "#{base_url}/v1739457902/K2_iyqujg.png",
+                            "#{base_url}/v1739457901/pacific_znziei.png",
+                            "#{base_url}/v1739457902/cart_evo_b59b5a.png",
+                            "#{base_url}/v1739457902/harley_rzebyk.png"
                            ]
-airel_product_pdfs_url = [ "#{base_url}/v1726750950/Access%20dental/Produits/Fauteuils%20:%20units/Airel/PE9/PE9_tkpnox.pdf",
-                          "#{base_url}/v1726756480/Access%20dental/Produits/Fauteuils%20:%20units/Airel/K2/K2_compressed_wdlq9g.pdf",
-                          "#{base_url}/v1726750949/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Pacific/pacific_kab5ct.pdf",
-                          "#{base_url}/v1726750939/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Cart/cart_evolution_xhfbh1.pdf",
-                          "#{base_url}/v1726750946/Access%20dental/Produits/Fauteuils%20:%20units/Airel/Harley/harley_wstczp.pdf"
+airel_product_pdfs_url = [ "#{base_url}/v1739457912/PE9_ofsz59.pdf",
+                          "#{base_url}/v1739461697/K2_jvv8sr.pdf",
+                          "#{base_url}/v1739457912/pacific_jh2ejc.pdf",
+                          "#{base_url}/v1739457904/cart_evolution_dkra8h.pdf",
+                          "#{base_url}/v1739457904/harley_wffkzq.pdf"
                          ]
 airel_product_descriptions = [ "Le PE9 a été conçu afin de s’adapter à toutes les positions de travail. Ses fonctionnalités en font un unit ambidextre universel.",
                               "A la fois compact et adaptable, le K2 propose une hygiène irréprochable et un confort maximum.",

@@ -13,7 +13,7 @@ export default class extends Controller {
     // Initialiser la carte
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/elendill/cm627my48007601sg0fax9q45", // Style noir et blanc
+      style: "mapbox://styles/accessdental/cm73hw710004p01r33h3r9h4k", // Style noir et blanc
       center: [2, 47], // Position initiale plus centrée sur le globe
       zoom: 5, // Zoom très large pour voir le globe
       pitch: 0,

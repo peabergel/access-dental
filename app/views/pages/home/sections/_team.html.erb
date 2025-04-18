@@ -12,16 +12,18 @@
     </h2>
     <p data-scroll-reveal-target="item" data-delay="200ms" class="reveal flex font-light justify-center text-gray-500 mt-4">Nous mettons notre expertise au service de votre réussite et de vos ambitions</p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 py-4">
+    <div data-controller="scroll-reveal" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 py-4">
       <% members = [
-        { image: "homme.webp", alt: "Image de Thibault Paquet", title: "Thibault Paquet", text: "Directeur Général" },
-        { image: "homme2", alt: "Image de Julien Bergeron", title: "Julien Bergeron", text: "Directeur des opérations" },
-        { image: "homme3", alt: "Image de Norbert", title: "Norbert", text: "Directeur Technique" },
-        { image: "homme4", alt: "Image de Valentin", title: "Valentin", text: "Technicien" }
+        { image: "homme", alt: "Image de Thibault Paquet", title: "Thibault Paquet", text: "Directeur" },
+        { image: "homme2", alt: "Image de Julien Bergeron", title: "Julien Bergeron", text: "Assistant de Direction" },
+        { image: "homme3", alt: "Image de Norbert Bely", title: "Norbert Bely", text: "Responsable Technique" },
+        { image: "homme4", alt: "Image de Anthony Poirier", title: "Anthony Poirier", text: "Technicien" },
+        { image: "homme5", alt: "Image de Valentin Freche", title: "Valentin Freche", text: "Technicien" },
+        { image: "femme", alt: "Image de Léonor Gameiro", title: "Léonor Gameiro", text: "Experte-comptable"}
       ] %>
 
       <% members.each_with_index do |member, index| %>
-        <%= render "components/member_card", image: member[:image], alt: member[:alt], title: member[:title], text: member[:text], index: index %>
+        <%= render "components/member_card", **member, index: index %>
       <% end %>
     </div>
 
