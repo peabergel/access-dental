@@ -17,7 +17,7 @@ gem "turbo-rails", ">= 2.0.7"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 3.3.1"
 gem "tailwindcss-ruby"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -25,7 +25,7 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 # Use .env file
 gem "devise"
-gem "pry-byebug"
+
 gem "simple_form-tailwind"
 gem "simple_form"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -59,7 +59,11 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
+<<<<<<< HEAD
   gem "error_highlight", ">= 0.7", platforms: [ :ruby ]
+=======
+gem "error_highlight", "0.7.0", platforms: [ :ruby ]
+>>>>>>> 4ff6baa12863166bb71251996456fb200203dd41
 end
 
 group :test do

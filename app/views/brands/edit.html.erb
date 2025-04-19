@@ -1,16 +1,42 @@
-<div class="container mx-auto mt-5 px-[20rem]">
-  <h1 class="text-xl text-center" style="color: <%= @brand.primary_color %>;">Editer la marque "<%= @brand.name %>"</h1>
-  <%= simple_form_for @brand do |f| %>
-    <div class='form-group pb-2'>
-      <%= f.input :name, label: 'Nom', input_html: { value: @brand.name } %>
-      <%= f.input :category_id, label: 'Categorie', collection: @categories, selected: @brand.category %>
-      <%= f.input :position, label: 'Position', input_html: { value: @brand.position } %>
-      <%= f.input :image_url, label: 'Logo', input_html: { value: @brand.image_url } %>
-      <%= f.input :website_url, label: 'Site internet', input_html: { value: @brand.website_url } %>
-      <%= f.input :primary_color, label: 'Couleur principale', input_html: { value: @brand.primary_color } %>
-      <%= f.input :secondary_color, label: 'Couleur secondaire', input_html: { value: @brand.secondary_color } %>
-      <%= f.submit 'Editer', class: 'text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none',
-                              style: "background-color: #{ @brand.primary_color.present? ? @brand.primary_color : @brand.primary_color_was };" %>
-    </div>
-  <% end %>
+<div class="container mx-auto max-w-2xl">
+  <div class="bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Éditer la marque "<%= @brand.name %>"</h1>
+
+    <%= simple_form_for @brand do |f| %>
+      <div class="space-y-6">
+        <%= f.hidden_field :return_to, value: @return_to %>
+        <%= f.input :name,
+            label: 'Nom',
+            placeholder: 'Airel Quetin',
+            input_html: { class: 'rounded-lg', value: @brand.name } %>
+
+        <%= f.input :image_url,
+            label: 'Logo',
+            placeholder: "URL du logo",
+            input_html: { class: 'rounded-lg', value: @brand.image_url } %>
+
+        <%= f.input :website_url,
+            label: 'Site internet',
+            placeholder: "https://airel.com/",
+            input_html: { class: 'rounded-lg', value: @brand.website_url } %>
+
+        <div class="grid grid-cols-2 gap-4">
+          <%= f.input :primary_color,
+              label: 'Couleur principale',
+              placeholder: "#F3196A",
+              input_html: { class: 'rounded-lg', value: @brand.primary_color } %>
+
+          <%= f.input :secondary_color,
+              label: 'Couleur secondaire',
+              placeholder: "#F7679D",
+              input_html: { class: 'rounded-lg', value: @brand.secondary_color } %>
+        </div>
+
+        <div class="text-center mt-8">
+          <%= f.submit 'Éditer la marque',
+              class: 'w-full cursor-pointer bg-access-blue hover:bg-access-dark text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

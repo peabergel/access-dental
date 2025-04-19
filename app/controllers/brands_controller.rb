@@ -14,12 +14,13 @@ class BrandsController < ApplicationController
 
   def edit
     @brand = Brand.find(params[:id])
+    @return_to = params[:return_to]
   end
 
   def update
     @brand = Brand.find(params[:id])
     if @brand.update(brand_params)
-      redirect_to category_products_path(@brand.categories.first), notice: "#{@brand.name} à bien été mis à jour"
+      redirect_to params[:brand][:return_to] || category_products_path(@brand.categories.first), notice: "#{@brand.name} à bien été mis à jour"
     else
       render :edit, status: :unprocessable_entity
     end

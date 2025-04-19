@@ -1,0 +1,17 @@
+<article data-scroll-reveal-target="item" class="reveal member-card-<%= index %> my-5 sm:my-0 relative px-5 md:px-0 rounded-[2rem] overflow-hidden flex-1 flex flex-col">
+
+  <!-- Image de la card -->
+  <div class="h-96 overflow-hidden rounded-[2rem]">
+    <%= image_tag image, alt: "image de #{title}", class: "w-full h-96 object-cover transform transition duration-500 hover:scale-110 rounded-[2rem]" %>
+  </div>
+  <!-- Contenu par défaut visible -->
+  <div class="py-5 relative z-10 flex flex-col items-center justify-center flex-grow">
+    <h3 class="text-xl font-semibold text-access-dark">
+      <%= title %>
+    </h3>
+    <p class="text-access-dark font-light">
+      <%= text %>
+    </p>
+  </div>
+
+</article>
