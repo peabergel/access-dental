@@ -18,9 +18,6 @@ Category.destroy_all
 User.destroy_all
 
 puts "Cleaning OK"
-puts "Creating User"
-User.create(email: 'pe.abergel@gmail.com', password:'H2iwvr5C*')
-puts "User created"
 puts "Creating categories..."
 
 categories = [
