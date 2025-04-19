@@ -4,5 +4,5 @@ class Product < ApplicationRecord
 
   acts_as_list top_of_list: 1, scope: [ :brand_id, :category_id ]
 
-  validates :name, :description, :image_url, :pdf_url, presence: true
+  validates :name, :description, :image_url, presence: true
 end
