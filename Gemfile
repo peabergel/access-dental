@@ -59,11 +59,7 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-<<<<<<< HEAD
   gem "error_highlight", ">= 0.7", platforms: [ :ruby ]
-=======
-gem "error_highlight", "0.7.0", platforms: [ :ruby ]
->>>>>>> 4ff6baa12863166bb71251996456fb200203dd41
 end
 
 group :test do
