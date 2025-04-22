@@ -1,4 +1,4 @@
-<section id="contact" class="bg-white">
+<section id="contact" class="bg-access-light-blue">
   <div class="py-10 lg:py-[7rem] flex flex-col-reverse px-5 mx-auto lg:container lg:grid lg:grid-cols-2 lg:gap-12 2xl:px-32 3xl:px-64">
     <div id="map" class="w-full h-[360px] lg:h-[650px] rounded-[2rem] shadow-lg"
       data-controller="map"
@@ -18,23 +18,75 @@
         <span class="opacity-0 text-access-dark whitespace-nowrap">RDV en</span>
         <span class="opacity-0 text-access-dark whitespace-nowrap">Visioconférence</span>
       </h2>
-      <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal">
-        <%# <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
-          <%# <%= f.hidden_field :source, value: 'home' %>
-          <%# <div class="flex grid grid-cols-2 gap-4">
-            <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md", placeholder: "John Doe" } %>
-            <%# <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md", placeholder: "john@example.com" } %>
-          <%# </div>
-          <%# <div class="flex grid grid-cols-2 gap-4">
-            <%= f.input :phone_number, label: "Téléphone", required: true, as: :tel, input_html: { class: "rounded-md", placeholder: "06 05 04 03 02" } %>
-            <%# <%= f.input :mail_subject, label: "Objet du mail", required: true, input_html: { class: "rounded-md", placeholder: "Demande de RDV telephonique" } %>
-           <%# </div>
-          <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md", placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire..." } %>
-          <%# <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal flex justify-center lg:block">
-            <%= f.button :submit, "Envoyer", class: "bg-access-blue text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
-          <%# </div>
+      <div id="contact-form" data-scroll-reveal-target="item" data-delay="200ms" class="reveal">
+        <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
+          <%= f.hidden_field :source, value: 'home' %>
+
+          <div class="flex grid grid-cols-2 gap-4">
+            <%= f.input :name,
+                label: "Nom",
+                required: true,
+                input_html: {
+                  class: "rounded-md",
+                  placeholder: "John Doe",
+                  value: params.dig("contact_data", "name")
+                } %>
+
+            <%= f.input :email,
+                label: "Email",
+                as: :email,
+                required: true,
+                input_html: {
+                  class: "rounded-md",
+                  placeholder: "john@example.com",
+                  value: params.dig("contact_data", "email")
+                } %>
+          </div>
+
+          <div class="flex grid grid-cols-2 gap-4">
+            <%= f.input :phone_number,
+                label: "Téléphone",
+                required: true,
+                as: :tel,
+                input_html: {
+                  class: "rounded-md",
+                  placeholder: "06 05 04 03 02",
+                  value: params.dig("contact_data", "phone_number")
+                } %>
+
+            <%= f.input :mail_subject,
+                label: "Objet du mail",
+                required: true,
+                input_html: {
+                  class: "rounded-md",
+                  placeholder: "Demande de RDV téléphonique",
+                  value: params.dig("contact_data", "mail_subject")
+                } %>
+          </div>
+
+          <%= f.input :message,
+              label: "Message",
+              as: :text,
+              required: true,
+              input_html: {
+                rows: 5,
+                class: "rounded-md",
+                placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire...",
+                value: params.dig("contact_data", "message")
+              } %>
+
+          <!-- 🔒 Ici ton CAPTCHA -->
+          <div class="my-4 flex justify-center">
+            <%= recaptcha_tags %>
+          </div>
+
+          <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal flex justify-center lg:block">
+            <%= f.submit "Envoyer", class: "px-6 py-3 bg-access-blue text-white rounded-[2rem] hover:bg-access-dark transform hover:scale-105 transition-all duration-200 flex items-center gap-2", data: { turbo: false } %>
+          </div>
         <% end %>
       </div>
+
+
 
     </div>
   </div>

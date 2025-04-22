@@ -4,19 +4,32 @@ class ContactsController < ApplicationController
   end
 
   def create
-    # Récupérer les données du formulaire
-    @name = params[:contacts][:name]
-    @email = params[:contacts][:email]
-    @message = params[:contacts][:message]
-    @phone_number = params[:contacts][:phone_number]
-    @mail_subject = params[:contacts][:mail_subject]
-    @source = params[:contacts][:source]
+    @product = Product.find_by(id: params[:product_id]) if params[:product_id].present?
 
-    # Envoyer l'email
-    ContactMailer.send_contact(@name, @email, @phone_number, @message, @source, @mail_subject).deliver_now
+    # Récupère les données du formulaire dans une variable @contact_data
+    @contact_data = params[:contacts]
 
-    flash[:notice] = "Votre demande a bien été envoyée!"
-    redirect_to root_path
+    if verify_recaptcha
+      ContactMailer.send_contact(
+        @contact_data[:name],
+        @contact_data[:email],
+        @contact_data[:phone_number],
+        @contact_data[:message],
+        @contact_data[:source],
+        @contact_data[:mail_subject]
+      ).deliver_now
+
+      flash[:notice] = "Votre demande a bien été envoyée !"
+      redirect_to root_path(anchor: "contact-form")
+    else
+      flash[:alert] = "Merci de confirmer que vous n'êtes pas un robot."
+
+      if @contact_data[:source] == "contact_page" && @product.present?
+        render :new
+      else
+        redirect_to root_path(anchor: "contact-form", contact_data: params.require(:contacts).permit(:name, :email, :phone_number, :mail_subject, :message, :source).to_h)
+      end
+    end
   end
 
   def contact_params
