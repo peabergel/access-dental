@@ -22,8 +22,6 @@ class ContactsController < ApplicationController
       flash[:notice] = "Votre demande a bien été envoyée !"
       redirect_to root_path(anchor: "contact-form")
     else
-      flash[:alert] = "Merci de confirmer que vous n'êtes pas un robot."
-
       if @contact_data[:source] == "contact_page" && @product.present?
         render :new
       else

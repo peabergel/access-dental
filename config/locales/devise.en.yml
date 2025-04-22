@@ -1,6 +1,12 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 
 en:
+  recaptcha:
+    errors:
+      recaptcha_error: "Merci de confirmer que vous n'êtes pas un robot."
+      verification_failed: "La vérification a échoué, veuillez réessayer."
+      recaptcha_unreachable: "Le service de vérification est temporairement indisponible, veuillez réessayer plus tard."
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
