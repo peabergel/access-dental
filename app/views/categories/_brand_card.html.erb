@@ -69,7 +69,7 @@
                 </div>
 
                 <% unless ["Instrumentations - Appareils de table", "Meubles dentaires"].include?(product.category.name) %>
-                  <%= link_to new_contacts_path(product_id: product), class: "whitespace-nowrap relative inline-flex mb-2 sm:mb-0 items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
+                  <%# <%= link_to new_contacts_path(product_id: product), class: "whitespace-nowrap relative inline-flex mb-2 sm:mb-0 items-center px-4 py-2 text-white bg-access-blue rounded-full overflow-hidden group shadow-md hover:shadow-lg w-fit" do %>
                     <span class="relative z-10 font-light hidden sm:inline">Demander un devis</span>
                     <span class="relative z-10 font-light inline sm:hidden">Devis</span>
                     <span class="relative z-10 ml-3 transition-transform transform duration-300 ease-out">
@@ -78,7 +78,7 @@
                       </span>
                     </span>
                     <span class="absolute rounded-full inset-0 bg-access-dark transition-all duration-500 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
-                  <% end %>
+                  <%# <% end %>
                 <% end %>
               </div>
 

@@ -19,20 +19,20 @@
         <span class="opacity-0 text-access-dark whitespace-nowrap">Visioconférence</span>
       </h2>
       <div data-scroll-reveal-target="item" data-delay="200ms" class="reveal">
-        <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
-          <%= f.hidden_field :source, value: 'home' %>
-          <div class="flex grid grid-cols-2 gap-4">
+        <%# <%= simple_form_for :contacts, url: contacts_path, method: :post, html: { class: "space-y-4" } do |f| %>
+          <%# <%= f.hidden_field :source, value: 'home' %>
+          <%# <div class="flex grid grid-cols-2 gap-4">
             <%= f.input :name, label: "Nom", required: true, input_html: { class: "rounded-md", placeholder: "John Doe" } %>
-            <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md", placeholder: "john@example.com" } %>
-          </div>
-          <div class="flex grid grid-cols-2 gap-4">
+            <%# <%= f.input :email, label: "Email", as: :email, required: true, input_html: { class: "rounded-md", placeholder: "john@example.com" } %>
+          <%# </div>
+          <%# <div class="flex grid grid-cols-2 gap-4">
             <%= f.input :phone_number, label: "Téléphone", required: true, as: :tel, input_html: { class: "rounded-md", placeholder: "06 05 04 03 02" } %>
-            <%= f.input :mail_subject, label: "Objet du mail", required: true, input_html: { class: "rounded-md", placeholder: "Demande de RDV telephonique" } %>
-          </div>
+            <%# <%= f.input :mail_subject, label: "Objet du mail", required: true, input_html: { class: "rounded-md", placeholder: "Demande de RDV telephonique" } %>
+           <%# </div>
           <%= f.input :message, label: "Message", as: :text, required: true, input_html: { rows: 5, class: "rounded-md", placeholder: "Bonjour, je souhaite obtenir un devis pour un cabinet dentaire..." } %>
-          <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal flex justify-center lg:block">
+          <%# <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal flex justify-center lg:block">
             <%= f.button :submit, "Envoyer", class: "bg-access-blue text-white font-medium px-6 py-3 rounded-full hover:bg-access-dark transition-colors" %>
-          </div>
+          <%# </div>
         <% end %>
       </div>
 
