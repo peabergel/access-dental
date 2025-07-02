@@ -74,11 +74,10 @@
                 value: params.dig("contact_data", "message")
               } %>
 
-          <!-- 🔒 Ici ton CAPTCHA -->
+          <!-- TURNSTILE CLOUDFLARE -->
           <div class="my-4 flex justify-center">
-            <%= recaptcha_tags %>
+            <div class="cf-turnstile" data-theme="light" data-sitekey="<%= ENV["TURNSTILE_SITE_KEY"] %>"></div>
           </div>
-
           <div data-scroll-reveal-target="item" data-delay="400ms" class="reveal flex justify-center lg:block">
             <%= f.submit "Envoyer", class: "px-6 py-3 bg-access-blue text-white rounded-[2rem] hover:bg-access-dark transform hover:scale-105 transition-all duration-200 flex items-center gap-2", data: { turbo: false } %>
           </div>

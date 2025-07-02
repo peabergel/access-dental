@@ -25,8 +25,6 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 # Use .env file
 gem "devise"
-# Recaptcha
-gem 'recaptcha', require: 'recaptcha/rails'
 
 gem "simple_form-tailwind"
 gem "simple_form"

@@ -1,15 +1,29 @@
 class ContactsController < ApplicationController
+  require "net/http"
+  require "uri"
+  require "json"
+
   def new
     @product = Product.find(params[:product_id])
   end
 
   def create
     @product = Product.find_by(id: params[:product_id]) if params[:product_id].present?
-
-    # Récupère les données du formulaire dans une variable @contact_data
     @contact_data = params[:contacts]
 
-    if verify_recaptcha
+    # 🔐 Vérification Turnstile
+    turnstile_response = params["cf-turnstile-response"]
+
+    uri = URI.parse("https://challenges.cloudflare.com/turnstile/v0/siteverify")
+    response = Net::HTTP.post_form(uri, {
+      "secret" => ENV["TURNSTILE_SECRET_KEY"],
+      "response" => turnstile_response,
+      "remoteip" => request.remote_ip
+    })
+
+    result = JSON.parse(response.body)
+
+    if result["success"]
       ContactMailer.send_contact(
         @contact_data[:name],
         @contact_data[:email],
@@ -22,6 +36,8 @@ class ContactsController < ApplicationController
       flash[:notice] = "Votre demande a bien été envoyée !"
       redirect_to root_path(anchor: "contact-form")
     else
+      flash[:alert] = "Échec de la vérification de sécurité. Veuillez réessayer."
+
       if @contact_data[:source] == "contact_page" && @product.present?
         render :new
       else

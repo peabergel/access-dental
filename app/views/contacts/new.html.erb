@@ -91,7 +91,7 @@
       </div>
 
       <div class="flex items-center justify-end">
-        <%= recaptcha_tags %>
+        <div class="cf-turnstile bg-white" data-theme="light" data-sitekey="<%= ENV["TURNSTILE_SITE_KEY"] %>"></div>
       </div>
 
       <div class="flex items-center justify-end mt-4">
