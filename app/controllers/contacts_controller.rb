@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     # Récupère les données du formulaire dans une variable @contact_data
     @contact_data = params[:contacts]
 
-    if verify_recaptcha
+    if verify_recaptcha(action: 'contact', minimum_score: 0.6)
+
       ContactMailer.send_contact(
         @contact_data[:name],
         @contact_data[:email],
