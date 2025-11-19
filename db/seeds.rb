@@ -288,7 +288,7 @@ tecnodents.each_with_index do |tecnodent_name, index|
   )
 end
 
-####################################IMAGERIE EXTRA ORALE########################
+# ###################################IMAGERIE EXTRA ORALE########################
 
 #-----------------------Radiographie panoramique--------------------------------
 
@@ -717,7 +717,7 @@ nsk_ts.products.create!(
   category: Category.find_by_name("Thermosoudeuses")
 )
 
-#######################################COMPRESSEURDS ET ASPIRATIONS##############################
+# ######################################COMPRESSEURDS ET ASPIRATIONS##############################
 # ----------------------------------Aspirations------------------------------------------
 #-------------------------------------Cattani Asp---------------------------------------
 cattani_asp = Brand.find_by_name("Cattani")
@@ -841,7 +841,7 @@ metasys_ra.products.create!(
   category: Category.find_by_name("Récupérateurs d'amalgames")
 )
 
-###################################INSTRUMENTATIONS ET APPAREILS DE TABLES#########################
+# ##################################INSTRUMENTATIONS ET APPAREILS DE TABLES#########################
 #--------------------------Actéon----------------------------------------
 
 acteon_iat = Brand.find_by_name("Acteon")
@@ -908,18 +908,18 @@ intercont_md.products.create!(
 puts "Products created!"
 puts "Creating articles..."
 
-articles = [ "Changement de direction chez Access Dental", "Congrès International de l'association des Dentistes de France", "Nouveau scanner intra-oral OWANDY-IOS" ]
-articles_pre_contents = [ "Thibault Paquet succèdera à Laurent Bergeron en tant que Directeur de la Société.",
-                          "Le Congrès International ADF aura lieu du 26 au 30 Novembre 2024.",
+articles = [ "ADF 2025", "La famille 'Access Dental' s'agrandit", "Nouvel aéropolisseur NSK Varios Combi Pro2" ]
+articles_pre_contents = [ "Access Dental sera présent à l'ADF 2025. N'hésitez pas à nous contacter pour programmer un rendez-vous avec l'un de nos commerciaux.",
+                          "En 2025, ce ne sont pas moins de 4 personnes qui ont rejoint notre équipe afin de renforcer la qualité de notre service.",
                           "Scannez immédiatement, sans préchauffage. 60 secondes pour la bouche entière."
                         ]
 articles_content = [  "Grosse année de changement chez Access Dental qui voit Laurent Bergeron laisser sa place à Thibault Paquet en tant que directeur. Fort de ces nombreuses années passées en tant que commercial pour le groupe blabla, il ne fait aucun doute que Thibault sera la personne idéale pour reprendre le flambeau.",
                       "Comme chaque année, le Congrès International de l'association des dentistes de France aura lieu à Paris du 26 au 30 Novembre 2024, vous aurez le plaisir d'y retrouver toute l'equipe d'access dental ainsi que la grande majorité de nos partenaires. Nous vous y attenderons avec impatience ! ",
                       "Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Grâce à des images de Haute Fidélité et au transfert de données ultra rapide!, Meilleur rapport prix/précision. Aucun mouvement mécanique, elle reste précise!"
                   ]
-articles_images_url = [ "#{base_url}/v1744973342/thibault_j6zzf1_y4gqfu.jpg",
-                        "#{base_url}/v1744973342/congres_im1lpq_t63auj.jpg",
-                        "#{base_url}/v1744973342/owandy_j636dt_iclpfo.png" ]
+articles_images_url = [ "#{base_url}/v1763360679/ADF_logo_Congres2025_H-1_yb51a8.png",
+                        "#{base_url}/v1763361377/sil_upexym.webp",
+                        "#{base_url}/v1763362042/sil_copie_xfmpus.webp" ]
 
 articles.each_with_index do |article, index|
   Article.create!(
@@ -968,7 +968,7 @@ puts "Seeding done!"
 
 
 
-########################PATRON#############################
+# #######################PATRON#############################
 
 # marque = Brand.find_by_name("")
 # marques = [ "", "", "" ]
