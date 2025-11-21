@@ -30,31 +30,12 @@
     <p class="text-access-dark font-light"><%= article.pre_content %></p>
 
     <div class="flex justify-between items-center">
-      <% button = content_tag :button, class: "text-access-blue font-semibold text-sm flex items-center relative group hover:text-access-dark transition-colors duration-300", data: (article.pdf_url.present? ? {} : { action: "click->card#toggleOverlay", card_target: "link" }) do %>
-        En Savoir Plus
-        <span
-          class="
-            ml-2 flex items-center justify-center w-6 h-6 bg-access-blue
-            rounded-full group-hover:bg-access-dark transition-colors
-            duration-700
-          "
-        >
-          <i
-            class="
-              fa-solid fa-arrow-right flex items-center justify-center h-5
-              w-5 transform -rotate-45 group-hover:rotate-0
-              transition-transform duration-700 ease-out text-white
-            "
-          ></i>
-        </span>
-      <% end %>
-
       <% if article.pdf_url.present? %>
         <%= link_to article.pdf_url, target: "_blank" do %>
-          <%= button %>
+          <%= render "pages/home/components/learn_more_btn", data_attributes: { action: "click->card#toggleOverlay", card_target: "link" } %>
         <% end %>
       <% else %>
-        <%= button %>
+        <%= render "pages/home/components/learn_more_btn", data_attributes: {} %>
       <% end %>
 
       <% if current_user %>
@@ -62,6 +43,7 @@
           <%= link_to edit_article_path(article), class: "text-access-dark hover:text-access-blue transition-colors duration-300" do %>
             <i class="fa-regular fa-pen-to-square text-xl"></i>
           <% end %>
+
           <%= link_to article_path(article),
               data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" },
               class: "text-access-dark hover:text-red-500 transition-colors duration-300" do %>
