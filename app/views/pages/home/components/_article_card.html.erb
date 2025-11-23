@@ -32,10 +32,10 @@
     <div class="flex justify-between items-center">
       <% if article.pdf_url.present? %>
         <%= link_to article.pdf_url, target: "_blank" do %>
-          <%= render "pages/home/components/learn_more_btn", data_attributes: { action: "click->card#toggleOverlay", card_target: "link" } %>
+          <%= render "pages/home/components/learn_more_btn" %>
         <% end %>
       <% else %>
-        <%= render "pages/home/components/learn_more_btn", data_attributes: {} %>
+        <%= render "pages/home/components/learn_more_btn", attrs: { data: { action: "click->card#toggleOverlay", card_target: "link" } } %>
       <% end %>
 
       <% if current_user %>
