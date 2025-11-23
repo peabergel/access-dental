@@ -1,0 +1,7 @@
+<%# locals: (attrs: {}) %>
+<%= content_tag(:button, class: "text-access-blue font-semibold text-sm flex items-center relative group hover:text-access-dark transition-colors duration-300", **attrs) do %>
+  En Savoir Plus
+  <span class="ml-2 flex items-center justify-center w-6 h-6 bg-access-blue rounded-full group-hover:bg-access-dark transition-colors duration-700">
+    <i class="fa-solid fa-arrow-right flex items-center justify-center h-5 w-5 transform -rotate-45 group-hover:rotate-0 transition-transform duration-700 ease-out text-white"></i>
+  </span>
+<% end %>

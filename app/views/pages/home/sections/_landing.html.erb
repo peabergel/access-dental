@@ -1,26 +1,49 @@
 <section class="bg-access-light-blue bg-no-repeat bg-center bg-[url('hero-bg.svg')]">
-  <div class="columns-2 px-5 mx-auto py-12 flex flex-col items-center lg:container lg:py-0 lg:flex-row 2xl:px-32 3xl:px-64">
-      <!-- Colonne de gauche -->
-      <div class="w-full mb-8 md:pr-12">
-        <h1 data-animate-title-target="title" class="text-center lg:text-start text-3xl sm:text-4xl lg:text-[48px] lg:leading-[3.5rem] xl:text-[54px] xl:leading-[4rem] font-bold text-access-dark">
-          <span class="opacity-0 whitespace-nowrap">Réalisez&nbsp;vos</span>
-          <span class="opacity-0 whitespace-nowrap text-access-blue">Projets&nbsp;de</span>
-          <span class="opacity-0 whitespace-nowrap">Cabinets&nbsp;Dentaire</span>
-        </h1>
-        <p class="opacity-0 animate-revealY text-access-dark font-light my-8">Depuis plus de 20 ans, Access Dental conçoit et aménage des cabinets dentaires avec une approche humaine et familiale grâce à une équipe alliant expertise et proximité. <br><br>Présente dans 10 départements grâce à ses antennes de Poitiers, Angoulême et Tours, elle garantit réactivité, confiance et accompagnement sur-mesure.</p>
-        <div>
-          <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV", extra_class: "opacity-0 animate-[revealY_1s_ease-in-out_forwards_300ms]" %>
-        </div>
-      </div>
+  <div
+    class="
+      columns-2 px-5 mx-auto py-12 flex flex-col items-center lg:container
+      lg:py-0 lg:flex-row 2xl:px-32 3xl:px-64
+    "
+  >
+    <!-- Colonne de gauche -->
+    <div class="w-full mb-8 md:pr-12">
+      <h1
+        data-animate-title-target="title"
+        class="
+          text-center lg:text-start text-3xl sm:text-4xl lg:text-[48px]
+          lg:leading-[3.5rem] xl:text-[54px] xl:leading-[4rem] font-bold
+          text-access-dark
+        "
+      >
+        <span class="opacity-0 whitespace-nowrap">Réalisez&nbsp;vos</span>
+        <span class="opacity-0 whitespace-nowrap text-access-blue">Projets&nbsp;de</span>
+        <span class="opacity-0 whitespace-nowrap">Cabinets&nbsp;Dentaire</span>
+      </h1>
 
-      <div id="landingSwiper" class="swiper lg:block w-full">
-        <div class="swiper-wrapper">
-          <% 7.times do |i| %>
-            <div class="swiper-slide h-full">
-              <%= image_tag "landing#{i}.webp", alt: "Image de cabinet dentaire #{i} - Access Dental", class: "hidden xl:h-[86vh] lg:h-[55vh] transition duration-700 lg:block lg:w-full object-cover" %>
-            </div>
-          <% end %>
-        </div>
+      <p class="opacity-0 animate-revealY text-access-dark font-light my-8">
+        Depuis plus de 20 ans, Access Dental conçoit et aménage des cabinets
+        dentaires avec une approche humaine et familiale grâce à une équipe
+        alliant expertise et proximité.
+        <br>
+        <br>
+        Présente dans 12 départements grâce à ses antennes de Poitiers,
+        Angoulême et Tours, elle garantit réactivité, confiance et
+        accompagnement sur-mesure.
+      </p>
+
+      <div>
+        <%= render "components/fill_up_btn", path: root_path(anchor: "contact"), text: "Prendre RDV", extra_class: "opacity-0 animate-[revealY_1s_ease-in-out_forwards_300ms]" %>
       </div>
+    </div>
+
+    <div id="landingSwiper" class="swiper lg:block w-full">
+      <div class="swiper-wrapper">
+        <% 8.times do |i| %>
+          <div class="swiper-slide h-full">
+            <%= image_tag "landing#{i}.webp", alt: "Image de cabinet dentaire #{i} - Access Dental", class: "hidden xl:h-[86vh] lg:h-[55vh] transition duration-700 lg:block lg:w-full object-cover" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>
