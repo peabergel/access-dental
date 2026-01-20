@@ -13,14 +13,14 @@
         <span class="opacity-0 block whitespace-nowrap">et Nos&nbsp;Engagements</span>
       </h2>
       <p data-scroll-reveal-target="item"data-delay="250ms" class="reveal text-access-dark font-light my-8">
-        Access Dental accompagne les professionnels du secteur dentaire dans la conception, l’aménagement et le maintien opérationnel de leurs cabinets. S’appuyant sur une équipe expérimentée et réactive, l’entreprise intervient dans la Vienne (86), les Deux-Sèvres (79), la Charente (16), la Charente-Maritime (17), l’Indre-et-Loire (37), le Maine-et-Loire (49), la Vendée (85), la Haute-Vienne (87), la Dordogne (24), l’Indre (36), la Sarthe (72) et le Loir-et-Cher via ses antennes de Poitiers, d’Angoulême et de Tours.  <br /><br />
+        Access Dental accompagne les professionnels du secteur dentaire dans la conception, l’aménagement et le maintien opérationnel de leurs cabinets. S’appuyant sur une équipe expérimentée et réactive, l’entreprise intervient dans la Vienne (86), les Deux-Sèvres (79), la Charente (16), la Charente-Maritime (17), l’Indre-et-Loire (37), le Maine-et-Loire (49), la Vendée (85), la Haute-Vienne (87), la Dordogne (24), l’Indre (36), la Sarthe (72) et le Loir-et-Cher (41) via ses antennes de Poitiers, d’Angoulême et de Tours.  <br /><br />
 
         Grâce à une sélection exigeante de solutions techniques et à un service client de proximité, Access Dental se positionne comme un partenaire stratégique pour les praticiens.
       </p>
 
       <!-- Liste des caractéristiques -->
       <div data-scroll-reveal-target="item" data-delay="500ms" class="reveal grid grid-cols-2 gap-6 mb-8">
-        <% ["Equipe expérimentée", "Service compréhensif", "Expertise ergonomique", "SAV à votre écoute" ].each do |skill| %>
+        <% ["Equipe expérimentée", "Entreprise française", "Expertise ergonomique", "SAV à votre écoute" ].each do |skill| %>
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-check w-5 h-5 text-white rounded-full bg-access-blue flex items-center justify-center"></i>
             <span class="font-semibold text-access-dark"><%= skill %></span>
@@ -31,8 +31,9 @@
     <!-- images superposées -->
     <div data-controller="scroll-reveal" class="left-content xl:w-[50%] px-4 mb-8 md:px-[6rem] lg:px-0">
       <div class="relative ">
-        <%= image_tag "map_2026_stade.webp", alt: "Carte illustrant les départements où Access Dental intervient : 16, 17, 79, 86, 85, 37, 41, 36, 24, 87", class: "opacity-0 w-[65%] lg:min-w-[380px] xl:min-w-[480px] reveal-horizontal border shadow-lg rounded-[2rem] object-cover", data: { scroll_reveal_target: "item" } %>
-        <div class="absolute z-50 top-8 right-12 w-32 h-32 sm:right-40 lg:right-12 xl:right-50 2xl:right-32 3xl:right-64">
+        <%= image_tag "map_2026_stade.webp", alt: "Carte illustrant les départements où Access Dental intervient : 16, 17, 79, 86, 85, 37, 41, 36, 24, 87", class: "opacity-0 w-[65%] mx-auto lg:min-w-[380px] xl:min-w-[480px] reveal-horizontal border shadow-lg rounded-[2rem] object-cover", data: { scroll_reveal_target: "item" } %>
+        <div class="absolute top-0 right-0 z-50 invisible lg:visible lg:translate-x-[40px] xl:translate-x-[4px] w-32 h-32">
+
           <div class="animate-[spin_20s_linear_infinite]">
             <svg viewBox="0 0 100 100" class="w-full h-full">
               <defs>
@@ -49,6 +50,7 @@
             </svg>
           </div>
         </div>
+
       </div>
     </div>
   </div>
