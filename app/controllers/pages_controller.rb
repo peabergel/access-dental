@@ -6,6 +6,6 @@ class PagesController < ApplicationController
     @articles = Article.ordered_by_position
     @offers = Offer.ordered_by_position
     @brands = Brand.all
-    @marker = { lat: 0.35384, lng: 46.56725 }
+    @marker = { lat: 0.27551824993099144, lng: 46.52883076502155 }
   end
 end
